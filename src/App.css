@@ -4,17 +4,19 @@
 
 .App-logo {
 position: absolute;
+fill: #8FCAF3;
+color: white;
 top: 50%;
-left: 50%;
-right: 50%;
+left: 90%;
+right: 10%;
 bottom: 50%;
 }
 .App-logo1 {
   position: absolute;
-  top: 55%;
-  left: 65%;
-  right: 35%;
-  bottom: 45%;
+  top: 85%;
+  left: 25%;
+  right: 75%;
+  bottom: 15%;
   }
 .App-logo2 {
   position: absolute;
@@ -23,7 +25,45 @@ bottom: 50%;
   right: 75%;
   bottom: 50%;
   }
-
+  .App-logo3 {
+    position: absolute;
+    fill: #8FCAF3;
+    color: white;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+    }
+    .App-logo4 {
+      position: absolute;
+      top: 55%;
+      left: 65%;
+      right: 35%;
+      bottom: 45%;
+      }
+    .App-logo5 {
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      right: 75%;
+      bottom: 75%;
+      }
+      .App-logo6 {
+        position: absolute;
+        fill: #8FCAF3;
+        color: white;
+        top: 30%;
+        left: 50%;
+        right: 50%;
+        bottom: 70%;
+        }
+        .App-logo7 {
+          position: absolute;
+          top: 15%;
+          left: 50%;
+          right: 50%;
+          bottom: 85%;
+          }
 
 .App-header {
   background-color: #282c34;
