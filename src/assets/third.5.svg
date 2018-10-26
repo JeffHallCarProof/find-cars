@@ -9,4 +9,5 @@
             <circle id="circle_svg" cx="66" cy="606" r="45"></circle>
         </g>
     </g>
+    <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#FFFFFF">Performance</text>
 </svg>
