@@ -38,7 +38,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 
-class App extends Component {
+class Preference extends Component {
 
 circles = {
   c1:[logo1_1,logo1_2,logo1_3],
@@ -107,7 +107,8 @@ state = {
         <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => imageClick(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={80}  width={80}/>
         <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => imageClick(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={80}  width={80}/>
         <p>Clicks: {this.state.clicks[0]}!</p>
-        <Link to="/Home"><button>Back Home</button></Link>
+        <p>Preference Screen!</p>
+        <Link to="/Results"><button>Back Home</button></Link>
 
 
       
@@ -116,4 +117,4 @@ state = {
   }
 }
 
-export default App;
+export default Preference;
