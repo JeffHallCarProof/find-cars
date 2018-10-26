@@ -51,21 +51,23 @@ state = {
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id, 2,{scaleX:1.5, scaleY:1.5})
-        i0[cl]=logo1_2
+        i0[cl]="logo"+[cl+1]+"_2"
         click[cl]=2
+        
       }
       else if(this.state.clicks[cl]===2)
       {
         TweenLite.to("#"+id, 2,{scaleX:2, scaleY:2})
-        i0[cl]=logo1_3
+        i0[cl]="logo"+[cl+1]+"_3"
         click[cl]=3
       }
       else
       {
         TweenLite.to("#"+id, 2,{scaleX:1, scaleY:1})
-        i0[cl]=logo1_1
+        i0[cl]="logo"+[cl+1]+"_1"
         click[cl]=1
       }
+      console.log(i0[cl])
       this.setState({clicks: click,pColor: i0 });
     } 
 
