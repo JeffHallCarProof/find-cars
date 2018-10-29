@@ -17,7 +17,7 @@ import { Link,BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 ReactDOM.render(  
 <Router>
     <Switch>
-      <Route exact path="/"  component={App}/>
+      <Route exact path="/"  component={Home}/>
       <Route path="/Home"  component={Home}/>
       <Route path="/Event"  component={Events}/>
       <Route path="/Budget"  component={Budget}/>
