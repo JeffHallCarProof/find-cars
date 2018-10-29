@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import Home from './Home';
 import Events from './Event';
 import Budget from './Budget';
@@ -9,7 +8,7 @@ import Classes from './Class';
 import Preference from './Preference';
 import Results from './Results';
 import * as serviceWorker from './serviceWorker';
-import { Link,BrowserRouter as Router,Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 
 
 

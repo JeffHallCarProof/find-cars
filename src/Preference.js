@@ -33,9 +33,9 @@ import logo8_2 from './assets/second.8.svg';
 import logo8_3 from './assets/third.8.svg';
 
 import './App.css';
-import { TimelineMax,TweenLite, Power4, TweenMax,Linear,colorProps} from 'gsap';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { TweenLite, Expo} from 'gsap';
+import {  Link } from "react-router-dom";
+import '../node_modules/matter-js';
 
 
 class Preference extends Component {
@@ -62,53 +62,289 @@ state = {
 }
 
   render() {
+    let click = this.state.clicks.slice();
+    let i0 = this.state.pColor.slice();
+    let ip = this.state.iP.slice();
 
 
 
-
-    
-    const imageClick = (id,cl) => {
-      let click = this.state.clicks.slice();
-      let i0 = this.state.pColor.slice();
-      let ip = this.state.iP.slice();
+    //Comfort Al1
+    const circleClick0 = (id,cl) => {
       console.log(id);
-      console.log(this.state.pColor[0][1]);
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id, 2,{scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#"+id, 1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-35})
+        TweenLite.to("#Al8", 1,{ease: Expo.easeOut,x:-5 ,y:-27})
+        TweenLite.to("#Al3", 1,{ease: Expo.easeOut,x:-42 ,y:40})
         click[cl]=2
         ip[cl]=1
         
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id, 2,{scaleX:2, scaleY:2})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-45})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-7 ,y:-44})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-48 ,y:50})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id, 2,{scaleX:1, scaleY:1})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:-25})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-5 ,y:-22})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-38 ,y:20})
+        
         click[cl]=1
         ip[cl]=0
       }
-      console.log(ip[cl])
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
+    //InteriorDesign Al2
+    const circleClick1 = (id,cl) => {
+      console.log(id);
+      if(this.state.clicks[cl]===1)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:30 ,y:13})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:45 ,y:-15})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-2 ,y:45})
+        click[cl]=2
+        ip[cl]=1
+        
+      }
+      else if(this.state.clicks[cl]===2)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:40 ,y:18})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:50 ,y:-25})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-5 ,y:50})
+        click[cl]=3
+        ip[cl]=2
+      }
+      else
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:27 ,y:10})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:40 ,y:-14})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:0 ,y:20})
+        click[cl]=1
+        ip[cl]=0
+      }
+      this.setState({clicks: click,pColor: i0, iP: ip });
+    }
+    
+    //ExteriorDesign Al3
+    const circleClick2 = (id,cl) => {
+      console.log(id);
+      if(this.state.clicks[cl]===1)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-42 ,y:40})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-50})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-6 ,y:37})
+        click[cl]=2
+        ip[cl]=1
+        
+      }
+      else if(this.state.clicks[cl]===2)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-48 ,y:50})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-55})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-3 ,y:45})
+        click[cl]=3
+        ip[cl]=2
+      }
+      else
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:-38 ,y:40})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-45})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-10 ,y:30})
+        click[cl]=1
+        ip[cl]=0
+      }
+      this.setState({clicks: click,pColor: i0, iP: ip });
+    } 
+    //BuildQuality Al4
+    //All animation must respect this set of animations
+    const circleClick3 = (id,cl) => {
+      console.log(id);
+      if(this.state.clicks[cl]===1)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-45})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-6 ,y:-38})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20 ,y:-45})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:50 ,y:-28})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:30 ,y:13})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-2 ,y:45})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-42 ,y:40})
+        click[cl]=2
+        ip[cl]=1
+        
+      }
+      else if(this.state.clicks[cl]===2)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-50})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-20 ,y:-45})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:24 ,y:-50})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:55 ,y:-34})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:40 ,y:18})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:2 ,y:50})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-48 ,y:50})
+        click[cl]=3
+        ip[cl]=2
+      }
+      else
+      {
+        click[cl]=1
+        ip[cl]=0
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-30})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-5 ,y:-36})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:18 ,y:-40})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:45 ,y:-26})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:27 ,y:10})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-6 ,y:40})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-38 ,y:40})
+      }
+      this.setState({clicks: click,pColor: i0, iP: ip });
+    } 
+    
+    //Performance Al5    
+    const circleClick4 = (id,cl) => {
+      console.log(id);
+      if(this.state.clicks[cl]===1)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-2 ,y:37})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:40 ,y:15})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-42 ,y:40})
+        click[cl]=2
+        ip[cl]=1
+        
+      }
+      else if(this.state.clicks[cl]===2)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-5 ,y:45})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:44 ,y:20})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-48 ,y:50})
+        click[cl]=3
+        ip[cl]=2
+      }
+      else
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:0 ,y:20})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:32 ,y:13})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-32 ,y:39})
+        click[cl]=1
+        ip[cl]=0
+      }
+      this.setState({clicks: click,pColor: i0, iP: ip });
+    } 
+    //FunToDrive Al6
+    const circleClick5 = (id,cl) => {
+      console.log(id);
+      if(this.state.clicks[cl]===1)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:20,y:-45})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-2 ,y:-34})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:45 ,y:-28})
+        click[cl]=2
+        ip[cl]=1
+        
+      }
+      else if(this.state.clicks[cl]===2)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:24,y:-50})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-20 ,y:-45})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:50 ,y:-34})
+        click[cl]=3
+        ip[cl]=2
+      }
+      else
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1, x:18,y:-40})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-1 ,y:-32})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:40 ,y:-26})
+        click[cl]=1
+        ip[cl]=0
+      }
+      this.setState({clicks: click,pColor: i0, iP: ip });
+    } 
+    //FuelEconomy Al7
+    const circleClick6 = (id,cl) => {
+      console.log(id);
+      if(this.state.clicks[cl]===1)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:45 ,y:-15})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20,y:-45})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:36 ,y:13})
+        click[cl]=2
+        ip[cl]=1
+        
+      }
+      else if(this.state.clicks[cl]===2)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:50 ,y:-25})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:24,y:-50})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:40 ,y:18})
+        click[cl]=3
+        ip[cl]=2
+      }
+      else
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:40 ,y:-14})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:18,y:-40})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:34 ,y:10})
+        click[cl]=1
+        ip[cl]=0
+      }
+      this.setState({clicks: click,pColor: i0, iP: ip });
+    } 
+    //Reliability Al8
+    const circleClick7 = (id,cl) => {
+      console.log(id);
+      if(this.state.clicks[cl]===1)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-5 ,y:-27})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-40})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20 ,y:-45})
+        click[cl]=2
+        ip[cl]=1
+        
+      }
+      else if(this.state.clicks[cl]===2)
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-7 ,y:-44})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-45})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:24 ,y:-50})
+        click[cl]=3
+        ip[cl]=2
+      }
+      else
+      {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:-5 ,y:-18})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-38})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:18 ,y:-40})
+        click[cl]=1
+        ip[cl]=0
+      }
+      this.setState({clicks: click,pColor: i0, iP: ip });
+    } 
+   
 
     return (
       <div className="App">
-        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => imageClick(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={80}  width={80}/>
-        <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => imageClick(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={80}  width={80}/>
-        <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => imageClick(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={80}  width={80}/>
-        <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => imageClick(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={80}  width={80}/>
-        <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => imageClick(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={80}  width={80}/>
-        <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => imageClick(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={80}  width={80}/>
-        <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => imageClick(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={80}  width={80}/>
-        <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => imageClick(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={80}  width={80}/>
+       <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={80}  width={80}/>
         <p>Clicks: {this.state.clicks[0]}!</p>
         <p>Preference Screen!</p>
-        <Link to="/Results"><button>Back Home</button></Link>
+        <Link to="/Results"><button>Results</button></Link>
 
 
       

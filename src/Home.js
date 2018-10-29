@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
-import { TweenLite} from 'gsap';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
