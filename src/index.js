@@ -1,33 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Home from './Home';
-import Events from './Event';
+import App from "./App";
+import Events from './Events';
 import Budget from './Budget';
-import Classes from './Class';
-import Preference from './Preference';
-import Results from './Results';
+import Body from './Body';
+import Preferences from './Preferences';
+//import Results from './Results';
+//<Route path="/Results"  component={Results}/>
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
-
-
-
+import { Link,BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(  
-<Router>
+  <Router>
     <Switch>
-      <Route exact path="/"  component={Home}/>
-      <Route path="/Home"  component={Home}/>
-      <Route path="/Event"  component={Events}/>
+      <Route exact path="/"  component={App}/>
+      <Route path="/Events"  component={Events}/>
       <Route path="/Budget"  component={Budget}/>
-      <Route path="/Class"  component={Classes}/>
-      <Route path="/Preference"  component={Preference}/>
-      <Route path="/Results"  component={Results}/>
-
+      <Route path="/Body"  component={Body}/>
+      <Route path="/Preferences"  component={Preferences}/>
+      
     </Switch>
-</Router>, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  </Router>, document.getElementById('root'));
+  
+  // If you want your app to work offline and load faster, you can change
+  // unregister() to register() below. Note this comes with some pitfalls.
+  // Learn more about service workers: http://bit.ly/CRA-PWA
+  serviceWorker.unregister();

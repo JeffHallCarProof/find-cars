@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import clickM from './assets/clickMe.svg';
 import logo1_1 from './assets/first.1.svg';
 import logo1_2 from './assets/second.1.svg';
@@ -35,7 +36,6 @@ import logo8_3 from './assets/third.8.svg';
 import './App.css';
 import { TweenLite, Expo} from 'gsap';
 import {  Link } from "react-router-dom";
-import '../node_modules/matter-js';
 
 
 class Preference extends Component {
@@ -333,15 +333,16 @@ state = {
     } 
     const clickMe = () => {
 
-
+    TweenLite.to("#Al4",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
     TweenLite.to("#Alc",1,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al1",2,{ease: Expo.easeOut,x:-30})
-    TweenLite.to("#Al8",2,{ease: Expo.easeOut,x:-5 ,y:-36})
-    TweenLite.to("#Al6",2,{ease: Expo.easeOut,x:18 ,y:-40})
-    TweenLite.to("#Al7",2,{ease: Expo.easeOut,x:45 ,y:-26})
-    TweenLite.to("#Al2",2,{ease: Expo.easeOut,x:27 ,y:10})
-    TweenLite.to("#Al5",2,{ease: Expo.easeOut,x:-6 ,y:40})
-    TweenLite.to("#Al3",2,{ease: Expo.easeOut,x:-38 ,y:40})
+    TweenLite.to("#Al4",5,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al1",5,{ease: Expo.easeOut,x:-30},1000)
+    TweenLite.to("#Al8",5,{ease: Expo.easeOut,x:-5 ,y:-36},1000)
+    TweenLite.to("#Al6",5,{ease: Expo.easeOut,x:18 ,y:-40},1000)
+    TweenLite.to("#Al7",5,{ease: Expo.easeOut,x:45 ,y:-26},1000)
+    TweenLite.to("#Al2",5,{ease: Expo.easeOut,x:27 ,y:10},1000)
+    TweenLite.to("#Al5",5,{ease: Expo.easeOut,x:-6 ,y:40},1000)
+    TweenLite.to("#Al3",5,{ease: Expo.easeOut,x:-38 ,y:40},1000)
     } 
 
     return (
@@ -358,7 +359,13 @@ state = {
         <img src={clickM}onClick={() => clickMe()} className="App-logoC" alt="logo" id={this.state.id[8]} height={600}  width={600} />
         <p>Clicks: {this.state.clicks[0]}!</p>
         <p>Preference Screen!</p>
-        <Link to="/Results"><button>Results</button></Link>
+        <view className='buttonContainer'>
+        <button>
+          <Link to="/">
+              <text > Results </text>
+          </Link>
+          </button>
+        </view>
 
 
       
@@ -368,3 +375,4 @@ state = {
 }
 
 export default Preference;
+

@@ -1,28 +1,24 @@
 {
-  "name": "find-cars",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-native",
+  "version": "1.0.0",
+  "description": "React Native for Web starter template",
+  "keywords": [],
+  "main": "src/index.js",
   "dependencies": {
     "gsap": "^2.0.2",
-    "matter-js": "^0.14.2",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "lodash": "^4.17.11",
+    "react": "16.5.1",
+    "react-art": "16.5.1",
+    "react-dom": "16.5.1",
+    "react-native-web": "0.9.x",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5"
+    "react-scripts": "1.1.5"
   },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }
