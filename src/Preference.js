@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import clickM from './assets/clickMe.svg';
 import logo1_1 from './assets/first.1.svg';
 import logo1_2 from './assets/second.1.svg';
 import logo1_3 from './assets/third.1.svg';
@@ -54,11 +54,12 @@ circles = {
 state = {
   clicks: [1,1,1,1,1,1,1,1],
   cM:0,
-  id: ['Al1','Al2','Al3','Al4','Al5','Al6','Al7','Al8'],
+  id: ['Al1','Al2','Al3','Al4','Al5','Al6','Al7','Al8','Alc'],
   pColor: [this.circles.c1,this.circles.c2,this.circles.c3,this.circles.c4,this.circles.c5,this.circles.c6,this.circles.c7,this.circles.c8],
   iP: [0,0,0,0,0,0,0,0],
   i: [0,1,2,3,4,5,6,7],
   toNext: false,
+  isHidden: true,
 }
 
   render() {
@@ -330,18 +331,31 @@ state = {
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
-   
+    const clickMe = () => {
+
+
+    TweenLite.to("#Alc",1,{ease: Expo.easeOut,scaleX:0, scaleY:0})
+    TweenLite.to("#Al1",2,{ease: Expo.easeOut,x:-30})
+    TweenLite.to("#Al8",2,{ease: Expo.easeOut,x:-5 ,y:-36})
+    TweenLite.to("#Al6",2,{ease: Expo.easeOut,x:18 ,y:-40})
+    TweenLite.to("#Al7",2,{ease: Expo.easeOut,x:45 ,y:-26})
+    TweenLite.to("#Al2",2,{ease: Expo.easeOut,x:27 ,y:10})
+    TweenLite.to("#Al5",2,{ease: Expo.easeOut,x:-6 ,y:40})
+    TweenLite.to("#Al3",2,{ease: Expo.easeOut,x:-38 ,y:40})
+    } 
 
     return (
       <div className="App">
-        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={80}  width={80}/>
+       
+        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={80}  width={80} />
         <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={80}  width={80}/>
         <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={80}  width={80}/>
         <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={80}  width={80}/>
         <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={80}  width={80}/>
         <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={80}  width={80}/>
         <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={80}  width={80}/>
-       <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={80}  width={80}/>
+        <img src={clickM}onClick={() => clickMe()} className="App-logoC" alt="logo" id={this.state.id[8]} height={600}  width={600} />
         <p>Clicks: {this.state.clicks[0]}!</p>
         <p>Preference Screen!</p>
         <Link to="/Results"><button>Results</button></Link>

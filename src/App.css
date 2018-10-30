@@ -66,6 +66,14 @@ bottom: 50%;
           bottom: 59%;
 
           }
+          .App-logoC {
+            position: absolute;
+            top: 25%;
+            left: 35%;
+            right: 0%;
+            bottom: 0%;
+  
+            }
 
 .App-header {
   background-color: #282c34;
