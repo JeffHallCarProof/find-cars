@@ -90,14 +90,14 @@ class Events extends React.Component {
             </View>
 
             <View style={styles.navContainer}>
-            <View style={styles.navCircles}><View style={styles.circle}/></View>
             <View style={styles.navCircles}><View style={styles.activeNav}/></View>
+            <View style={styles.navCircles}><View style={styles.circle}/></View>
             <View style={styles.navCircles}><View style={styles.circle}/></View>
             <View style={styles.navCircles}><View style={styles.circle}/></View>
           </View>
 
             <View style={styles.button2container}>
-              <Link to="/Budget">
+              <Link to="/Budget" style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                     underlayColor={'#0018A8'}
                     style={styles.button2}

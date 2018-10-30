@@ -29,7 +29,7 @@ class App extends Component {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Link to="/Events">
+          <Link to="/Events" style={{ textDecoration: 'none' }}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
@@ -64,7 +64,10 @@ class App extends Component {
     },
 
     btext: {
-      color: "#FFFFFF"
+      color: "#FFFFFF",
+      fontSize: 16,
+      fontWeight: 'bold',
+      lineHeight: 19
     },
 
     titleText: {
@@ -75,8 +78,9 @@ class App extends Component {
     contentText: {
       paddingBottom: 100,
       paddingHorizontal: 20,
-      fontSize: 16,
-      textAlign: "center"
+      fontSize: 14,
+      textAlign: "center",
+      lineHeight: 30
     },
     buttonContainer: {
       paddingBottom: 10,
@@ -89,14 +93,12 @@ class App extends Component {
     },
 
     button: {
-        alignItems: 'center',
-        backgroundColor: '#1294EF',
-        justifyContent: 'center',
-        borderRadius: 4,
-        borderColor: '#1653bc',
-        borderWidth: 1,
-        width: 340,
-        height: 60,
+      alignItems: 'center',
+      backgroundColor: '#1294EF',
+      justifyContent: 'center',
+      borderRadius: 4,
+      width: 340,
+      height: 60,
     },
   });
 

@@ -58,7 +58,7 @@ import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
           </View>
 
           <View style={styles.buttonContainer}>
-            <Link to="/Body">
+            <Link to="/Body" style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                     underlayColor={'#0018A8'}
                     style={styles.button}

@@ -153,7 +153,7 @@ class Body extends React.Component {
           </View>
 
           <View style={styles.button2container}>
-            <Link to="Preferences">
+            <Link to="Preferences" style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button2}
