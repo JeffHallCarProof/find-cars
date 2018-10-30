@@ -67,12 +67,17 @@ class App extends Component {
       color: "#FFFFFF",
       fontSize: 16,
       fontWeight: 'bold',
-      lineHeight: 19
+      lineHeight: 19,
+      fontFamily: "Roboto"
     },
 
     titleText: {
       paddingBottom: 20,
-      fontSize: 24
+      fontSize: 24,
+      textAlign: "center",
+      lineHeight: 28,
+      fontWeight: '300',
+      fontFamily: "Roboto"
     },
 
     contentText: {
@@ -80,7 +85,8 @@ class App extends Component {
       paddingHorizontal: 20,
       fontSize: 14,
       textAlign: "center",
-      lineHeight: 30
+      lineHeight: 30,
+      fontFamily: "Roboto"
     },
     buttonContainer: {
       paddingBottom: 10,

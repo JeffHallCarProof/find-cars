@@ -12,7 +12,7 @@ import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 class Events extends React.Component {
 
     state = {
-      e1: false,
+      e1: true,
       e2: false,
       e3: false,
       e4: false,
@@ -29,89 +29,85 @@ class Events extends React.Component {
           <View style={styles.container}>
           
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-              <Text style={{ paddingTop: 60, paddingLeft: 50, paddingRight: 50, fontWeight: 'bold', fontSize: 20}}>
+              <Text style={{ paddingTop: 60, paddingHorizontal: 40, fontWeight: '300', fontSize: 24, textAlign: 'center', lineHeight: 28, fontFamily: 'Roboto'}}>
                 Reason for buying a new car
               </Text>
-              <Text style={{ paddingTop: 20, paddingBottom: 20, paddingHorizontal: 50, textAlign: "center"}}>
-                Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.
+              <Text style={{ paddingVertical: 20, paddingHorizontal: 20, textAlign: "center", lineHeight: 30, fontSize: 14, fontFamily: 'Roboto'}}>
+                Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.
               </Text>
             </View>
-
             <View style={styles.bcontainer}>
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
-                style={[styles.button]}
+                style={styles.button}
                 onPress={() => this.setState({e1: true, e2: false, e3: false, e4: false, e5: false, e6: false})}
               >
                 <Text style={[styles.btext, this.state.e1 && styles.btext2]}> Event1 </Text>
-              </TouchableHighlight><Text> </Text>
-
+              </TouchableHighlight>
+              <View style={{paddingHorizontal: 15}}>
+                <TouchableHighlight
+                  underlayColor={'#FFFFFF'}
+                  style={styles.button}
+                  onPress={() => this.setState({e1: false, e2: true, e3: false, e4: false, e5: false, e6: false})}
+                >
+                  <Text style={[styles.btext, this.state.e2 && styles.btext2]}> Event2 </Text>
+                </TouchableHighlight>
+              </View>
+              
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
-                style={[styles.button]}
-                onPress={() => this.setState({e1: false, e2: true, e3: false, e4: false, e5: false, e6: false})}
-              >
-                <Text style={[styles.btext, this.state.e2 && styles.btext2]}> Event2 </Text>
-              </TouchableHighlight><Text> </Text>
-
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={[styles.button]}
+                style={styles.button}
                 onPress={() => this.setState({e1: false, e2: false, e3: true, e4: false, e5: false, e6: false})}
               >
                 <Text style={[styles.btext, this.state.e3 && styles.btext2]}> Event3 </Text>
               </TouchableHighlight>
             </View>
-
             <View style={styles.bcontainer2}>
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
-                style={[styles.button]}
+                style={styles.button}
                 onPress={() => this.setState({e1: false, e2: false, e3: false, e4: true, e5: false, e6: false})}
               >
                 <Text style={[styles.btext, this.state.e4 && styles.btext2]}> Event4 </Text>
-              </TouchableHighlight><Text> </Text>
-
+              </TouchableHighlight>
+              <View style={{paddingHorizontal: 15}}>
+                <TouchableHighlight
+                  underlayColor={'#FFFFFF'}
+                  style={styles.button}
+                  onPress={() => this.setState({e1: false, e2: false, e3: false, e4: false, e5: true, e6: false})}
+                >
+                  <Text style={[styles.btext, this.state.e5 && styles.btext2]}> Event5 </Text>
+                </TouchableHighlight>
+              </View>
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
-                style={[styles.button]}
-                onPress={() => this.setState({e1: false, e2: false, e3: false, e4: false, e5: true, e6: false})}
-              >
-                <Text style={[styles.btext, this.state.e5 && styles.btext2]}> Event5 </Text>
-              </TouchableHighlight><Text> </Text>
-
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={[styles.button]}
+                style={styles.button}
                 onPress={() => this.setState({e1: false, e2: false, e3: false, e4: false, e5: false, e6: true})}
               >
                 <Text style={[styles.btext, this.state.e6 && styles.btext2]}> Other </Text>
               </TouchableHighlight>
             </View>
-
             <View style={styles.navContainer}>
-            <View style={styles.navCircles}><View style={styles.activeNav}/></View>
-            <View style={styles.navCircles}><View style={styles.circle}/></View>
-            <View style={styles.navCircles}><View style={styles.circle}/></View>
-            <View style={styles.navCircles}><View style={styles.circle}/></View>
-          </View>
-
+              <View style={styles.navCircles}><View style={styles.activeNav}/></View>
+              <View style={styles.navCircles}><View style={styles.circle}/></View>
+              <View style={styles.navCircles}><View style={styles.circle}/></View>
+              <View style={styles.navCircles}><View style={styles.circle}/></View>
+            </View>
             <View style={styles.button2container}>
               <Link to="/Budget" style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
-                    underlayColor={'#0018A8'}
-                    style={styles.button2}
-                    onPress={_.debounce(() => {this._onPress()},400)}
+                  underlayColor={'#0018A8'}
+                  style={styles.button2}
+                  onPress={_.debounce(() => {this._onPress()},400)}
                 >
-                    <Text style={styles.btext3}> NEXT </Text>
+                  <Text style={styles.btext3}> NEXT </Text>
                 </TouchableHighlight>
-            </Link>
+              </Link>
               
             </View>
           
           </View>
         </View>
-
       ); //End of return
     } //End of render
 
@@ -142,31 +138,46 @@ class Events extends React.Component {
 
   //Component css
   const styles = StyleSheet.create({
-
     container: {
       alignItems: "center",
       backgroundColor: '#FFFFFF',
       flex: 1
     },
-
     bcontainer: {
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 2,
+      paddingHorizontal: 20,
+      paddingVertical: 15,
       flexDirection: 'row',
       paddingTop: 20
     },
-
     bcontainer2: {
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 2,
-      flexDirection: 'row',
-      paddingBottom: 30
+      paddingHorizontal: 20,
+      flexDirection: 'row'
     },
-
+    btext: {
+      color: '#989898',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: 'Roboto'
+    },
+    btext2: {
+      color: '#1294EF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: 'Roboto'
+    },
+    btext3: {
+      color: "#FFFFFF",
+      fontSize: 16,
+      fontWeight: 'bold',
+      lineHeight: 19,
+      fontFamily: 'Roboto'
+    },
     button: {
       alignItems: 'center',
       justifyContent: 'center',
@@ -176,42 +187,27 @@ class Events extends React.Component {
       borderColor: '#D8D8D8',
       borderWidth: 1,
     },
-
-    btext: {
-      color: '#989898',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-
-    btext2: {
-      color: '#1294EF',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-
-    btext3: {
-      color: "#FFFFFF",
-      fontSize: 16,
-      fontWeight: 'bold',
-      lineHeight: 19
-    },
-
+    
     button2: {
-        alignItems: 'center',
-        backgroundColor: '#1294EF',
-        justifyContent: 'center',
-        borderRadius: 4,
-        borderColor: '#1653bc',
-        borderWidth: 1,
-        width: 340,
-        height: 60,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#1294EF',
+      borderRadius: 4,
+      width: 94,
+      height: 43,
+      position: "absolute",
+      left: 70,
+      bottom: 30
     },
     
     button2container: {
       alignItems: 'flex-end',
-      paddingBottom: 10
+      paddingBottom: 50
     },
-
+    navBar: {
+      flexDirection: 'row',
+      height: 80
+    },
     circle: {
       width: 13,
       height: 13,
@@ -219,7 +215,6 @@ class Events extends React.Component {
       borderColor: '#D8D8D8',
       borderWidth: 1
     },
-
     activeNav: {
       width: 13,
       height: 13,
@@ -228,18 +223,16 @@ class Events extends React.Component {
       borderWidth: 1,
       backgroundColor: '#1294EF'
     },
-
     navContainer: {
+      flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',
-      paddingBottom: 10,
-      paddingTop: 10
+      paddingTop: 72,
+      paddingBottom: 35
     },
-
     navCircles: {
       paddingHorizontal: 4
     }
-
 });
 
 export default Events;
