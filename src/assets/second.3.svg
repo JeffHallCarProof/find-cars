@@ -9,6 +9,6 @@
             <circle id="circle_svg" cx="66" cy="606" r="45"></circle>
         </g>
     </g>
-    <text x="50%" y="40%" text-anchor="middle" dy="0.3em" fill="#FFFFFF">Exterior</text>
-    <text x="50%" y="60%" text-anchor="middle" dy="0.3em" fill="#FFFFFF">Design</text>
+    <text x="50%" y="40%" text-anchor="middle" dy="0.3em" font-family="Roboto" fill="#FFFFFF">Exterior</text>
+    <text x="50%" y="60%" text-anchor="middle" dy="0.3em" font-family="Roboto" fill="#FFFFFF">Design</text>
 </svg>

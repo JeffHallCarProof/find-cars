@@ -108,6 +108,12 @@ bottom: 50%;
     width: 340;
     height: 60;
 }
+@font-face {
+  font-family: 'Roboto';
+  src: url('./font/Roboto-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 
