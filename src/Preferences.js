@@ -333,9 +333,23 @@ state = {
     } 
     const clickMe = () => {
 
+    TweenLite.to("#Al1",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
+    TweenLite.to("#Al2",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
+    TweenLite.to("#Al3",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
     TweenLite.to("#Al4",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
+    TweenLite.to("#Al5",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
+    TweenLite.to("#Al6",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
+    TweenLite.to("#Al7",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
+    TweenLite.to("#Al8",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
     TweenLite.to("#Alc",1,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al4",5,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al1",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al2",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al3",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al4",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al5",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al6",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al7",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+    TweenLite.to("#Al8",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
     TweenLite.to("#Al1",5,{ease: Expo.easeOut,x:-30},1000)
     TweenLite.to("#Al8",5,{ease: Expo.easeOut,x:-5 ,y:-36},1000)
     TweenLite.to("#Al6",5,{ease: Expo.easeOut,x:18 ,y:-40},1000)
@@ -368,7 +382,7 @@ state = {
         <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={120}  width={120}/>
         <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={120}  width={120}/>
         <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={120}  width={120}/>
-       
+        <img src={clickM}onClick={() => clickMe()} className="App-logoC" alt="logo" id={this.state.id[8]} height={800}  width={800} />
 
         </div>
 
