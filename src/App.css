@@ -29,41 +29,46 @@ top: 50%;
 left: 43.2%;
 right: 56.8%;
 bottom: 50%;
+background-color: green;
 
 }
 /*InteriorDesign*/
 .App-logo1 {
   position: absolute;
-  top: 51%;
-  left: 56.8%;
+  top: 125%;
+  left: 45%;
   right: 43.2%;
-  bottom: 49%;
+  bottom: 30%;
+  background-color: blue;
 
   }
   /*ExteriorDesign*/
 .App-logo2 {
   position: absolute;
-  top: 60%;
-  left: 47%;
+  top: 80%;
+  left: 37%;
   right: 53%;
-  bottom: 40%;
+  bottom: 25%;
+  background-color: teal;
 
   }
   /*Build Quality*/
   .App-logo3 {
     position: absolute;
-    top: 48%;
-    left: 50%;
-    right: 50%;
-    bottom: 52%;
+    top: 90%;
+    left: 45%;
+    right: 60%;
+    bottom: 30%;
+    background-color: orange;
     }
     /*Performance*/
     .App-logo4 {
       position: absolute;
-      top: 61%;
-      left: 53%;
-      right: 47%;
-      bottom: 39%;
+      top: 120%;
+      left: 35%;
+      right: 52%;
+      bottom: 10%;
+      background-color: yellow;
 
       }
       /*FuntoDrive*/
@@ -73,6 +78,7 @@ bottom: 50%;
       left: 50.5%;
       right: 49.5%;
       bottom: 65%;
+      background-color: pink;
 
       }
       /*Fuel Eco*/
@@ -82,14 +88,16 @@ bottom: 50%;
         left: 56.5%;
         right: 42.5%;
         bottom: 61.5%;
+        background-color: purple;
         }
         /*Reliability*/
         .App-logo7 {
           position: absolute;
           top: 38%;
-          left: 44%;
+          left: 28%;
           right: 56%;
           bottom: 59%;
+          background-color: red;
 
           }
           /*Instructions square*/
@@ -99,6 +107,7 @@ bottom: 50%;
             left: 40%;
             right: 0%;
             bottom: 0%;
+            background-color: #282c34;
   
             }
 

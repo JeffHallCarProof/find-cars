@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Ratio from 'react-ratio';
 import clickM from './assets/clickMe.svg';
 import logo1_1 from './assets/first.1.svg';
 import logo1_2 from './assets/second.1.svg';
@@ -351,16 +351,18 @@ state = {
     TweenLite.to("#Al7",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
     TweenLite.to("#Al8",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
     TweenLite.to("#Al1",5,{ease: Expo.easeOut,x:-30},1000)
-    TweenLite.to("#Al8",5,{ease: Expo.easeOut,x:-5 ,y:-36},1000)
-    TweenLite.to("#Al6",5,{ease: Expo.easeOut,x:18 ,y:-40},1000)
-    TweenLite.to("#Al7",5,{ease: Expo.easeOut,x:45 ,y:-26},1000)
-    TweenLite.to("#Al2",5,{ease: Expo.easeOut,x:27 ,y:10},1000)
-    TweenLite.to("#Al5",5,{ease: Expo.easeOut,x:-6 ,y:40},1000)
-    TweenLite.to("#Al3",5,{ease: Expo.easeOut,x:-38 ,y:40},1000)
+    TweenLite.to("#Al8",5,{ease: Expo.easeOut,x:'-5%' ,y:-36},1000)
+    TweenLite.to("#Al6",5,{ease: Expo.easeOut,x:'18%' ,y:-40},1000)
+    TweenLite.to("#Al7",5,{ease: Expo.easeOut,x:'45%' ,y:-26},1000)
+    TweenLite.to("#Al2",5,{ease: Expo.easeOut,x:'27%' ,y:10},1000)
+    TweenLite.to("#Al5",5,{ease: Expo.easeOut,x:'-6%' ,y:40},1000)
+    TweenLite.to("#Al3",5,{ease: Expo.easeOut,x:'-38%' ,y:40},1000)
     } 
 
     return (
-      <div className="App">
+   
+   <div className="App"  >
+  <Ratio ratio={ 16 / 9 }> 
       <p>Preference Screen!</p>
        <div className='bubbles'>
        <div className ='notBubbles'>
@@ -374,18 +376,18 @@ state = {
   </button>
 </view>
 </div>
-        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={120}  width={120} />
-        <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={120}  width={120}/>
-        <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={120}  width={120}/>
-        <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={120}  width={120}/>
-        <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={120}  width={120}/>
-        <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={120}  width={120}/>
-        <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={120}  width={120}/>
-        <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={120}  width={120}/>
+        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={80}  width={80} />
+        <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={80}  width={80}/>
+        <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={80}  width={80}/>
         <img src={clickM}onClick={() => clickMe()} className="App-logoC" alt="logo" id={this.state.id[8]} height={800}  width={800} />
 
         </div>
-
+        </Ratio>
       
       </div>
     );

@@ -12,12 +12,13 @@ import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 class Events extends React.Component {
 
     state = {
-      e1: true,
+      e1: false,
       e2: false,
       e3: false,
       e4: false,
       e5: false,
-      e6: false
+      e6: false,
+      eventId: 6,
     };
 
     render() {
@@ -40,7 +41,7 @@ class Events extends React.Component {
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
                 style={styles.button}
-                onPress={() => this.setState({e1: true, e2: false, e3: false, e4: false, e5: false, e6: false})}
+                onPress={() => {this.setState({e1: true, e2: false, e3: false, e4: false, e5: false, e6: false},this._onPress(),500)}}
               >
                 <Text style={[styles.btext, this.state.e1 && styles.btext2]}> Event1 </Text>
               </TouchableHighlight>
@@ -48,7 +49,7 @@ class Events extends React.Component {
                 <TouchableHighlight
                   underlayColor={'#FFFFFF'}
                   style={styles.button}
-                  onPress={() => this.setState({e1: false, e2: true, e3: false, e4: false, e5: false, e6: false})}
+                  onPress={() => {this.setState({e1: false, e2: true, e3: false, e4: false, e5: false, e6: false},this._onPress(),500)}}
                 >
                   <Text style={[styles.btext, this.state.e2 && styles.btext2]}> Event2 </Text>
                 </TouchableHighlight>
@@ -57,7 +58,7 @@ class Events extends React.Component {
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
                 style={styles.button}
-                onPress={() => this.setState({e1: false, e2: false, e3: true, e4: false, e5: false, e6: false})}
+                onPress={() => {this.setState({e1: false, e2: false, e3: true, e4: false, e5: false, e6: false},this._onPress(),500)}}
               >
                 <Text style={[styles.btext, this.state.e3 && styles.btext2]}> Event3 </Text>
               </TouchableHighlight>
@@ -66,7 +67,7 @@ class Events extends React.Component {
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
                 style={styles.button}
-                onPress={() => this.setState({e1: false, e2: false, e3: false, e4: true, e5: false, e6: false})}
+                onPress={() => {this.setState({e1: false, e2: false, e3: false, e4: true, e5: false, e6: false},this._onPress(),500)}}
               >
                 <Text style={[styles.btext, this.state.e4 && styles.btext2]}> Event4 </Text>
               </TouchableHighlight>
@@ -74,7 +75,7 @@ class Events extends React.Component {
                 <TouchableHighlight
                   underlayColor={'#FFFFFF'}
                   style={styles.button}
-                  onPress={() => this.setState({e1: false, e2: false, e3: false, e4: false, e5: true, e6: false})}
+                  onPress={() => {this.setState({e1: false, e2: false, e3: false, e4: false, e5: true, e6: false},this._onPress(),500)}}
                 >
                   <Text style={[styles.btext, this.state.e5 && styles.btext2]}> Event5 </Text>
                 </TouchableHighlight>
@@ -82,7 +83,7 @@ class Events extends React.Component {
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
                 style={styles.button}
-                onPress={() => this.setState({e1: false, e2: false, e3: false, e4: false, e5: false, e6: true})}
+                onPress={() => {this.setState({e1: false, e2: false, e3: false, e4: false, e5: false, e6: true},this._onPress(),500)}}
               >
                 <Text style={[styles.btext, this.state.e6 && styles.btext2]}> Other </Text>
               </TouchableHighlight>
@@ -94,11 +95,11 @@ class Events extends React.Component {
               <View style={styles.navCircles}><View style={styles.circle}/></View>
             </View>
             <View style={styles.button2container}>
-              <Link to="/Budget" style={{ textDecoration: 'none' }}>
+              <Link to={`/Budget/${this.state.eventId}}`}style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                   underlayColor={'#0018A8'}
                   style={styles.button2}
-                  onPress={_.debounce(() => {this._onPress()},400)}
+                  onPress={_.debounce(() => {})}
                 >
                   <Text style={styles.btext3}> NEXT </Text>
                 </TouchableHighlight>
@@ -112,23 +113,36 @@ class Events extends React.Component {
     } //End of render
 
     _onPress =_.throttle(() =>{
-      var eventId
 
-      if(this.state.e1 === true){
-        eventId = 1
-      } else if(this.state.e2 === true) {
-        eventId = 2
-      } else if(this.state.e3 === true) {
-        eventId = 3
-      } else if(this.state.e4 === true) {
-        eventId = 4
-      } else if(this.state.e5 === true) {
-        eventId = 5
+      console.log(this.props.match.params)
+      if(this.state.e1 == true){
+        this.setState({eventId:1})
+        console.log(this.state.eventId)
+        console.log(this.state)
+        
+      } else if(this.state.e2 == true) {
+        this.setState({eventId:2})
+        console.log(this.state)
+        console.log(this.state.eventId)
+      } else if(this.state.e3 == true) {
+        this.setState({eventId:3})
+        console.log(this.state)
+        console.log(this.state.eventId)
+      } else if(this.state.e4 == true) {
+        this.setState({eventId:4})
+        console.log(this.state)
+        console.log(this.state.eventId)
+      } else if(this.state.e5 == true) {
+        this.setState({eventId:5})
+        console.log(this.state)
+        console.log(this.state.eventId)
       } else {
-        eventId = 6
+        this.setState({eventId:6})
+        console.log(this.state)
+        console.log(this.state.eventId)
       }
 
-    },1000,{leading:true, trailing:false}); //End of button function
+    },0,{leading:false, trailing:true}); //End of button function
 
     _goBack =_.throttle(() =>{ 
 

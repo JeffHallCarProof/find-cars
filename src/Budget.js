@@ -12,7 +12,7 @@ import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
   class Budget extends React.Component {
 
     state = {
-      values: [0, 50000]
+      values: [0, 50000],
     };
 
     //This function allows the lower and upper bounds of the budget slider to be read and stored in variables
@@ -24,7 +24,7 @@ import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
       
       var min = this.state.values[0];
       var max = this.state.values[1];
-
+      console.log(this.props.match.params)
       return ( 
 
         <View style={styles.container}>

@@ -5614,6 +5614,12 @@ react-native-web@0.9.x:
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.3"
 
+react-ratio@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/react-ratio/-/react-ratio-0.1.5.tgz#32660a0e2d02ad7f507dc30f5039461c4fedbe46"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-router-dom@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.3.1.tgz#4c2619fc24c4fa87c9fd18f4fb4a43fe63fbd5c6"
