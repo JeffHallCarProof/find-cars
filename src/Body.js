@@ -281,7 +281,7 @@ class Body extends React.Component {
     button2container: {
       alignItems: 'flex-end',
       paddingBottom: 10,
-      paddingTop: 350,
+      paddingTop: 180,
     },
 
     navBar: {

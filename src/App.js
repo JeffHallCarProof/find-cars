@@ -90,7 +90,6 @@ class App extends Component {
     },
     buttonContainer: {
       paddingBottom: 10,
-      paddingTop: 450,
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',

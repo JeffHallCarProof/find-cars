@@ -15,12 +15,23 @@ const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 const wrapperStyle = { width: 400, margin: 50 };
 
+function log(value) {
+  console.log(value); //eslint-disable-line
+}
+
   class Budget extends React.Component {
+    
+    onSliderChange = (value) => {
+      log(value);
+      this.setState({lowerBound: value[0], upperBound: value[1]})
+    }
 
     state = {
       eventId: this.props.match.params.eventId,
       min: 0,
-      max: 50000,
+      max: 100000,
+      lowerBound: 0,
+      upperBound: 50000
     };
 
     //This function allows the lower and upper bounds of the budget slider to be read and stored in variables
@@ -28,12 +39,8 @@ const wrapperStyle = { width: 400, margin: 50 };
 
     render() { 
 
-      const onChange = (props) => {
-        const { value, dragging, index, ...restProps } = props;
-        return (
-console.log(this.props)
-        );
-      };
+      var min = this.state.min
+      var max = this.state.max
 
       console.log(this.state.eventId)
 
@@ -51,12 +58,14 @@ console.log(this.props)
               <Text style={styles.sliderLabel1}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.</Text>
             </View>
 
-            <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center'}}>
-              <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>${this.state.min} - ${this.state.max}</Text>
-            </View>
-            <div style={wrapperStyle}>
-      <Range min={0} max={50000} defaultValue={[0, 50000]} tipFormatter={value => `$${value}`} onChange={onChange(this.props)} />
+            <div>
+              <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center'}}>
+                <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - $" + this.state.upperBound}</Text>
+              </View>
+              <br /><br /><br />
+                <Range min={min} max={max} defaultValue={[this.state.lowerBound, this.state.upperBound]} allowCross={false} onChange={this.onSliderChange} />
             </div>
+
             <View style={{flexDirection: "row", width: 265, justifyContent: "space-between"}}>
               <Text style={styles.sliderLabels}>$0</Text>
               <Text style={styles.sliderLabels}>ANY</Text>
@@ -128,7 +137,7 @@ console.log(this.props)
 
     buttonContainer: {
       paddingBottom: 10,
-      paddingTop: 400,
+      paddingTop: 200,
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',

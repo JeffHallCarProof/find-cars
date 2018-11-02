@@ -204,7 +204,7 @@ class Events extends React.Component {
       height: 43,
       position: "absolute",
       left: 70,
-      bottom: 30
+      bottom: 280
     },
     
     button2container: {
