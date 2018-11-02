@@ -16,8 +16,8 @@ ReactDOM.render(
       <Route exact path="/"  component={App}/>
       <Route path="/Events"  component={Events}/>
       <Route path="/Budget/:eventId" component={Budget}/>
-      <Route path="/Body"  component={Body}/>
-      <Route path="/Preferences"  component={Preferences}/>
+      <Route path="/Body/:eventId"  component={Body}/>
+      <Route path="/Preferences/:eventId"  component={Preferences}/>
       
     </Switch>
   </Router>, document.getElementById('root'));

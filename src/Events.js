@@ -95,7 +95,7 @@ class Events extends React.Component {
               <View style={styles.navCircles}><View style={styles.circle}/></View>
             </View>
             <View style={styles.button2container}>
-              <Link to={`/Budget/${this.state.eventId}}`}style={{ textDecoration: 'none' }}>
+              <Link to={`/Budget/${this.state.eventId}`}style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                   underlayColor={'#0018A8'}
                   style={styles.button2}
@@ -114,32 +114,25 @@ class Events extends React.Component {
 
     _onPress =_.throttle(() =>{
 
-      console.log(this.props.match.params)
       if(this.state.e1 == true){
         this.setState({eventId:1})
-        console.log(this.state.eventId)
-        console.log(this.state)
+
         
       } else if(this.state.e2 == true) {
         this.setState({eventId:2})
-        console.log(this.state)
-        console.log(this.state.eventId)
+
       } else if(this.state.e3 == true) {
         this.setState({eventId:3})
-        console.log(this.state)
-        console.log(this.state.eventId)
+
       } else if(this.state.e4 == true) {
         this.setState({eventId:4})
-        console.log(this.state)
-        console.log(this.state.eventId)
+
       } else if(this.state.e5 == true) {
         this.setState({eventId:5})
-        console.log(this.state)
-        console.log(this.state.eventId)
+
       } else {
         this.setState({eventId:6})
-        console.log(this.state)
-        console.log(this.state.eventId)
+
       }
 
     },0,{leading:false, trailing:true}); //End of button function
@@ -216,7 +209,8 @@ class Events extends React.Component {
     
     button2container: {
       alignItems: 'flex-end',
-      paddingBottom: 50
+      paddingBottom: 50,
+      paddingTop: 360,
     },
     navBar: {
       flexDirection: 'row',

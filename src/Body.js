@@ -22,10 +22,11 @@ class Body extends React.Component {
       c8: false,
       c9: false,
       c10: false,
+      eventId: this.props.match.params.eventId,
     };
 
     render() {
-
+      console.log(this.state.eventId)
       return (
 
         <View style={styles.container}>
@@ -34,6 +35,7 @@ class Body extends React.Component {
             <Text style={{ paddingTop: 30, paddingHorizontal: 50, fontWeight: '300', fontSize: 24, lineHeight: 28, textAlign: "center"}}>
               Preferred body type
             </Text>
+            
           </View>
 
           <View style={styles.bcontainer}>
@@ -153,7 +155,7 @@ class Body extends React.Component {
           </View>
 
           <View style={styles.button2container}>
-            <Link to="Preferences" style={{ textDecoration: 'none' }}>
+            <Link to={`/Preferences/${this.state.eventId}`} style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button2}
@@ -278,7 +280,8 @@ class Body extends React.Component {
     
     button2container: {
       alignItems: 'flex-end',
-      paddingBottom: 10
+      paddingBottom: 10,
+      paddingTop: 350,
     },
 
     navBar: {
