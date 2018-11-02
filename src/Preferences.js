@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Ratio from 'react-ratio';
-import clickM from './assets/clickMe.svg';
 import logo1_1 from './assets/first.1.svg';
 import logo1_2 from './assets/second.1.svg';
 import logo1_3 from './assets/third.1.svg';
@@ -329,33 +327,7 @@ console.log(this.state.classId)
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
-    const clickMe = () => {
 
-    TweenLite.to("#Al1",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al2",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al3",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al4",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al5",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al6",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al7",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al8",0,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Alc",1,{ease: Expo.easeOut,scaleX:0, scaleY:0})
-    TweenLite.to("#Al1",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al2",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al3",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al4",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al5",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al6",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al7",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al8",3,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al1",5,{ease: Expo.easeOut,x:-30},1000)
-    TweenLite.to("#Al8",5,{ease: Expo.easeOut,x:'-5%' ,y:-36},1000)
-    TweenLite.to("#Al6",5,{ease: Expo.easeOut,x:'18%' ,y:-40},1000)
-    TweenLite.to("#Al7",5,{ease: Expo.easeOut,x:'45%' ,y:-26},1000)
-    TweenLite.to("#Al2",5,{ease: Expo.easeOut,x:'27%' ,y:10},1000)
-    TweenLite.to("#Al5",5,{ease: Expo.easeOut,x:'-6%' ,y:40},1000)
-    TweenLite.to("#Al3",5,{ease: Expo.easeOut,x:'-38%' ,y:40},1000)
-    } 
 
     return (
 
@@ -366,9 +338,9 @@ console.log(this.state.classId)
        <div className ='notBubbles'>
 
         
-<div className='buttonContainer'>
-<button>
-  <Link to="/">
+<div className='button2Container'>
+<button className='button2'>
+  <Link className='button2' to="/">
        Results
   </Link>
   </button>

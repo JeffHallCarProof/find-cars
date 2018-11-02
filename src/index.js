@@ -8,7 +8,7 @@ import Preferences from './Preferences';
 //import Results from './Results';
 //<Route path="/Results"  component={Results}/>
 import * as serviceWorker from './serviceWorker';
-import { Link,BrowserRouter as Router,Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(  
   <Router>

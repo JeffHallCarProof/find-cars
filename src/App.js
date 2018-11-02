@@ -6,8 +6,8 @@ import {
     TouchableHighlight,
     View,
   } from 'react-native';
-import _, {debounce} from 'lodash';
-import { Link,BrowserRouter as Router,Switch, Route } from 'react-router-dom';
+import _ from 'lodash';
+import { Link} from 'react-router-dom';
 
 class App extends Component {
 
@@ -72,7 +72,7 @@ class App extends Component {
     },
 
     titleText: {
-      paddingBottom: 20,
+      paddingBottom: 0,
       fontSize: 24,
       textAlign: "center",
       lineHeight: 28,
@@ -81,7 +81,7 @@ class App extends Component {
     },
 
     contentText: {
-      paddingBottom: 100,
+      paddingBottom: 89,
       paddingHorizontal: 20,
       fontSize: 14,
       textAlign: "center",
@@ -89,7 +89,7 @@ class App extends Component {
       fontFamily: "Roboto"
     },
     buttonContainer: {
-      paddingBottom: 10,
+      paddingBottom: 0,
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
@@ -102,7 +102,7 @@ class App extends Component {
       backgroundColor: '#1294EF',
       justifyContent: 'center',
       borderRadius: 4,
-      width: 340,
+      width: 318,
       height: 60,
     },
   });

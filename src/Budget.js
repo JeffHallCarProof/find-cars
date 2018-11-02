@@ -1,19 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
-    Image,
     StyleSheet,
     Text,
     TouchableHighlight,
     View
   } from 'react-native';
-import _, {debounce} from 'lodash';
-import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Tooltip from 'rc-tooltip';
+import _ from 'lodash';
+import { Link} from 'react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
-const wrapperStyle = { width: 400, margin: 50 };
 
 function log(value) {
   console.log(value); //eslint-disable-line
@@ -85,7 +82,7 @@ function log(value) {
                 <TouchableHighlight
                     underlayColor={'#0018A8'}
                     style={styles.button}
-                    onPress={_.debounce(() => {this._onPress()},400)}
+                    onPress={_.debounce(() => {})}
                 >
                     <Text style={styles.btext}> NEXT </Text>
                 </TouchableHighlight>
@@ -125,7 +122,7 @@ function log(value) {
       alignItems: 'center',
       justifyContent: 'center',
       paddingHorizontal: 10,
-      paddingTop: 90
+      paddingTop: 30
     },
 
     btext: {
@@ -137,7 +134,7 @@ function log(value) {
 
     buttonContainer: {
       paddingBottom: 10,
-      paddingTop: 200,
+      paddingTop: 71,
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
@@ -150,9 +147,7 @@ function log(value) {
         backgroundColor: '#1294EF',
         justifyContent: 'center',
         borderRadius: 4,
-        borderColor: '#1653bc',
-        borderWidth: 1,
-        width: 340,
+        width: 318,
         height: 60,
       
     },

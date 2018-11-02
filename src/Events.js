@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
     StyleSheet,
     Text,
     TouchableHighlight,
     View
   } from 'react-native';
-import _, {debounce} from 'lodash';
-import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 // Screen for people who do not know what car they want
 class Events extends React.Component {
@@ -33,7 +33,7 @@ class Events extends React.Component {
               <Text style={{ paddingTop: 60, paddingHorizontal: 40, fontWeight: '300', fontSize: 24, textAlign: 'center', lineHeight: 28, fontFamily: 'Roboto'}}>
                 Reason for buying a new car
               </Text>
-              <Text style={{ paddingVertical: 20, paddingHorizontal: 20, textAlign: "center", lineHeight: 30, fontSize: 14, fontFamily: 'Roboto'}}>
+              <Text style={{ paddingVertical: 20, paddingHorizontal: 20, textAlign: "center", lineHeight: 30, fontSize: 10, fontFamily: 'Roboto'}}>
                 Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.
               </Text>
             </View>
@@ -45,7 +45,7 @@ class Events extends React.Component {
               >
                 <Text style={[styles.btext, this.state.e1 && styles.btext2]}> Event1 </Text>
               </TouchableHighlight>
-              <View style={{paddingHorizontal: 15}}>
+              <View style={{paddingHorizontal: 5}}>
                 <TouchableHighlight
                   underlayColor={'#FFFFFF'}
                   style={styles.button}
@@ -71,7 +71,7 @@ class Events extends React.Component {
               >
                 <Text style={[styles.btext, this.state.e4 && styles.btext2]}> Event4 </Text>
               </TouchableHighlight>
-              <View style={{paddingHorizontal: 15}}>
+              <View style={{paddingHorizontal: 5}}>
                 <TouchableHighlight
                   underlayColor={'#FFFFFF'}
                   style={styles.button}
@@ -114,20 +114,20 @@ class Events extends React.Component {
 
     _onPress =_.throttle(() =>{
 
-      if(this.state.e1 == true){
+      if(this.state.e1 === true){
         this.setState({eventId:1})
 
         
-      } else if(this.state.e2 == true) {
+      } else if(this.state.e2 === true) {
         this.setState({eventId:2})
 
-      } else if(this.state.e3 == true) {
+      } else if(this.state.e3 === true) {
         this.setState({eventId:3})
 
-      } else if(this.state.e4 == true) {
+      } else if(this.state.e4 === true) {
         this.setState({eventId:4})
 
-      } else if(this.state.e5 == true) {
+      } else if(this.state.e5 === true) {
         this.setState({eventId:5})
 
       } else {
@@ -154,8 +154,8 @@ class Events extends React.Component {
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: 20,
-      paddingVertical: 15,
+      paddingHorizontal: 5,
+      paddingVertical: 5,
       flexDirection: 'row',
       paddingTop: 20
     },
@@ -209,8 +209,9 @@ class Events extends React.Component {
     
     button2container: {
       alignItems: 'flex-end',
-      paddingBottom: 50,
-      paddingTop: 360,
+      paddingBottom: 0,
+      paddingRight: 10,
+      paddingTop: 318,
     },
     navBar: {
       flexDirection: 'row',
@@ -235,7 +236,7 @@ class Events extends React.Component {
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',
-      paddingTop: 72,
+      paddingTop: 10,
       paddingBottom: 35
     },
     navCircles: {

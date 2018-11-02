@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
     StyleSheet,
     Text,
     TouchableHighlight,
     View,
   } from 'react-native';
-import _, {debounce} from 'lodash';
-import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import _ from 'lodash';
+import { Link} from 'react-router-dom';
 
 // Screen for vehicle class selection
 class Body extends React.Component {
@@ -163,7 +163,7 @@ class Body extends React.Component {
                 <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button2}
-                onPress={_.debounce(() => {this._onPress()},400)}
+                onPress={_.debounce(() => {})}
                 >
                     <Text style={styles.btext3}> NEXT </Text>
                 </TouchableHighlight>
@@ -178,27 +178,27 @@ class Body extends React.Component {
 
     _onPress =_.throttle(() =>{ 
       
-      if(this.state.c1 == true){
+      if(this.state.c1 === true){
         this.setState({classId: 'Sedan'})
-      } else if(this.state.c2 == true) {
+      } else if(this.state.c2 === true) {
         this.setState({classId: 'SUV'})
-      } else if(this.state.c3 == true) {
+      } else if(this.state.c3 === true) {
         this.setState({classId: 'Cab'})
-      } else if(this.state.c4 == true) {
+      } else if(this.state.c4 === true) {
         this.setState({classId: 'Hatchback'})
-      } else if(this.state.c5 == true) {
+      } else if(this.state.c5 === true) {
         this.setState({classId: 'Coupe'})
-      } else if(this.state.c6 == true) {
+      } else if(this.state.c6 === true) {
         this.setState({classId: 'Convertible'})
-      } else if(this.state.c7 == true) {
+      } else if(this.state.c7 === true) {
         this.setState({classId: 'Wagon'})
-      } else if(this.state.c8 == true) {
+      } else if(this.state.c8 === true) {
         this.setState({classId: 'Minivan'})
-      } else if(this.state.c9 == true) {
+      } else if(this.state.c9 === true) {
         this.setState({classId: 'Diesel'})
-      }else if(this.state.c10 == true) {
+      }else if(this.state.c10 === true) {
         this.setState({classId: 'Van'})
-      } else if(this.state.c11 == true) {
+      } else if(this.state.c11 === true) {
         this.setState({classId: 'NEED A CLASS'})
       } else {
         this.setState({classId: 'Other'})
@@ -305,16 +305,14 @@ class Body extends React.Component {
         backgroundColor: '#1294EF',
         justifyContent: 'center',
         borderRadius: 4,
-        borderColor: '#1653bc',
-        borderWidth: 1,
-        width: 340,
+        width: 318,
         height: 60,
     },
     
     button2container: {
       alignItems: 'flex-end',
       paddingBottom: 10,
-      paddingTop: 180,
+      paddingTop: 22,
     },
 
     navBar: {

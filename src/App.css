@@ -122,6 +122,20 @@ bottom: 0%;
     width: 340;
     height: 60;
 }
+button2 {
+  align-Items: 'center';
+  background-Color: '#1294EF';
+  justify-Content: 'center';
+  border-Radius: 4;
+  width: 318;
+  height: 60;
+}
+
+button2container {
+align-Items: 'flex-end';
+padding-Bottom: 10;
+padding-Top: 22;
+}
 @font-face {
   font-family: 'Roboto';
   src: url('./font/Roboto-Medium.ttf') format('truetype');
