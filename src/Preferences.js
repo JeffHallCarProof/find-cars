@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+} from 'react-native';
+import _ from 'lodash';
+import { Link } from 'react-router-dom';
 import logo1_1 from './assets/first.1.svg';
 import logo1_2 from './assets/second.1.svg';
 import logo1_3 from './assets/third.1.svg';
@@ -33,7 +40,6 @@ import logo8_3 from './assets/third.8.svg';
 
 import './App.css';
 import { TweenLite, Expo} from 'gsap';
-import {  Link } from "react-router-dom";
 
 
 class Preference extends Component {
@@ -65,6 +71,7 @@ state = {
 }
 
   render() {
+    
     let click = this.state.clicks.slice();
     let i0 = this.state.pColor.slice();
     let ip = this.state.iP.slice();
@@ -329,24 +336,34 @@ console.log(this.state.classId)
     } 
 
 
+
+
+
+
+    
+
     return (
 
    <div className="App" height={1334} width={750}  >
 
       <p >Preference Screen!</p>
-       <div className='bubbles' >
+       
        <div className ='notBubbles'>
 
         
-<div className='button2Container'>
-<button className='button2'>
-  <Link className='button2' to="/">
-       Results
-  </Link>
-  </button>
-</div>
-</div >
 
+<Link to={`/`} style={{ textDecoration: 'none' }}>
+                <TouchableHighlight
+                    underlayColor={'#0018A8'}
+                    style={styles.button}
+                    onPress={_.debounce(() => {})}
+                >
+                    <Text style={styles.btext}> NEXT </Text>
+                </TouchableHighlight>
+            </Link>
+
+</div >
+<div className='bubbles' >
         <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'18%'}  width={'18%'}/>
         <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={'18%'}  width={'18%'} />
         <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'18%'}  width={'18%'}/>
@@ -367,5 +384,52 @@ console.log(this.state.classId)
 }
 
 export default Preference;
+
+const styles = StyleSheet.create({
+
+  btext: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+    lineHeight: 19
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#1294EF',
+    justifyContent: 'center',
+    borderRadius: 4,
+    width: 318,
+    height: 60,
+},
+  navBar: {
+    flexDirection: 'row',
+    height: 80
+  },
+  circle: {
+    width: 13,
+    height: 13,
+    borderRadius: 50,
+    borderColor: '#D8D8D8',
+    borderWidth: 1
+  },
+  activeNav: {
+    width: 13,
+    height: 13,
+    borderRadius: 50,
+    borderColor: '#D8D8D8',
+    borderWidth: 1,
+    backgroundColor: '#1294EF'
+  },
+  navContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: 10,
+    paddingBottom: 35
+  },
+  navCircles: {
+    paddingHorizontal: 4
+  }
+});
 
 //<img src={clickM}onClick={() => clickMe()} className="App-logoC" alt="logo" id={this.state.id[8]} height={800}  width={800} />
