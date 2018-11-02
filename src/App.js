@@ -25,7 +25,10 @@ class App extends Component {
 
         <View style={styles.container}>
           <Text style={styles.titleText}>Let us find the right car for you.</Text>
-          <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
+          <View style={{paddingTop: 20}}>
+            <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
+          </View>
+          
         </View>
 
         <View style={styles.buttonContainer}>

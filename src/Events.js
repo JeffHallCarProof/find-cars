@@ -33,7 +33,7 @@ class Events extends React.Component {
               <Text style={{ paddingTop: 60, paddingHorizontal: 40, fontWeight: '300', fontSize: 24, textAlign: 'center', lineHeight: 28, fontFamily: 'Roboto'}}>
                 Reason for buying a new car
               </Text>
-              <Text style={{ paddingVertical: 20, paddingHorizontal: 20, textAlign: "center", lineHeight: 30, fontSize: 10, fontFamily: 'Roboto'}}>
+              <Text style={{ paddingVertical: 20, paddingHorizontal: 20, textAlign: "center", lineHeight: 30, fontSize: 14, fontFamily: 'Roboto'}}>
                 Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.
               </Text>
             </View>
@@ -236,7 +236,7 @@ class Events extends React.Component {
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',
-      paddingTop: 10,
+      paddingTop: 40,
       paddingBottom: 35
     },
     navCircles: {

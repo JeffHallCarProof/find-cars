@@ -134,7 +134,7 @@ function log(value) {
 
     buttonContainer: {
       paddingBottom: 10,
-      paddingTop: 71,
+      paddingTop: 50,
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
@@ -165,21 +165,24 @@ function log(value) {
     sliderLabelView2: {
       alignItems: "center",
       paddingBottom: 20,
-      paddingHorizontal: 20
+      paddingHorizontal: 20,
+      paddingTop: 40
     },
 
     sliderLabel1: {
       fontSize: 14,
       textAlign: "center",
       paddingHorizontal: 10,
-      lineHeight: 30
+      lineHeight: 30,
+      fontFamily: 'Roboto'
     },
 
     infoText: {
       fontSize: 24,
       fontWeight: '300',
       lineHeight: 28,
-      textAlign: 'center'
+      textAlign: 'center',
+      fontFamily: 'Roboto'
     },
 
     sliderLabels: {
@@ -207,8 +210,7 @@ function log(value) {
     navContainer: {
       flexDirection: 'row',
       justifyContent: 'center',
-      paddingBottom: 10,
-      paddingTop: 10
+      paddingTop: 60
     },
 
     navCircles: {

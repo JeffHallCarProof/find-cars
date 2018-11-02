@@ -34,14 +34,12 @@ class Body extends React.Component {
       return (
 
         <View style={styles.container}>
-
-          <View style={{alignItems: 'center', justifyContent: 'center', paddingBottom: 20}}>
-            <Text style={{ paddingTop: 30, paddingHorizontal: 50, fontWeight: '300', fontSize: 24, lineHeight: 28, textAlign: "center"}}>
-              Preferred body type
-            </Text>
-            
+          <View style={{paddingTop: 20}}>
+            <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, fontFamily: 'Roboto'}}>Preferred body type</Text>
           </View>
-
+      <View style={{paddingVertical: 20, paddingHorizontal: 20}}>
+        <Text style={{fontSize: 14, lineHeight: 30, fontFamily: 'Roboto'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
+      </View>
           <View style={styles.bcontainer}>
             <TouchableHighlight
                 underlayColor={'#FFFFFF'}
