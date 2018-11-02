@@ -21,8 +21,8 @@
 /*Comfort*/
 .App-logo {
 position: absolute;
-top: 30%;
-left: 22%;
+top: 50%;
+left: 18%;
 right: 0%;
 bottom: 0%;
 
@@ -31,7 +31,7 @@ bottom: 0%;
 .App-logo1 {
   position: absolute;
   top: 71%;
-  left: 63%;
+  left: 70%;
   right: 0%;
   bottom: 0%;
 
@@ -39,8 +39,8 @@ bottom: 0%;
   /*ExteriorDesign*/
 .App-logo2 {
   position: absolute;
-  top: 55%;
-  left: 23.5%;
+  top: 65%;
+  left: 13%;
   right: 0%;
   bottom: 0%;
 
@@ -48,8 +48,8 @@ bottom: 0%;
   /*Build Quality*/
   .App-logo3 {
     position: absolute;
-    top: 45%;
-    left: 45%;
+    top: 55%;
+    left: 41%;
     right: 0%;
     bottom: 0%;
     }
@@ -65,8 +65,8 @@ bottom: 0%;
       /*FuntoDrive*/
     .App-logo5 {
       position: absolute;
-      top: 18%;
-      left: 68%;
+      top: 44%;
+      left: 60%;
       right: 0%;
       bottom: 0%;
 
@@ -74,7 +74,7 @@ bottom: 0%;
       /*Fuel Eco*/
       .App-logo6 {
         position: absolute;
-        top: 46%;
+        top: 56%;
         left: 65%;
         right: 0%;
         bottom: 0%;
@@ -82,22 +82,12 @@ bottom: 0%;
         /*Reliability*/
         .App-logo7 {
           position: absolute;
-          top: 21%;
-          left: 46%;
+          top: 42%;
+          left: 35%;
           right: 0%;
           bottom: 0%;
+        }
 
-          }
-          /*Instructions square*/
-          .App-logoC {
-            position: absolute;
-            top: 0%;
-            left: 0%;
-            right: 0%;
-            bottom: 0%;
-            background-color: #282c34;
-  
-            }
 
 .App-header {
   background-color: #282c34;

@@ -81,7 +81,7 @@ function log(value) {
           </View>
 
           <View style={styles.buttonContainer}>
-            <Link to={`/Body/${this.state.eventId}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/Body/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}`} style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                     underlayColor={'#0018A8'}
                     style={styles.button}

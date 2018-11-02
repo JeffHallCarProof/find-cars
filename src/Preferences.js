@@ -61,18 +61,22 @@ state = {
   toNext: false,
   isHidden: true,
   eventId: this.props.match.params.eventId,
+  lowerBound: this.props.match.params.lowerBound,
+  upperBound: this.props.match.params.upperBound,
+  classId:this.props.match.params.classId,
 }
 
   render() {
     let click = this.state.clicks.slice();
     let i0 = this.state.pColor.slice();
     let ip = this.state.iP.slice();
-
-
+console.log(this.state.eventId)
+console.log(this.state.lowerBound)
+console.log(this.state.upperBound)
+console.log(this.state.classId)
 
     //Comfort Al1
     const circleClick0 = (id,cl) => {
-      console.log(id);
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id, 1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
@@ -102,8 +106,7 @@ state = {
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
     //InteriorDesign Al2
-    const circleClick1 = (id,cl) => {
-      console.log(id);
+    const circleClick1 = (id,cl) => {;
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:30 ,y:13})
@@ -134,7 +137,6 @@ state = {
     
     //ExteriorDesign Al3
     const circleClick2 = (id,cl) => {
-      console.log(id);
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-42 ,y:40})
@@ -165,7 +167,6 @@ state = {
     //BuildQuality Al4
     //All animation must respect this set of animations
     const circleClick3 = (id,cl) => {
-      console.log(id);
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
@@ -214,7 +215,6 @@ state = {
     
     //Performance Al5    
     const circleClick4 = (id,cl) => {
-      console.log(id);
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-2 ,y:37})
@@ -244,7 +244,6 @@ state = {
     } 
     //FunToDrive Al6
     const circleClick5 = (id,cl) => {
-      console.log(id);
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:20,y:-45})
@@ -274,7 +273,6 @@ state = {
     } 
     //FuelEconomy Al7
     const circleClick6 = (id,cl) => {
-      console.log(id);
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:45 ,y:-15})
@@ -304,7 +302,6 @@ state = {
     } 
     //Reliability Al8
     const circleClick7 = (id,cl) => {
-      console.log(id);
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-5 ,y:-27})
