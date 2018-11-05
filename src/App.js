@@ -15,20 +15,18 @@ class App extends Component {
 
     return (
 
-      <View style={{flex:1, backgroundColor: '#FFFFFF'}}>
+      <View style={{height: '100%', backgroundColor: '#FAFAFA', alignContent: 'center'}}>
+
+        <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+          <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
+        </View>
 
         <View style={styles.container}>
           <View style={styles.iContainer}>
             <Image source={require('./assets/Guy-Hero.png')} style={{width: 202, height: 110}}></Image>
           </View>
-        </View>
-
-        <View style={styles.container}>
           <Text style={styles.titleText}>Let us find the right car for you.</Text>
-          <View style={{paddingTop: 20}}>
-            <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
-          </View>
-          
+          <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
         </View>
 
         <View style={styles.buttonContainer}>
@@ -63,7 +61,7 @@ class App extends Component {
 
     iContainer: {
       alignItems: "center",
-      paddingVertical: 50
+      paddingVertical: 20
     },
 
     btext: {
@@ -71,33 +69,29 @@ class App extends Component {
       fontSize: 16,
       fontWeight: 'bold',
       lineHeight: 19,
-      fontFamily: "Roboto"
     },
 
     titleText: {
-      paddingBottom: 0,
       fontSize: 24,
       textAlign: "center",
       lineHeight: 28,
       fontWeight: '300',
-      fontFamily: "Roboto"
+      paddingHorizontal: 28
     },
 
     contentText: {
-      paddingBottom: 89,
+      paddingBottom: 59,
       paddingHorizontal: 20,
       fontSize: 14,
       textAlign: "center",
       lineHeight: 30,
-      fontFamily: "Roboto"
+      paddingTop: 20
     },
+
     buttonContainer: {
-      paddingBottom: 0,
-      backgroundColor: '#FFFFFF',
       alignItems: 'center',
-      justifyContent: 'center',
-      paddingVertical: 2,
-      flexDirection: 'row',
+      position: "relative",
+      bottom: 20
     },
 
     button: {
@@ -105,7 +99,7 @@ class App extends Component {
       backgroundColor: '#1294EF',
       justifyContent: 'center',
       borderRadius: 4,
-      width: 318,
+      width: 300,
       height: 60,
     },
   });

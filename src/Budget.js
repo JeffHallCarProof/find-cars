@@ -3,23 +3,21 @@ import {
     StyleSheet,
     Text,
     TouchableHighlight,
-    View
+    View,
+    Image
   } from 'react-native';
 import _ from 'lodash';
 import { Link} from 'react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-const Range = createSliderWithTooltip(Slider.Range);
 
-function log(value) {
-  console.log(value); //eslint-disable-line
-}
+  const createSliderWithTooltip = Slider.createSliderWithTooltip;
+  const Range = createSliderWithTooltip(Slider.Range);
 
   class Budget extends React.Component {
     
+    //This function allows the lower and upper bounds of the budget slider to be read and stored in variables
     onSliderChange = (value) => {
-      log(value);
       this.setState({lowerBound: value[0], upperBound: value[1]})
     }
 
@@ -30,9 +28,6 @@ function log(value) {
       lowerBound: 0,
       upperBound: 50000
     };
-
-    //This function allows the lower and upper bounds of the budget slider to be read and stored in variables
-
 
     render() { 
 
@@ -45,25 +40,24 @@ function log(value) {
 
         <View style={styles.container}>
 
+          <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+            <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
+          </View>
+
           <View style={styles.bcontainer}>
           
-            <View style={styles.sliderLabelView2}>
-              <Text style={styles.infoText}>What's your budget?</Text>
-            </View>
-
-            <View style={styles.sliderLabelView}>
-              <Text style={styles.sliderLabel1}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.</Text>
-            </View>
-
+            <Text style={styles.infoText}>What's your budget?</Text>
+            <Text style={styles.sliderLabel1}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.</Text>
+            
             <div>
-              <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center'}}>
+              <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center', backgroundColor: '#FFFFFF'}}>
                 <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - $" + this.state.upperBound}</Text>
               </View>
               <br /><br /><br />
                 <Range min={min} max={max} defaultValue={[this.state.lowerBound, this.state.upperBound]} allowCross={false} onChange={this.onSliderChange} />
             </div>
 
-            <View style={{flexDirection: "row", width: 265, justifyContent: "space-between"}}>
+            <View style={{flexDirection: "row", width: 180, justifyContent: "space-between", paddingTop: 10}}>
               <Text style={styles.sliderLabels}>$0</Text>
               <Text style={styles.sliderLabels}>ANY</Text>
             </View>
@@ -107,22 +101,13 @@ function log(value) {
   const styles = StyleSheet.create({
 
     container: {
-      flex: 1,
-      alignItems: "center",
-      backgroundColor: '#FFFFFF'
-    },
-
-    contentContainer: {
-      paddingTop: 30
+      height: '100%',
+      alignContent: "center",
+      backgroundColor: '#FAFAFA'
     },
 
     bcontainer: {
-      flex: 1,
-      backgroundColor: '#FFFFFF',
       alignItems: 'center',
-      justifyContent: 'center',
-      paddingHorizontal: 10,
-      paddingTop: 30
     },
 
     btext: {
@@ -133,40 +118,18 @@ function log(value) {
     },
 
     buttonContainer: {
-      paddingBottom: 10,
-      paddingTop: 50,
-      backgroundColor: '#FFFFFF',
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingVertical: 2,
-      flexDirection: 'row',
+      position: "absolute",
+      bottom: 10,
+      right: 10
     },
 
     button: {
-        alignItems: 'center',
-        backgroundColor: '#1294EF',
-        justifyContent: 'center',
-        borderRadius: 4,
-        width: 318,
-        height: 60,
-      
-    },
-
-    sliderView: {
-      paddingTop: 50,
-      justifyContent: "center"
-    },
-
-    sliderLabelView: {
-      paddingTop: 10,
-      paddingBottom: 65
-    },
-
-    sliderLabelView2: {
-      alignItems: "center",
-      paddingBottom: 20,
-      paddingHorizontal: 20,
-      paddingTop: 40
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#1294EF',
+      borderRadius: 4,
+      width: 94,
+      height: 43,
     },
 
     sliderLabel1: {
@@ -174,7 +137,7 @@ function log(value) {
       textAlign: "center",
       paddingHorizontal: 10,
       lineHeight: 30,
-      fontFamily: 'Roboto'
+      paddingBottom: 15
     },
 
     infoText: {
@@ -182,7 +145,8 @@ function log(value) {
       fontWeight: '300',
       lineHeight: 28,
       textAlign: 'center',
-      fontFamily: 'Roboto'
+      paddingTop: 45,
+      paddingBottom: 15
     },
 
     sliderLabels: {
@@ -210,7 +174,9 @@ function log(value) {
     navContainer: {
       flexDirection: 'row',
       justifyContent: 'center',
-      paddingTop: 60
+      position: 'relative',
+      bottom: -15,
+      paddingTop: 53
     },
 
     navCircles: {
