@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
+  View,
 } from 'react-native';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
@@ -84,26 +85,26 @@ console.log(this.state.classId)
     const circleClick0 = (id,cl) => {
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id, 1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#"+id, 1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25, x:-20})
         TweenLite.to("#Al8", 1,{ease: Expo.easeOut,x:-5 ,y:-40})
-        TweenLite.to("#Al3", 1,{ease: Expo.easeOut,x:-42 ,y:40})
+        TweenLite.to("#Al3", 1,{ease: Expo.easeOut,x:-24 ,y:10})
         click[cl]=2
         ip[cl]=1
         
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5, x:-25})
         TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-1 ,y:-44})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-48 ,y:50})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-30 ,y:20})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1, x:-15})
         TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-10 ,y:-38})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-38 ,y:20})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-18 ,y:5})
         
         click[cl]=1
         ip[cl]=0
@@ -144,8 +145,8 @@ console.log(this.state.classId)
     const circleClick2 = (id,cl) => {
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-42 ,y:40})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-50,y:-5})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-22 ,y:40})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15,y:-5})
         TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-6 ,y:50})
         click[cl]=2
         ip[cl]=1
@@ -153,16 +154,16 @@ console.log(this.state.classId)
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-48 ,y:50})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-55,y:-10})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-32 ,y:50})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-20,y:-10})
         TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-3 ,y:55})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:-38 ,y:40})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-46, y:20})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:-18 ,y:40})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-10, y:20})
         TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-17 ,y:47})
         click[cl]=1
         ip[cl]=0
@@ -176,13 +177,13 @@ console.log(this.state.classId)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-45})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-20})
         TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-6 ,y:-38})
         TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20 ,y:-45})
         TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:50 ,y:-14})
         TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:30 ,y:26})
         TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-2 ,y:45})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-42 ,y:40})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-22 ,y:40})
         click[cl]=2
         ip[cl]=1
         
@@ -191,13 +192,13 @@ console.log(this.state.classId)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-50})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-20 ,y:-45})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-25})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-8 ,y:-45})
         TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:24 ,y:-50})
         TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:55 ,y:-16})
         TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:40 ,y:30})
         TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:2 ,y:50})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-48 ,y:50})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-32 ,y:50})
         click[cl]=3
         ip[cl]=2
       }
@@ -207,13 +208,13 @@ console.log(this.state.classId)
         ip[cl]=0
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-30})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15})
         TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-5 ,y:-36})
         TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:18 ,y:-40})
         TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:45 ,y:-8})
         TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:24 ,y:22})
         TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-6 ,y:40})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-38 ,y:40})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-18 ,y:40})
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
@@ -224,7 +225,7 @@ console.log(this.state.classId)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-2 ,y:37})
         TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:40 ,y:15})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-42 ,y:40})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-24 ,y:40})
         click[cl]=2
         ip[cl]=1
         
@@ -233,7 +234,7 @@ console.log(this.state.classId)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-5 ,y:45})
         TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:44 ,y:20})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-48 ,y:50})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-28 ,y:50})
         click[cl]=3
         ip[cl]=2
       }
@@ -241,7 +242,7 @@ console.log(this.state.classId)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:0 ,y:30})
         TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:32 ,y:13})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-36 ,y:39})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-18 ,y:39})
         click[cl]=1
         ip[cl]=0
       }
@@ -310,7 +311,7 @@ console.log(this.state.classId)
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-5 ,y:-27})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-40})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-29})
         TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20 ,y:-45})
         click[cl]=2
         ip[cl]=1
@@ -319,7 +320,7 @@ console.log(this.state.classId)
       else if(this.state.clicks[cl]===2)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-7 ,y:-44})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-45})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-34})
         TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:24 ,y:-50})
         click[cl]=3
         ip[cl]=2
@@ -327,7 +328,7 @@ console.log(this.state.classId)
       else
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:-5 ,y:-18})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-38})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-24})
         TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:18 ,y:-40})
         click[cl]=1
         ip[cl]=0
@@ -351,7 +352,7 @@ console.log(this.state.classId)
        <div className ='notBubbles'>
 
         
-
+<View>
 <Link to={`/`} style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                     underlayColor={'#0018A8'}
@@ -361,18 +362,18 @@ console.log(this.state.classId)
                     <Text style={styles.btext}> NEXT </Text>
                 </TouchableHighlight>
             </Link>
-
+</View>
 </div >
 <div className='bubbles' >
-        <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'18%'}  width={'18%'}/>
-        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={'18%'}  width={'18%'} />
-        <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'18%'}  width={'18%'}/>
-        <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'18%'}  width={'18%'}/>
+        <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'10%'}  width={'21%'}/>
+        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
+        <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
+        <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
         
-        <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'18%'}  width={'18%'}/>
-        <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'18%'}  width={'18%'}/>
-        <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'18%'}  width={'18%'}/>
-        <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'18%'}  width={'18%'}/>
+        <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
+        <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
+        <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
+        <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
 
 
         </div>
@@ -398,7 +399,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1294EF',
     justifyContent: 'center',
     borderRadius: 4,
-    width: 318,
+    width: 371,
     height: 60,
 },
   navBar: {
