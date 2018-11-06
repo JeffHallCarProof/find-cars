@@ -4,6 +4,7 @@ import {
     Text,
     TouchableHighlight,
     View,
+    Image
   } from 'react-native';
 import _ from 'lodash';
 import { Link} from 'react-router-dom';
@@ -21,9 +22,6 @@ class Body extends React.Component {
       c7: false,
       c8: false,
       c9: false,
-      c10: false,
-      c11: false,
-      c12: false,
       eventId: this.props.match.params.eventId,
       lowerBound: this.props.match.params.lowerBound,
       upperBound: this.props.match.params.upperBound,
@@ -31,124 +29,106 @@ class Body extends React.Component {
     };
 
     render() {
+
       return (
 
         <View style={styles.container}>
-          <View style={{paddingTop: 20}}>
-            <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, fontFamily: 'Roboto'}}>Preferred body type</Text>
+
+          <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+            <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
           </View>
-      <View style={{paddingVertical: 20, paddingHorizontal: 20}}>
-        <Text style={{fontSize: 14, lineHeight: 30, fontFamily: 'Roboto'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
-      </View>
+
+          <View style={{paddingTop: 10}}>
+            <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>Preferred body type</Text>
+          </View>
+          <View style={{paddingVertical: 5, paddingHorizontal: 10}}>
+            <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
+          </View>
+
           <View style={styles.bcontainer}>
             <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false, c10: false, c11: false, c12: false},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c1 && styles.btext2]}> Sedan </Text>
-              </TouchableHighlight>
+              underlayColor={'#FFFFFF'}
+              style={styles.button}
+              onPress={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
+            >
+              <Text style={[styles.btext, this.state.c1 && styles.btext2]}> Sedan </Text>
+            </TouchableHighlight>
 
-              <View style={{paddingHorizontal: 4}}>
-                <TouchableHighlight
-                  underlayColor={'#FFFFFF'}
-                  style={styles.button}
-                  onPress={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false, c10: false, c11: false, c12: false},this._onPress(),500)}}
-                  >
-                  <Text style={[styles.btext, this.state.c2 && styles.btext2]}> SUV </Text>
-                </TouchableHighlight>
-              </View>
-              
+            <View style={{paddingHorizontal: 6}}>
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
                 style={styles.button}
-                onPress={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false, c10: false, c11: false, c12: false},this._onPress(),500)}}
+                onPress={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
               >
-                <Text style={[styles.btext, this.state.c3 && styles.btext2]}> Cab </Text>
+                <Text style={[styles.btext, this.state.c2 && styles.btext2]}> SUV </Text>
+              </TouchableHighlight>
+            </View>
+              
+            <TouchableHighlight
+              underlayColor={'#FFFFFF'}
+              style={styles.button}
+              onPress={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
+            >
+              <Text style={[styles.btext, this.state.c3 && styles.btext2]}> Cab </Text>
+            </TouchableHighlight>
+          </View>
+
+          <View style={styles.bcontainer2}>
+            <TouchableHighlight
+              underlayColor={'#FFFFFF'}
+              style={styles.button}
+              onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
+            >
+              <Text style={[styles.btext, this.state.c4 && styles.btext2]}> Hatchback </Text>
+            </TouchableHighlight>
+
+            <View style={{paddingHorizontal: 6}}>
+              <TouchableHighlight
+                underlayColor={'#FFFFFF'}
+                style={styles.button}
+                onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
+              >
+                <Text style={[styles.btext, this.state.c5 && styles.btext2]}> Coupe</Text>
               </TouchableHighlight>
             </View>
 
-            <View style={styles.bcontainer2}>
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false, c10: false, c11: false, c12: false},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c4 && styles.btext2]}> Hatchback </Text>
-              </TouchableHighlight>
-
-              <View style={{paddingHorizontal: 4}}>
-                <TouchableHighlight
-                  underlayColor={'#FFFFFF'}
-                  style={styles.button}
-                  onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false, c10: false, c11: false, c12: false},this._onPress(),500)}}
-                  >
-                  <Text style={[styles.btext, this.state.c5 && styles.btext2]}> Coupe</Text>
-                </TouchableHighlight>
-              </View>
-
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false, c10: false, c11: false, c12: false},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c6 && styles.btext2]}> Convertible </Text>
-              </TouchableHighlight>
+            <TouchableHighlight
+              underlayColor={'#FFFFFF'}
+              style={styles.button}
+              onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}
+            >
+              <Text style={[styles.btext, this.state.c6 && styles.btext2]}> Convertible </Text>
+            </TouchableHighlight>
           </View>
+
           <View style={styles.bcontainer3}>
+            <TouchableHighlight
+              underlayColor={'#FFFFFF'}
+              style={styles.button}
+              onPress={() =>{ this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}
+            >
+              <Text style={[styles.btext, this.state.c7 && styles.btext2]}> Wagon </Text>
+            </TouchableHighlight>
+
+            <View style={{paddingHorizontal: 6}}>
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
                 style={styles.button}
-                onPress={() =>{ this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false, c10: false, c11: false, c12: false},this._onPress(),500)}}
+                onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}
               >
-                <Text style={[styles.btext, this.state.c7 && styles.btext2]}> Wagon </Text>
+                <Text style={[styles.btext, this.state.c8 && styles.btext2]}> Minivan </Text>
               </TouchableHighlight>
+            </View>
 
-              <View style={{paddingHorizontal: 4}}>
-                <TouchableHighlight
-                  underlayColor={'#FFFFFF'}
-                  style={styles.button}
-                  onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false, c10: false, c11: false, c12: false},this._onPress(),500)}}
-                  >
-                  <Text style={[styles.btext, this.state.c8 && styles.btext2]}> Minivan </Text>
-                </TouchableHighlight>
-              </View>
-
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true, c10: false, c11: false, c12: false},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c9 && styles.btext2]}> Diesel </Text>
-              </TouchableHighlight>
+            <TouchableHighlight
+              underlayColor={'#FFFFFF'}
+              style={styles.button}
+              onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}
+            >
+              <Text style={[styles.btext, this.state.c9 && styles.btext2]}> Diesel </Text>
+            </TouchableHighlight>
           </View>
-          <View style={styles.bcontainer4}>
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false, c10: true, c11: false, c12: false},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c10 && styles.btext2]}> Van </Text>
-              </TouchableHighlight>
-              <View style={{paddingHorizontal: 4}}>
-                <TouchableHighlight
-                  underlayColor={'#FFFFFF'}
-                  style={styles.button}
-                  onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false, c10: false, c11: true, c12: false},this._onPress(),500)}}
-                  >
-                  <Text style={[styles.btext, this.state.c11 && styles.btext2]}> 11th class needed </Text>
-                </TouchableHighlight>
-              </View>
-
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() =>{this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false, c10: false, c11: false, c12: true},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c12 && styles.btext2]}> Other </Text>
-              </TouchableHighlight>
-
-          </View>
+          
           <View style={styles.navContainer}>
             <View style={styles.navCircles}><View style={styles.circle}/></View>
             <View style={styles.navCircles}><View style={styles.circle}/></View>
@@ -166,7 +146,6 @@ class Body extends React.Component {
                     <Text style={styles.btext3}> NEXT </Text>
                 </TouchableHighlight>
             </Link>
-            
           </View>
 
         </View>
@@ -194,14 +173,8 @@ class Body extends React.Component {
         this.setState({classId: 'Minivan'})
       } else if(this.state.c9 === true) {
         this.setState({classId: 'Diesel'})
-      }else if(this.state.c10 === true) {
-        this.setState({classId: 'Van'})
-      } else if(this.state.c11 === true) {
-        this.setState({classId: 'NEED A CLASS'})
-      } else {
-        this.setState({classId: 'Other'})
       }
-
+      
       console.log(this.state.classId)
 
 
@@ -217,45 +190,32 @@ class Body extends React.Component {
   const styles = StyleSheet.create({
 
     container: {
-      alignItems: "center",
-      backgroundColor: '#FFFFFF',
-      flex: 1
+      alignContent: "center",
+      backgroundColor: '#FAFAFA',
+      height: '100%'
     },
 
     bcontainer: {
-      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: 2,
-      paddingVertical: 2,
+      paddingVertical: 3,
       flexDirection: 'row',
     },
 
     bcontainer2: {
-      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: 2,
-      paddingVertical: 2,
+      paddingVertical: 3,
       flexDirection: 'row',
     },
+
     bcontainer3: {
-      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: 2,
-      paddingVertical: 2,
+      paddingVertical: 3,
       flexDirection: 'row',
     },
-    bcontainer4: {
-      backgroundColor: '#FFFFFF',
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingHorizontal: 2,
-      paddingVertical: 2,
-      flexDirection: 'row',
-      paddingBottom: 10
-    },
+
     btext: {
       color: '#989898',
       alignItems: 'center',
@@ -299,23 +259,18 @@ class Body extends React.Component {
     },
 
     button2: {
-        alignItems: 'center',
-        backgroundColor: '#1294EF',
-        justifyContent: 'center',
-        borderRadius: 4,
-        width: 318,
-        height: 60,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#1294EF',
+      borderRadius: 4,
+      width: 94,
+      height: 43,
     },
     
     button2container: {
-      alignItems: 'flex-end',
-      paddingBottom: 10,
-      paddingTop: 22,
-    },
-
-    navBar: {
-      flexDirection: 'row',
-      height: 80
+      position: "absolute",
+      bottom: 10,
+      right: 10
     },
 
     circle: {
@@ -336,10 +291,10 @@ class Body extends React.Component {
     },
 
     navContainer: {
-      flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',
-      paddingTop: 10
+      position: "relative",
+      bottom: -10
     },
 
     navCircles: {

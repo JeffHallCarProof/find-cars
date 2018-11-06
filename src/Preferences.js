@@ -4,6 +4,7 @@ import {
   Text,
   TouchableHighlight,
   View,
+  Image
 } from 'react-native';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
@@ -68,7 +69,7 @@ state = {
   eventId: this.props.match.params.eventId,
   lowerBound: this.props.match.params.lowerBound,
   upperBound: this.props.match.params.upperBound,
-  classId:this.props.match.params.classId,
+  classId: this.props.match.params.classId,
 }
 
   render() {
@@ -76,10 +77,11 @@ state = {
     let click = this.state.clicks.slice();
     let i0 = this.state.pColor.slice();
     let ip = this.state.iP.slice();
-console.log(this.state.eventId)
-console.log(this.state.lowerBound)
-console.log(this.state.upperBound)
-console.log(this.state.classId)
+
+    console.log(this.state.eventId)
+    console.log(this.state.lowerBound)
+    console.log(this.state.upperBound)
+    console.log(this.state.classId)
 
     //Comfort Al1
     const circleClick0 = (id,cl) => {
@@ -110,7 +112,8 @@ console.log(this.state.classId)
         ip[cl]=0
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
-    } 
+    }
+
     //InteriorDesign Al2
     const circleClick1 = (id,cl) => {;
       if(this.state.clicks[cl]===1)
@@ -170,6 +173,7 @@ console.log(this.state.classId)
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
+
     //BuildQuality Al4
     //All animation must respect this set of animations
     const circleClick3 = (id,cl) => {
@@ -186,7 +190,6 @@ console.log(this.state.classId)
         TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-22 ,y:40})
         click[cl]=2
         ip[cl]=1
-        
       }
       else if(this.state.clicks[cl]===2)
       {
@@ -228,7 +231,6 @@ console.log(this.state.classId)
         TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-24 ,y:40})
         click[cl]=2
         ip[cl]=1
-        
       }
       else if(this.state.clicks[cl]===2)
       {
@@ -248,6 +250,7 @@ console.log(this.state.classId)
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
+
     //FunToDrive Al6
     const circleClick5 = (id,cl) => {
       if(this.state.clicks[cl]===1)
@@ -257,7 +260,6 @@ console.log(this.state.classId)
         TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:47 ,y:-24})
         click[cl]=2
         ip[cl]=1
-        
       }
       else if(this.state.clicks[cl]===2)
       {
@@ -277,6 +279,7 @@ console.log(this.state.classId)
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
+
     //FuelEconomy Al7
     const circleClick6 = (id,cl) => {
       if(this.state.clicks[cl]===1)
@@ -286,7 +289,6 @@ console.log(this.state.classId)
         TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:36 ,y:13})
         click[cl]=2
         ip[cl]=1
-        
       }
       else if(this.state.clicks[cl]===2)
       {
@@ -305,7 +307,8 @@ console.log(this.state.classId)
         ip[cl]=0
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
-    } 
+    }
+
     //Reliability Al8
     const circleClick7 = (id,cl) => {
       if(this.state.clicks[cl]===1)
@@ -315,7 +318,6 @@ console.log(this.state.classId)
         TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20 ,y:-45})
         click[cl]=2
         ip[cl]=1
-        
       }
       else if(this.state.clicks[cl]===2)
       {
@@ -336,50 +338,45 @@ console.log(this.state.classId)
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
 
-
-
-
-
-
-    
-
     return (
 
-   <div className="App" height={1334} width={750}  >
+      <View style={styles.container}>
 
-      <p >Preference Screen!</p>
-       
-       <div className ='notBubbles'>
+        <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+          <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
+        </View>
 
-        
-<View>
-<Link to={`/`} style={{ textDecoration: 'none' }}>
-                <TouchableHighlight
-                    underlayColor={'#0018A8'}
-                    style={styles.button}
-                    onPress={_.debounce(() => {})}
-                >
-                    <Text style={styles.btext}> NEXT </Text>
-                </TouchableHighlight>
-            </Link>
-</View>
-</div >
-<div className='bubbles' >
-        <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'10%'}  width={'21%'}/>
-        <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
-        <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
-        <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
-        
-        <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
-        <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
-        <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
-        <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
+        <View style={{paddingTop: 10}}>
+          <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>Personal preferences</Text>
+        </View>
+        <View style={{paddingVertical: 5, paddingHorizontal: 10}}>
+          <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
+        </View>
 
+        <View style={styles.buttonContainer}>
+          <Link to={`/`} style={{ textDecoration: 'none' }}>
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {})}
+            >
+              <Text style={styles.btext}> NEXT </Text>
+            </TouchableHighlight>
+          </Link>
+        </View>
 
+        <div className='bubbles' >
+          <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
         </div>
-        
-      
-      </div>
+      </View>
+
     );
   }
 }
@@ -388,24 +385,34 @@ export default Preference;
 
 const styles = StyleSheet.create({
 
+  container: {
+    alignContent: "center",
+    backgroundColor: '#FAFAFA',
+    height: '100%'
+  },
+
   btext: {
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
     lineHeight: 19
   },
+
   button: {
     alignItems: 'center',
     backgroundColor: '#1294EF',
     justifyContent: 'center',
     borderRadius: 4,
-    width: 371,
+    width: 300,
     height: 60,
-},
-  navBar: {
-    flexDirection: 'row',
-    height: 80
   },
+
+  buttonContainer: {
+    alignSelf: 'center',
+    position: "absolute",
+    bottom: 10,
+  },
+
   circle: {
     width: 13,
     height: 13,
@@ -413,6 +420,7 @@ const styles = StyleSheet.create({
     borderColor: '#D8D8D8',
     borderWidth: 1
   },
+
   activeNav: {
     width: 13,
     height: 13,
@@ -421,16 +429,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: '#1294EF'
   },
+
   navContainer: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingTop: 10,
-    paddingBottom: 35
+    position: 'relative'
   },
+
   navCircles: {
     paddingHorizontal: 4
   }
-});
 
-//<img src={clickM}onClick={() => clickMe()} className="App-logoC" alt="logo" id={this.state.id[8]} height={800}  width={800} />
+});
