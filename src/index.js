@@ -19,7 +19,7 @@ ReactDOM.render(
       <Route path="/Budget/:eventId" component={Budget}/>
       <Route path="/Body/:eventId/:lowerBound/:upperBound"  component={Body}/>
       <Route path="/Preferences/:eventId/:lowerBound/:upperBound/:classId"  component={Preferences}/>
-      <Route path="/Results/:responseJson"  component={Results}/>
+      <Route path="/Results/:eventId/:lowerBound/:upperBound/:classId/:numArray"  component={Results}/>
       
     </Switch>
   </Router>, document.getElementById('root'));

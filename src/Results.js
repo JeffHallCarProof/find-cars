@@ -42,6 +42,7 @@ import Loader from 'react-loader-spinner'
       numArray: this.props.match.params.numArray,
       visibleModal: null, //Modal
       loading: true,
+      responseJson: [],
     }
 
     //////////////////////////////////////Modal start
@@ -62,14 +63,19 @@ import Loader from 'react-loader-spinner'
     //////////////////////////////////////Modal end
 
     //api call
-    async getHelloW(){
-      const url = "https://productlab.carfax.ca/findmycar/multi/1/convertible/50000/6000/21232132/7";
+    async getHelloW() {
+      // sample Url    https://productlab.carfax.ca/findmycar/multi/eventid/class/MAX/MIN/PREFERENCES/cargospace
+      this.setState({loading: true});
+      const url = "https://productlab.carfax.ca/findmycar/multi/"+this.state.eventId+"/"+this.state.classId+"/"+this.state.upperBound+"/"+this.state.lowerBound+"/"+this.state.numArray+"/"+0;
+      
+      
       try{
       const res = await fetch(url,console.log(url),{
         method:'GET',
+        mode: 'no-cors',
         headers:{
-                'Accept':'application/json',
                 'Content-Type':'application/json',
+                'Access-Control-Allow-Origin': '*',
             },
             body: JSON.stringify({
               "type": "select",
@@ -87,7 +93,9 @@ import Loader from 'react-loader-spinner'
                   "Model",
                   "PerformanceRating",
                   "ReliabilityRating",
-                  "Score"
+                  "Score",
+                  "URL"
+    
                 ]
             }
             }),
@@ -95,21 +103,35 @@ import Loader from 'react-loader-spinner'
         const rJson = await res.json();
         const ETC1 = await this.setState({responseJson: rJson});
         const ETC2 = await this.setState({loading: false});
-        console.log(this.state.responseJson)
+        
+        console.log(this.state.responseJson[0])
+        console.log(this.state.responseJson[1])
+        console.log(this.state.responseJson[2])
+        console.log(this.state.responseJson[3])
+        console.log(this.state.responseJson[4])
+        
       }catch(err){
         return console.error(err);
       }
-
+    
     };
     //go back function
-    _goBack =_.throttle(() =>{ 
-    },1000,{leading:true, trailing:false});
+    _go =_.throttle(() =>{ 
+      this.getHelloW()
+    },10000,{leading:true, trailing:false});
 
   
 
 
     render() {
-console.log(this.props.match.params.responseJson)
+      if(this.state.loading ==true){
+        this._go()
+        console.log(this.state.eventId)
+        console.log(this.state.classId)
+        console.log(this.state.upperBound)
+        console.log(this.state.lowerBound)
+        console.log(this.state.numArray)
+      }if(this.state.loading ==false){
       return (
             
         <View style={styles.container}>
@@ -121,17 +143,33 @@ console.log(this.props.match.params.responseJson)
           <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>RESULTS</Text>
         </View>
         <View style={{paddingTop: 10}}>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>{this.props.match.params.responseJson}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>{this.state.responseJson[0].Body_Type}</Text>
         </View>
         { this.state.loading ? 
           <div className='notbubbles'>
-              <View style={styles.modalBackground}>
-                <Loader type="Oval" color="#65B2EE" height="40" width="40" justifyContent='center' alignItems='center'/>
+              <View style={styles.modalBackground }>
+              <Text style={styles.ltext}>ITS FUCKING LOADING</Text>
+                <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
               </View>
           </div> : null }
         </View>
 
         ); //End of return
+      }
+      return (
+            
+        <View style={styles.container}>
+
+        { this.state.loading ? 
+          <div className='notbubbles'>
+              <View style={styles.modalBackground }>
+              <Text style={styles.ltext}>ITS FUCKING LOADING</Text>
+                <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
+              </View>
+          </div> : null }
+        </View>
+
+        );
     } //End of render
 } //End of class
 export default Results;
@@ -147,13 +185,20 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     flexDirection: 'column',
-    justifyContent: 'space-around',
-    backgroundColor: '#00000040',
+    justifyContent: 'center',
+    backgroundColor: '#1294EF',
     position: "absolute",
     top: '0%',
     right: '0%',
     left: '0%',
     bottom: '0%',
+  },
+  ltext: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight: 'bold',
+    lineHeight: 20,
+    paddingBottom: 50
   },
   btext: {
     color: '#FFFFFF',

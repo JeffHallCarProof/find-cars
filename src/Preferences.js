@@ -131,8 +131,10 @@ async getHelloW(numArray) {
     let click = this.state.clicks.slice();
     let i0 = this.state.pColor.slice();
     let ip = this.state.iP.slice();
-
-
+    var numArray = this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString();
+console.log(numArray)
+console.log(this.state.classId)
+console.log(this.state.eventId)
     //Comfort Al1
     const circleClick0 = (id,cl) => {
       if(this.state.clicks[cl]===1)
@@ -385,7 +387,7 @@ async getHelloW(numArray) {
 
         <View style={styles.buttonContainer}>
           
-        <Link to={`/Results/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}/${this.state.numArray}`} style={{ textDecoration: 'none' }}>
+        <Link to={`/Results/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}/${this.state.classId}/${numArray}`} style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                     underlayColor={'#0018A8'}
                     style={styles.button}
