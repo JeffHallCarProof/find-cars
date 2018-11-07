@@ -7,7 +7,8 @@ import {
     View,
   } from 'react-native';
 import _, {debounce} from 'lodash';
-
+import { TweenLite, Expo} from 'gsap';
+import Loader from 'react-loader-spinner'
 
 
   //results screen
@@ -34,8 +35,13 @@ import _, {debounce} from 'lodash';
       p3: false,
       offset: 0,
       i: 0,
-      responseJson: this.props.match.params.responseJson,
-      visibleModal: null //Modal
+      eventId: this.props.match.params.eventId,
+      lowerBound: this.props.match.params.lowerBound,
+      upperBound: this.props.match.params.upperBound,
+      classId: this.props.match.params.classId,
+      numArray: this.props.match.params.numArray,
+      visibleModal: null, //Modal
+      loading: true,
     }
 
     //////////////////////////////////////Modal start
@@ -103,7 +109,7 @@ import _, {debounce} from 'lodash';
 
 
     render() {
-console.log(this.state.responseJson[0].Budget)
+console.log(this.props.match.params.responseJson)
       return (
             
         <View style={styles.container}>
@@ -115,8 +121,14 @@ console.log(this.state.responseJson[0].Budget)
           <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>RESULTS</Text>
         </View>
         <View style={{paddingTop: 10}}>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>{this.state.responseJson.Budget}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>{this.props.match.params.responseJson}</Text>
         </View>
+        { this.state.loading ? 
+          <div className='notbubbles'>
+              <View style={styles.modalBackground}>
+                <Loader type="Oval" color="#65B2EE" height="40" width="40" justifyContent='center' alignItems='center'/>
+              </View>
+          </div> : null }
         </View>
 
         ); //End of return

@@ -68,7 +68,6 @@ state = {
   classId: this.props.match.params.classId,
   responseJson: [],
   loading: false,
-  toNext: false,
 }
 
 
@@ -119,20 +118,14 @@ async getHelloW(numArray) {
     console.log(this.state.responseJson[2])
     console.log(this.state.responseJson[3])
     console.log(this.state.responseJson[4])
-    const ETC3 = await this.setState({toNext: true});
+    
   }catch(err){
     return console.error(err);
   }
 
 };
   render() {
-    //this is what links to results screen after the fetch
-    if (this.state.toNext === true) {
-let fuck = (this.state.responseJson.slice())
-console.log(fuck)
-      return <Redirect to={`/Results/${fuck}`} style={{ textDecoration: 'none' }}/>
-      //return <Redirect to={`/`} />
-    }
+
 
 //Actual Preference code
     let click = this.state.clicks.slice();
@@ -412,15 +405,17 @@ console.log(fuck)
         </View>
 
         <View style={styles.buttonContainer}>
-          <Link style={{ textDecoration: 'none' }} onClick={_.debounce(() => this.getHelloW())}to={`/Results/${this.state.responseJson}`}>
-            <TouchableHighlight
-              underlayColor={'#0018A8'}
-              style={styles.button}
-              onPress={_.debounce(() => {})}
-            >
-              <Text style={styles.btext}> NEXT </Text>
-            </TouchableHighlight >
-          </Link>
+          
+        <Link to={`/Results/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}/${this.state.numArray}`} style={{ textDecoration: 'none' }}>
+                <TouchableHighlight
+                    underlayColor={'#0018A8'}
+                    style={styles.button}
+                    onPress={_.debounce(() => {})}
+                >
+                    <Text style={styles.btext}> NEXT </Text>
+                </TouchableHighlight>
+            </Link>
+          
         </View>
 
         <div className='bubbles' >
@@ -433,12 +428,7 @@ console.log(fuck)
           <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
           <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
         </div>
-        { this.state.loading ? 
-          <div className='notbubbles'>
-              <View style={styles.modalBackground}>
-                <Loader type="Circles" color="#65B2EE" height="100" width="100" justifyContent='center' alignItems='center'/>
-              </View>
-          </div> : null }
+
       </View>
       
     );
