@@ -4,44 +4,40 @@ import {
   Text,
   TouchableHighlight,
   View,
-  Image
+  Image,
+  Modal
 } from 'react-native';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import logo1_1 from './assets/first.1.svg';
 import logo1_2 from './assets/second.1.svg';
 import logo1_3 from './assets/third.1.svg';
-
 import logo2_1 from './assets/first.2.svg';
 import logo2_2 from './assets/second.2.svg';
 import logo2_3 from './assets/third.2.svg';
-
 import logo3_1 from './assets/first.3.svg';
 import logo3_2 from './assets/second.3.svg';
 import logo3_3 from './assets/third.3.svg';
-
 import logo4_1 from './assets/first.4.svg';
 import logo4_2 from './assets/second.4.svg';
 import logo4_3 from './assets/third.4.svg';
-
 import logo5_1 from './assets/first.5.svg';
 import logo5_2 from './assets/second.5.svg';
 import logo5_3 from './assets/third.5.svg';
-
 import logo6_1 from './assets/first.6.svg';
 import logo6_2 from './assets/second.6.svg';
 import logo6_3 from './assets/third.6.svg';
-
 import logo7_1 from './assets/first.7.svg';
 import logo7_2 from './assets/second.7.svg';
 import logo7_3 from './assets/third.7.svg';
-
 import logo8_1 from './assets/first.8.svg';
 import logo8_2 from './assets/second.8.svg';
 import logo8_3 from './assets/third.8.svg';
 
 import './App.css';
 import { TweenLite, Expo} from 'gsap';
+import Loader from 'react-loader-spinner'
+import { Redirect } from 'react-router-dom'
 
 
 class Preference extends Component {
@@ -70,18 +66,79 @@ state = {
   lowerBound: this.props.match.params.lowerBound,
   upperBound: this.props.match.params.upperBound,
   classId: this.props.match.params.classId,
+  responseJson: [],
+  loading: false,
+  toNext: false,
 }
 
-  render() {
+
+
+async getHelloW(numArray) {
+  // sample Url    https://productlab.carfax.ca/findmycar/multi/eventid/class/MAX/MIN/PREFERENCES/cargospace
+  this.setState({loading: true});
+  const url = "https://productlab.carfax.ca/findmycar/multi/"+this.state.eventId+"/"+this.state.classId+"/"+this.state.upperBound+"/"+this.state.lowerBound+"/"+11111111+"/"+0;
+  
+  
+  try{
+  const res = await fetch(url,console.log(url),{
+    method:'GET',
+    mode: 'no-cors',
+    headers:{
+            'Content-Type':'application/json',
+            'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({
+          "type": "select",
+          "args": {
+            "table": "author",
+            "columns": [
+              "Budget",
+              "BuildQualityRating",
+              "ComfortRating",
+              "ExteriorDesignRating",
+              "FuelEconomyRating",
+              "FunToDriveRating",
+              "InteriorDesignRating ",
+              "Make",
+              "Model",
+              "PerformanceRating",
+              "ReliabilityRating",
+              "Score",
+              "URL"
+
+            ]
+        }
+        }),
+    })
+    const rJson = await res.json();
+    const ETC1 = await this.setState({responseJson: rJson});
+    const ETC2 = await this.setState({loading: false});
     
+    console.log(this.state.responseJson[0])
+    console.log(this.state.responseJson[1])
+    console.log(this.state.responseJson[2])
+    console.log(this.state.responseJson[3])
+    console.log(this.state.responseJson[4])
+    const ETC3 = await this.setState({toNext: true});
+  }catch(err){
+    return console.error(err);
+  }
+
+};
+  render() {
+    //this is what links to results screen after the fetch
+    if (this.state.toNext === true) {
+let fuck = (this.state.responseJson.slice())
+console.log(fuck)
+      return <Redirect to={`/Results/${fuck}`} style={{ textDecoration: 'none' }}/>
+      //return <Redirect to={`/`} />
+    }
+
+//Actual Preference code
     let click = this.state.clicks.slice();
     let i0 = this.state.pColor.slice();
     let ip = this.state.iP.slice();
 
-    console.log(this.state.eventId)
-    console.log(this.state.lowerBound)
-    console.log(this.state.upperBound)
-    console.log(this.state.classId)
 
     //Comfort Al1
     const circleClick0 = (id,cl) => {
@@ -341,7 +398,8 @@ state = {
     return (
 
       <View style={styles.container}>
-
+      
+       
         <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
           <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
         </View>
@@ -354,14 +412,14 @@ state = {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Link to={`/`} style={{ textDecoration: 'none' }}>
+          <Link style={{ textDecoration: 'none' }} onClick={_.debounce(() => this.getHelloW())}to={`/Results/${this.state.responseJson}`}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
               onPress={_.debounce(() => {})}
             >
               <Text style={styles.btext}> NEXT </Text>
-            </TouchableHighlight>
+            </TouchableHighlight >
           </Link>
         </View>
 
@@ -375,8 +433,14 @@ state = {
           <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
           <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
         </div>
+        { this.state.loading ? 
+          <div className='notbubbles'>
+              <View style={styles.modalBackground}>
+                <Loader type="Circles" color="#65B2EE" height="100" width="100" justifyContent='center' alignItems='center'/>
+              </View>
+          </div> : null }
       </View>
-
+      
     );
   }
 }
@@ -390,7 +454,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     height: '100%'
   },
-
+  modalBackground: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    backgroundColor: '#00000040',
+    position: "absolute",
+    top: '0%',
+    right: '0%',
+    left: '0%',
+    bottom: '0%',
+  },
   btext: {
     color: '#FFFFFF',
     fontSize: 16,

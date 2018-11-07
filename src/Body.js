@@ -25,7 +25,7 @@ class Body extends React.Component {
       eventId: this.props.match.params.eventId,
       lowerBound: this.props.match.params.lowerBound,
       upperBound: this.props.match.params.upperBound,
-      classId: ' ',
+      classId: 'Sedan',
     };
 
     render() {

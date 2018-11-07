@@ -5,6 +5,7 @@ import Events from './Events';
 import Budget from './Budget';
 import Body from './Body';
 import Preferences from './Preferences';
+import Results from './Results';
 //import Results from './Results';
 //<Route path="/Results"  component={Results}/>
 import * as serviceWorker from './serviceWorker';
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path="/Budget/:eventId" component={Budget}/>
       <Route path="/Body/:eventId/:lowerBound/:upperBound"  component={Body}/>
       <Route path="/Preferences/:eventId/:lowerBound/:upperBound/:classId"  component={Preferences}/>
+      <Route path="/Results/:responseJson"  component={Results}/>
       
     </Switch>
   </Router>, document.getElementById('root'));
