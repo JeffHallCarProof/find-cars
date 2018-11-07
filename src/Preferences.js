@@ -137,27 +137,25 @@ async getHelloW(numArray) {
     const circleClick0 = (id,cl) => {
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id, 1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25, x:-20})
-        TweenLite.to("#Al8", 1,{ease: Expo.easeOut,x:-5 ,y:-40})
-        TweenLite.to("#Al3", 1,{ease: Expo.easeOut,x:-24 ,y:10})
+        TweenLite.to("#"+id, 1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#Al8", 1,{ease: Expo.easeOut,y:-10})
+        TweenLite.to("#Al3", 1,{ease: Expo.easeOut,x:-10})
         click[cl]=2
         ip[cl]=1
-        
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5, x:-25})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-1 ,y:-44})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-30 ,y:20})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,y:-15})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-15})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1, x:-15})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-10 ,y:-38})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-18 ,y:5})
-        
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:0,y:0})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:0,y:0})
         click[cl]=1
         ip[cl]=0
       }
@@ -168,26 +166,25 @@ async getHelloW(numArray) {
     const circleClick1 = (id,cl) => {;
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:30 ,y:13})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:45 ,y:-15})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-2 ,y:50})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:10})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,y:10})
         click[cl]=2
         ip[cl]=1
-        
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:40 ,y:18})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:50 ,y:-25})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-5 ,y:55})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:15})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,y:15})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:27 ,y:10})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:40 ,y:-14})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:0 ,y:45})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:0 ,y:0})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:0 ,y:0})
         click[cl]=1
         ip[cl]=0
       }
@@ -198,26 +195,25 @@ async getHelloW(numArray) {
     const circleClick2 = (id,cl) => {
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-22 ,y:40})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15,y:-5})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-6 ,y:50})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-10, y:-10})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-10, y:10})
         click[cl]=2
         ip[cl]=1
-        
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-32 ,y:50})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-20,y:-10})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-3 ,y:55})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15, y:-15})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-15, y:15})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:-18 ,y:40})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-10, y:20})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-17 ,y:47})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:0, y:0})
+        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:0 ,y:0})
         click[cl]=1
         ip[cl]=0
       }
@@ -230,44 +226,20 @@ async getHelloW(numArray) {
       if(this.state.clicks[cl]===1)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-20})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-6 ,y:-38})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20 ,y:-45})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:50 ,y:-14})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:30 ,y:26})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-2 ,y:45})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-22 ,y:40})
         click[cl]=2
         ip[cl]=1
       }
       else if(this.state.clicks[cl]===2)
       {
         TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-25})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-8 ,y:-45})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:24 ,y:-50})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:55 ,y:-16})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:40 ,y:30})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:2 ,y:50})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-32 ,y:50})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
         click[cl]=1
         ip[cl]=0
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,x:0 ,y:0})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-5 ,y:-36})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:18 ,y:-40})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:45 ,y:-8})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:24 ,y:22})
-        TweenLite.to("#Al5",1,{ease: Expo.easeOut,x:-6 ,y:40})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-18 ,y:40})
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
     } 
@@ -276,25 +248,25 @@ async getHelloW(numArray) {
     const circleClick4 = (id,cl) => {
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-2 ,y:37})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:40 ,y:15})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-24 ,y:40})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,y:10})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-10})
         click[cl]=2
         ip[cl]=1
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-5 ,y:45})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:44 ,y:20})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-28 ,y:50})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,y:15})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-15})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:0 ,y:30})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:32 ,y:13})
-        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:-18 ,y:39})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:0 ,y:0})
+        TweenLite.to("#Al3",1,{ease: Expo.easeOut,x:0 ,y:0})
         click[cl]=1
         ip[cl]=0
       }
@@ -305,25 +277,25 @@ async getHelloW(numArray) {
     const circleClick5 = (id,cl) => {
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:20,y:-45})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-2 ,y:-40})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:47 ,y:-24})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,y:-10})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:10})
         click[cl]=2
         ip[cl]=1
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:24,y:-50})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:-8 ,y:-45})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:50 ,y:-16})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,y:-15})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:15})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1, x:18,y:-40})
-        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:20 ,y:-38})
-        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:43 ,y:-28})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#Al8",1,{ease: Expo.easeOut,x:0 ,y:0})
+        TweenLite.to("#Al7",1,{ease: Expo.easeOut,x:0 ,y:0})
         click[cl]=1
         ip[cl]=0
       }
@@ -334,25 +306,25 @@ async getHelloW(numArray) {
     const circleClick6 = (id,cl) => {
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:45 ,y:-15})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20,y:-40})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:36 ,y:13})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:10, y:-10})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:10, y:10})
         click[cl]=2
         ip[cl]=1
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:50 ,y:-25})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:12,y:-45})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:40 ,y:18})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:15, y:-15})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:15, y:15})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:40 ,y:-14})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:22,y:-35})
-        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:34 ,y:10})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:0,y:0})
+        TweenLite.to("#Al2",1,{ease: Expo.easeOut,x:0 ,y:0})
         click[cl]=1
         ip[cl]=0
       }
@@ -363,30 +335,30 @@ async getHelloW(numArray) {
     const circleClick7 = (id,cl) => {
       if(this.state.clicks[cl]===1)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25,x:-5 ,y:-27})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-29})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:20 ,y:-45})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-10, y:-10})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:10, y:-10})
         click[cl]=2
         ip[cl]=1
       }
       else if(this.state.clicks[cl]===2)
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5,x:-7 ,y:-44})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-34})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:24 ,y:-50})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15, y:-15})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:15, y:-15})
         click[cl]=3
         ip[cl]=2
       }
       else
       {
-        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1,x:-5 ,y:-18})
-        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-24})
-        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:18 ,y:-40})
+        TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:0, y:0})
+        TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:0 ,y:0})
         click[cl]=1
         ip[cl]=0
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
-    } 
+    }
 
     return (
 
@@ -402,6 +374,13 @@ async getHelloW(numArray) {
         </View>
         <View style={{paddingVertical: 5, paddingHorizontal: 10}}>
           <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
+        </View>
+
+        <View style={styles.navContainer}>
+          <View style={styles.navCircles}><View style={styles.circle}/></View>
+          <View style={styles.navCircles}><View style={styles.circle}/></View>
+          <View style={styles.navCircles}><View style={styles.circle}/></View>
+          <View style={styles.navCircles}><View style={styles.activeNav}/></View>
         </View>
 
         <View style={styles.buttonContainer}>
@@ -444,18 +423,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     height: '100%'
   },
-  modalBackground: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    backgroundColor: '#00000040',
-    position: "absolute",
-    top: '0%',
-    right: '0%',
-    left: '0%',
-    bottom: '0%',
-  },
+
   btext: {
     color: '#FFFFFF',
     fontSize: 16,
@@ -498,11 +466,27 @@ const styles = StyleSheet.create({
   navContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    position: 'relative'
+    alignSelf: 'center',
+    position: 'absolute',
+    top: '82%',
+    bottom: '18%',
   },
 
   navCircles: {
     paddingHorizontal: 4
+  },
+
+  modalBackground: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    backgroundColor: '#00000040',
+    position: "absolute",
+    top: '0%',
+    right: '0%',
+    left: '0%',
+    bottom: '0%',
   }
 
 });
