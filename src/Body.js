@@ -174,10 +174,6 @@ class Body extends React.Component {
       } else if(this.state.c9 === true) {
         this.setState({classId: 'Diesel'})
       }
-      
-      console.log(this.state.classId)
-
-
     },0,{leading:false, trailing:true});
 
     _goBack =_.throttle(() =>{ 

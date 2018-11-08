@@ -112,13 +112,7 @@ async getHelloW(numArray) {
     const rJson = await res.json();
     const ETC1 = await this.setState({responseJson: rJson});
     const ETC2 = await this.setState({loading: false});
-    
-    console.log(this.state.responseJson[0])
-    console.log(this.state.responseJson[1])
-    console.log(this.state.responseJson[2])
-    console.log(this.state.responseJson[3])
-    console.log(this.state.responseJson[4])
-    
+  
   }catch(err){
     return console.error(err);
   }
@@ -132,9 +126,7 @@ async getHelloW(numArray) {
     let i0 = this.state.pColor.slice();
     let ip = this.state.iP.slice();
     var numArray = this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString();
-console.log(numArray)
-console.log(this.state.classId)
-console.log(this.state.eventId)
+
     //Comfort Al1
     const circleClick0 = (id,cl) => {
       if(this.state.clicks[cl]===1)

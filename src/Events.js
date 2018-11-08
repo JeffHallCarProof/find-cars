@@ -28,8 +28,9 @@ class Events extends React.Component {
 
           <View style={styles.container}>
 
-            <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
-              <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
+            <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", alignContent: 'center', boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+              <View style={{alignSelf: 'flex-start'}}><Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image></View>
+              <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
             </View>
           
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>

@@ -4,6 +4,7 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
+    TouchableHighlight,
     View,
   } from 'react-native';
 import _, {debounce} from 'lodash';
@@ -43,7 +44,7 @@ import Loader from 'react-loader-spinner'
       visibleModal: null, //Modal
       loading: true,
       responseJson: [],
-      url: '',
+      count: 0
     }
 
     //////////////////////////////////////Modal start
@@ -104,7 +105,6 @@ import Loader from 'react-loader-spinner'
         const rJson = await res.json();
         const ETC1 = await this.setState({responseJson: rJson});
         const ETC2 = await this.setState({loading: false});
-        const ETC3 = await this.setState({url: this.state.responseJson[0].URL});
         console.log(this.state.responseJson[0])
         console.log(this.state.responseJson[1])
         console.log(this.state.responseJson[2])
@@ -121,20 +121,16 @@ import Loader from 'react-loader-spinner'
       this.getHelloW()
     },8000,{leading:true, trailing:false});
 
-  
+    _count = () =>{
+      this.setState({count: this.state.count+1})
+    }
 
 
     render() {
       if(this.state.loading ==true){
         this._go()
-        console.log(this.state.eventId)
-        console.log(this.state.classId)
-        console.log(this.state.upperBound)
-        console.log(this.state.lowerBound)
-        console.log(this.state.numArray)
       }if(this.state.loading ==false){
-        let urlTemp = this.state.url
-        console.log(this.state.url)
+        var i = this.state.count
       return (
             
         <View style={styles.container}>
@@ -146,22 +142,28 @@ import Loader from 'react-loader-spinner'
           <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>RESULTS</Text>
         </View>
         <View style={{paddingTop: 10,}}>
-          <View style={{alignSelf: 'center',}}><Image source={{uri: urlTemp}} style={{width: 300, height: 150, alignSelf: 'center',}}/></View>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>Body+{this.state.responseJson[0].Body_Type}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Budget}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Build_Quality_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Comfort_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Exterior_Design_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Fuel_Economy_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Fun_To_Drive_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Interior_Design_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Make}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Model}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Performance_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Reliability_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].Score}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[0].URL}</Text>
-          
+          <View style={{alignSelf: 'center',}}><Image source={{uri: this.state.responseJson[i].URL}} style={{width: 300, height: 150, alignSelf: 'center',}}/></View>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>Body+{this.state.responseJson[i].Body_Type}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Budget}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Build_Quality_Rating}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Comfort_Rating}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Exterior_Design_Rating}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Fuel_Economy_Rating}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Fun_To_Drive_Rating}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Interior_Design_Rating}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Make}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Model}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Performance_Rating}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Reliability_Rating}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Score}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].URL}</Text>
+          <TouchableHighlight
+                    underlayColor={'#0018A8'}
+                    style={styles.button}
+                    onPress={this._count}
+                >
+                    <Text style={styles.btext}> NEXT </Text>
+                </TouchableHighlight>
         </View>
         { this.state.loading ? 
           <div className='notbubbles'>

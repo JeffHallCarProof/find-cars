@@ -34,8 +34,6 @@ import 'rc-slider/assets/index.css';
       var min = this.state.min
       var max = this.state.max
 
-      console.log(this.state.eventId)
-
       return ( 
 
         <View style={styles.container}>
