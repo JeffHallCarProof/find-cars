@@ -18,7 +18,7 @@ class App extends Component {
       <View style={{height: '100%', backgroundColor: '#FAFAFA', alignContent: 'center'}}>
 
         <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
-          <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
+          <View  style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
         </View>
 
         <View style={styles.container}>

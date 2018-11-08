@@ -13,6 +13,7 @@ import Loader from 'react-loader-spinner'
 import { Line} from 'rc-progress';
 import nextBtn from './assets/NextBTN@1x.svg'
 import prevBtn from './assets/PrevBTN@1x.svg'
+import { Link } from 'react-router-dom';
 
   //results screen
   class Results extends React.Component {
@@ -143,8 +144,15 @@ import prevBtn from './assets/PrevBTN@1x.svg'
             
         <View style={styles.container}>
         
-        <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.5)`}}>
-          <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
+        <View style={{backgroundColor: '#FFFFFF', height: 60, boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+          <View style={{position: 'absolute', right: 15, top: 17}}>
+            <Link to={`/`} style={{ textDecoration: 'none' }}>
+              <TouchableHighlight underlayColor={'#FFFFFF'}>
+                <Image source={require('./assets/X-Close.png')} style={{width: 16, height: 17}}></Image>
+              </TouchableHighlight>
+            </Link>
+          </View>
+          <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
         </View>
 
 
