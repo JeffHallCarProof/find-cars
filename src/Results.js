@@ -142,46 +142,38 @@ import prevBtn from './assets/PrevBTN@1x.svg'
       return (
             
         <View style={styles.container}>
-        <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+        
+        <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.5)`}}>
           <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
         </View>
 
-        <View style={{paddingTop: 10}}>
-          <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>RESULTS</Text>
-        </View>
+
         <View style={styles.containerData}>
-        <View style={{ flexDirection: 'row', height: '30%', width: '-25%', paddingBottom: 5,borderWidth: 1}}>
+        <View style={{ flexDirection: 'row', height: '50%', width: '100%', paddingHorizontal: 5,justifyContent: "space-between"}}>
 
-                    <img src={prevBtn} onPress={this._count}/>
-          <View style={{paddingHorizontal: 5, }}>
-            <Image source={{uri: this.state.responseJson[i].URL}} style={{width: '100%', height: '100%',borderWidth: 1,borderTopWidth: 3, borderTopColor: '#1294EF',borderColor: '#BFBFBF'}}/>
+          <img src={prevBtn} onClick={() => this._count()} style={{height: '100%',width: '50%', paddingRight: 5}} />
+          <View style={{  height: '100%', width: '75%',justifyContent: "center",borderWidth: 1,borderTopWidth: 3, borderTopColor: '#1294EF',borderColor: '#BFBFBF',}}>
+            <Image source={ this.state.responseJson[i].URL} style={{height: '70%',width: '100%',paddingBottom: 5 }}/>
+            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%', }}>Body: {this.state.responseJson[i].Body_Type}</Text>
+            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%',}}>Budget: {this.state.responseJson[i].Budget}</Text>
+              <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%',}}>Make: {this.state.responseJson[i].Make}</Text>
+              <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%',}}>Model: {this.state.responseJson[i].Model}</Text>
+            </View>
+            <img src={nextBtn} onClick={() => this._count()} style={{height: '100%',width: '50%', paddingLeft: 5}}/>
+                  
           </View>
-                    <img src={nextBtn} onPress={this._count}/>
 
+          <View style={{paddingTop: 20}}>
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Build_Quality_Rating)*96} />
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Comfort_Rating)*87} />
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Exterior_Design_Rating)*99} />
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Fuel_Economy_Rating)*92} />
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Fun_To_Drive_Rating)*89} />
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Interior_Design_Rating)*86} />
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Performance_Rating)*97} />
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Reliability_Rating)*94} />
+            <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Score)*10} />
           </View>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>Body: {this.state.responseJson[i].Body_Type}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>Budget: {this.state.responseJson[i].Budget}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Make}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Model}</Text>
-
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Build_Quality_Rating)*96} />
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Comfort_Rating)*87} />
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Exterior_Design_Rating)*99} />
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Fuel_Economy_Rating)*92} />
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Fun_To_Drive_Rating)*89} />
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Interior_Design_Rating)*86} />
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Performance_Rating)*97} />
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Reliability_Rating)*94} />
-          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Score)*10} />
-          <View style={{ paddingTop: 20}}>
-          <TouchableHighlight
-                    underlayColor={'#0018A8'}
-                    style={styles.button}
-                    onPress={this._count}
-                >
-                    <Text style={styles.btext}> NEXT </Text>
-                </TouchableHighlight>
-        </View>
         </View>
         { this.state.loading ? 
           <div className='notbubbles'>
@@ -223,9 +215,9 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: 'center',
     backgroundColor: '#FAFAFA',
-    paddingTop: 0,
+    paddingTop: 20,
     position: "absolute",
-    top: '18%',
+    top: '10%',
     right: '0%',
     left: '0%',
     bottom: '0%',
