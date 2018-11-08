@@ -5,7 +5,6 @@ import {
   TouchableHighlight,
   View,
   Image,
-  Modal
 } from 'react-native';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
@@ -35,7 +34,6 @@ import logo8_2 from './assets/second.8.svg';
 import logo8_3 from './assets/third.8.svg';
 import './App.css';
 import { TweenLite, Expo} from 'gsap';
-import Loader from 'react-loader-spinner';
 
 
 class Preference extends Component {
@@ -68,54 +66,6 @@ state = {
   loading: false,
 }
 
-
-
-async getHelloW(numArray) {
-  // sample Url    https://productlab.carfax.ca/findmycar/multi/eventid/class/MAX/MIN/PREFERENCES/cargospace
-  this.setState({loading: true});
-  const url = "https://productlab.carfax.ca/findmycar/multi/"+this.state.eventId+"/"+this.state.classId+"/"+this.state.upperBound+"/"+this.state.lowerBound+"/"+11111111+"/"+0;
-  
-  
-  try{
-  const res = await fetch(url,console.log(url),{
-    method:'GET',
-    mode: 'no-cors',
-    headers:{
-            'Content-Type':'application/json',
-            'Access-Control-Allow-Origin': '*',
-        },
-        body: JSON.stringify({
-          "type": "select",
-          "args": {
-            "table": "author",
-            "columns": [
-              "Budget",
-              "BuildQualityRating",
-              "ComfortRating",
-              "ExteriorDesignRating",
-              "FuelEconomyRating",
-              "FunToDriveRating",
-              "InteriorDesignRating ",
-              "Make",
-              "Model",
-              "PerformanceRating",
-              "ReliabilityRating",
-              "Score",
-              "URL"
-
-            ]
-        }
-        }),
-    })
-    const rJson = await res.json();
-    const ETC1 = await this.setState({responseJson: rJson});
-    const ETC2 = await this.setState({loading: false});
-  
-  }catch(err){
-    return console.error(err);
-  }
-
-};
   render() {
 
 
