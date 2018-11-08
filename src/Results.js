@@ -153,6 +153,7 @@ import { Link } from 'react-router-dom';
     }
 
     render() {
+
       if(this.state.loading === true){
         this._go()
       }if(this.state.loading === false){
