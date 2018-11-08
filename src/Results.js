@@ -13,6 +13,8 @@ import Loader from 'react-loader-spinner'
 import { Line} from 'rc-progress';
 import nextBtn from './assets/NextBTN@1x.svg'
 import prevBtn from './assets/PrevBTN@1x.svg'
+import nextBtnD from './assets/NextBTND@1x.svg'
+import prevBtnD from './assets/PrevBTND@1x.svg'
 import { Link } from 'react-router-dom';
 
   //results screen
@@ -47,7 +49,11 @@ import { Link } from 'react-router-dom';
       visibleModal: null, //Modal
       loading: true,
       responseJson: [],
-      count: 0
+      count: 0,
+      disP: true,
+      disN: false,
+      prev: prevBtnD,
+      next: nextBtn,
     }
 
     //////////////////////////////////////Modal start
@@ -124,17 +130,29 @@ import { Link } from 'react-router-dom';
       this.getHelloW()
     },8000,{leading:true, trailing:false});
 
-    _count = () =>{
-      if(this.state.count ==4){
-        this.setState({count: this.state.count-4})
-      }else {
-      this.setState({count: this.state.count+1})
+    _countP = () =>{
+      if(this.state.count ===0){
+        this.setState({prev: prevBtnD})
+        this.onclick=null
+      }else if(this.state.count ===1){
+      this.setState({count: this.state.count-1, prev: prevBtnD, next: nextBtn})
+      }else{
+      this.setState({count: this.state.count-1, prev: prevBtn, next: nextBtn})
+      }
+    }
+    _countN = () =>{
+      if(this.state.count ===4){
+        this.setState({next: nextBtnD})
+        this.onclick=null
+      }else if(this.state.count ===3){
+      this.setState({count: this.state.count+1, prev: prevBtn, next: nextBtnD})
+      }else{
+      this.setState({count: this.state.count+1, prev: prevBtn, next: nextBtn})
       }
     }
 
-
     render() {
-      
+      let btn_class = this.state.disP ? "buttonA" : "buttonD";
       if(this.state.loading ==true){
         this._go()
       }if(this.state.loading ==false){
@@ -159,18 +177,19 @@ import { Link } from 'react-router-dom';
         <View style={styles.containerData}>
         <View style={{ flexDirection: 'row', height: '50%', width: '100%', paddingHorizontal: 5,justifyContent: "space-between"}}>
 
-          <img src={prevBtn} onClick={() => this._count()} style={{height: '100%',width: '50%', paddingRight: 5}} />
+          <img src={this.state.prev} onClick={() => this._countP()} />
           <View style={{  height: '100%', width: '75%',justifyContent: "center",borderWidth: 1,borderTopWidth: 3, borderTopColor: '#1294EF',borderColor: '#BFBFBF',}}>
             <Image source={ this.state.responseJson[i].URL} style={{height: '70%',width: '100%',paddingBottom: 5 }}/>
+           
             <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%', }}>Body: {this.state.responseJson[i].Body_Type}</Text>
             <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%',}}>Budget: {this.state.responseJson[i].Budget}</Text>
-              <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%',}}>Make: {this.state.responseJson[i].Make}</Text>
-              <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%',}}>Model: {this.state.responseJson[i].Model}</Text>
-            </View>
-            <img src={nextBtn} onClick={() => this._count()} style={{height: '100%',width: '50%', paddingLeft: 5}}/>
+            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%',}}>Make: {this.state.responseJson[i].Make}</Text>
+            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 16, textAlign: 'center',height: '7.5%',width: '100%',}}>Model: {this.state.responseJson[i].Model}</Text>
+          </View>
+          <img src={this.state.next} onClick={() => this._countN()} style={[styles.buttonA, this.state.disN && styles.buttonD, !this.state.disN]}/>
                   
           </View>
-
+        <View style={{justifyContent: 'flex-start'}}>
           <View style={{paddingTop: 20}}>
             <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Build_Quality_Rating)*96} />
             <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Comfort_Rating)*87} />
@@ -183,6 +202,7 @@ import { Link } from 'react-router-dom';
             <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 10,}} percent={(this.state.responseJson[i].Score)*10} />
           </View>
         </View>
+      </View>
         { this.state.loading ? 
           <div className='notbubbles'>
               <View style={styles.modalBackground }>
@@ -303,6 +323,17 @@ const styles = StyleSheet.create({
 
   navCircles: {
     paddingHorizontal: 4
-  }
-
+  },
+buttonA: {
+  height: '100%',
+  width: '50%', 
+  paddingRight: 5,
+  color: '#1294EF',
+},
+buttonD:{
+  height: '100%',
+  width: '50%', 
+  paddingRight: 5,
+  color: '#2A2A2A',
+}
 });
