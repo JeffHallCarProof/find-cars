@@ -10,7 +10,9 @@ import {
 import _, {debounce} from 'lodash';
 import { TweenLite, Expo} from 'gsap';
 import Loader from 'react-loader-spinner'
-
+import { Line} from 'rc-progress';
+import nextBtn from './assets/NextBTN@1x.svg'
+import prevBtn from './assets/PrevBTN@1x.svg'
 
   //results screen
   class Results extends React.Component {
@@ -122,15 +124,21 @@ import Loader from 'react-loader-spinner'
     },8000,{leading:true, trailing:false});
 
     _count = () =>{
+      if(this.state.count ==4){
+        this.setState({count: this.state.count-4})
+      }else {
       this.setState({count: this.state.count+1})
+      }
     }
 
 
     render() {
+      
       if(this.state.loading ==true){
         this._go()
       }if(this.state.loading ==false){
         var i = this.state.count
+        console.log(i)
       return (
             
         <View style={styles.container}>
@@ -141,22 +149,31 @@ import Loader from 'react-loader-spinner'
         <View style={{paddingTop: 10}}>
           <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>RESULTS</Text>
         </View>
-        <View style={{paddingTop: 10,}}>
-          <View style={{alignSelf: 'center',}}><Image source={{uri: this.state.responseJson[i].URL}} style={{width: 300, height: 150, alignSelf: 'center',}}/></View>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>Body+{this.state.responseJson[i].Body_Type}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Budget}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Build_Quality_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Comfort_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Exterior_Design_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Fuel_Economy_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Fun_To_Drive_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Interior_Design_Rating}</Text>
+        <View style={styles.containerData}>
+        <View style={{ flexDirection: 'row', height: '30%', width: '-25%', paddingBottom: 5,borderWidth: 1}}>
+
+                    <img src={prevBtn} onPress={this._count}/>
+          <View style={{paddingHorizontal: 5, }}>
+            <Image source={{uri: this.state.responseJson[i].URL}} style={{width: '100%', height: '100%',borderWidth: 1,borderTopWidth: 3, borderTopColor: '#1294EF',borderColor: '#BFBFBF'}}/>
+          </View>
+                    <img src={nextBtn} onPress={this._count}/>
+
+          </View>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>Body: {this.state.responseJson[i].Body_Type}</Text>
+          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>Budget: {this.state.responseJson[i].Budget}</Text>
           <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Make}</Text>
           <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Model}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Performance_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Reliability_Rating}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].Score}</Text>
-          <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 18, textAlign: 'center'}}>{this.state.responseJson[i].URL}</Text>
+
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Build_Quality_Rating)*96} />
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Comfort_Rating)*87} />
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Exterior_Design_Rating)*99} />
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Fuel_Economy_Rating)*92} />
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Fun_To_Drive_Rating)*89} />
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Interior_Design_Rating)*86} />
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Performance_Rating)*97} />
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Reliability_Rating)*94} />
+          <Line strokeWidth="4" strokeColor='#1294EF' width='200' style={{paddingBottom: 4,}} percent={(this.state.responseJson[i].Score)*10} />
+          <View style={{ paddingTop: 20}}>
           <TouchableHighlight
                     underlayColor={'#0018A8'}
                     style={styles.button}
@@ -164,6 +181,7 @@ import Loader from 'react-loader-spinner'
                 >
                     <Text style={styles.btext}> NEXT </Text>
                 </TouchableHighlight>
+        </View>
         </View>
         { this.state.loading ? 
           <div className='notbubbles'>
@@ -201,6 +219,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     height: '100%'
   },
+  containerData: {
+    alignContent: "center",
+    alignItems: 'center',
+    backgroundColor: '#FAFAFA',
+    paddingTop: 0,
+    position: "absolute",
+    top: '18%',
+    right: '0%',
+    left: '0%',
+    bottom: '0%',
+  },
   modalBackground: {
     flex: 1,
     alignItems: 'center',
@@ -234,6 +263,13 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     width: 300,
     height: 60,
+  },
+  button1: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    width: 50,
+    height: 50,
   },
 
   buttonContainer: {

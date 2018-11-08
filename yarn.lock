@@ -5614,6 +5614,13 @@ rc-animate@2.x:
     raf "^3.4.0"
     react-lifecycles-compat "^3.0.4"
 
+rc-progress@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/rc-progress/-/rc-progress-2.2.6.tgz#d5d07c07333b352a9ef13230c5940e13336c1e62"
+  dependencies:
+    babel-runtime "6.x"
+    prop-types "^15.5.8"
+
 rc-slider@^8.6.3:
   version "8.6.3"
   resolved "https://registry.yarnpkg.com/rc-slider/-/rc-slider-8.6.3.tgz#1ca0e0bd2863252741de75e7bf8c9f2cfcffccb7"
