@@ -7,7 +7,7 @@ import {
     View,
   } from 'react-native';
 import _ from 'lodash';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
 

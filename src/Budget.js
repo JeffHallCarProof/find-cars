@@ -7,7 +7,7 @@ import {
     Image
   } from 'react-native';
 import _ from 'lodash';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
@@ -38,8 +38,15 @@ import 'rc-slider/assets/index.css';
 
         <View style={styles.container}>
 
-          <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
-            <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
+          <View style={{backgroundColor: '#FFFFFF', height: 60, boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+            <View style={{position: 'absolute', left: 15, top: 17}}>
+              <Link to={`/Events`} style={{ textDecoration: 'none' }}>
+                <TouchableHighlight underlayColor={'#FFFFFF'}>
+                  <Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image>
+                </TouchableHighlight>
+              </Link>
+            </View>
+            <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
           </View>
 
           <View style={styles.bcontainer}>

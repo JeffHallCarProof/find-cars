@@ -33,11 +33,9 @@ import logo7_3 from './assets/third.7.svg';
 import logo8_1 from './assets/first.8.svg';
 import logo8_2 from './assets/second.8.svg';
 import logo8_3 from './assets/third.8.svg';
-
 import './App.css';
 import { TweenLite, Expo} from 'gsap';
-import Loader from 'react-loader-spinner'
-import { Redirect } from 'react-router-dom'
+import Loader from 'react-loader-spinner';
 
 
 class Preference extends Component {
@@ -358,9 +356,15 @@ async getHelloW(numArray) {
 
       <View style={styles.container}>
       
-       
-        <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
-          <Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image>
+        <View style={{backgroundColor: '#FFFFFF', height: 60, boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+          <View style={{position: 'absolute', left: 15, top: 17}}>
+            <Link to={`/Body/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}`} style={{ textDecoration: 'none' }}>
+              <TouchableHighlight underlayColor={'#FFFFFF'}>
+                <Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image>
+              </TouchableHighlight>
+            </Link>
+          </View>
+          <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
         </View>
 
         <View style={{paddingTop: 10}}>

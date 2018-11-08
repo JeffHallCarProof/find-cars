@@ -28,12 +28,18 @@ class Events extends React.Component {
 
           <View style={styles.container}>
 
-            <View style={{backgroundColor: '#FFFFFF', height: 60, alignItems: "center", alignContent: 'center', boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
-              <View style={{alignSelf: 'flex-start'}}><Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image></View>
-              <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+            <View style={{backgroundColor: '#FFFFFF', height: 60, boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+              <View style={{position: 'absolute', left: 15, top: 17}}>
+                <Link to={`/`} style={{ textDecoration: 'none' }}>
+                  <TouchableHighlight underlayColor={'#FFFFFF'}>
+                    <Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image>
+                  </TouchableHighlight>
+                </Link>
+              </View>
+              <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
             </View>
           
-            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{ paddingTop: 10, paddingHorizontal: 40, fontWeight: '300', fontSize: 24, textAlign: 'center', lineHeight: 28}}>
                 Reason for buying a new car
               </Text>
@@ -136,10 +142,6 @@ class Events extends React.Component {
       }
 
     },0,{leading:false, trailing:true}); //End of button function
-
-    _goBack =_.throttle(() =>{ 
-
-    },1000,{leading:true, trailing:false}); //End of goBack button function
 
   } //End of class
 
