@@ -317,11 +317,11 @@ state = {
           <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
         </View>
 
-        <View style={{paddingTop: 10}}>
-          <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>Personal preferences</Text>
+        <View style={{paddingTop: 35}}>
+          <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center',fontFamily: 'Roboto'}}>Personal preferences</Text>
         </View>
         <View style={{paddingVertical: 5, paddingHorizontal: 10}}>
-          <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
+          <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center',fontFamily: 'Roboto'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
         </View>
 
         <View style={styles.navContainer}>
@@ -339,7 +339,7 @@ state = {
                     style={styles.button}
                     onPress={_.debounce(() => {})}
                 >
-                    <Text style={styles.btext}> NEXT </Text>
+                    <Text style={styles.btext}> FIND MY CAR </Text>
                 </TouchableHighlight>
             </Link>
           
@@ -376,7 +376,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
-    lineHeight: 19
+    lineHeight: 19,
+    fontFamily: 'Roboto'
   },
 
   button: {
@@ -384,22 +385,31 @@ const styles = StyleSheet.create({
     backgroundColor: '#1294EF',
     justifyContent: 'center',
     borderRadius: 4,
-    width: 300,
-    height: 60,
+    height: 44,
   },
 
-  buttonContainer: {
+  button2Container: {
     alignSelf: 'center',
     position: "absolute",
-    bottom: 10,
+    bottom: '0.4%',
+    right: '0.4%',
+    left: '0.4%',
+    width: '99%'
   },
-
+  buttonContainer: {
+    position: "absolute",
+    bottom: 10,
+    right: '2.5%',
+    left: '2.5%',
+    width: '95%'
+  },
   circle: {
     width: 13,
     height: 13,
     borderRadius: 50,
     borderColor: '#D8D8D8',
-    borderWidth: 1
+    borderWidth: 1,
+    backgroundColor: '#FFFFFF'
   },
 
   activeNav: {
@@ -414,10 +424,9 @@ const styles = StyleSheet.create({
   navContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignSelf: 'center',
-    position: 'absolute',
-    top: '82%',
-    bottom: '18%',
+    position: 'relative',
+    paddingTop: 53,
+    bottom: -308
   },
 
   navCircles: {

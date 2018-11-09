@@ -39,11 +39,11 @@ class Events extends React.Component {
               <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
             </View>
           
-            <View style={{ alignItems: 'center', justifyContent: 'center'}}>
-              <Text style={{ paddingTop: 10, paddingHorizontal: 40, fontWeight: '300', fontSize: 24, textAlign: 'center', lineHeight: 28}}>
+            <View style={{ alignItems: 'center', justifyContent: 'center', paddingTop: 60}}>
+              <Text style={{ paddingTop: 10, paddingHorizontal: 30, fontWeight: '300', fontSize: 24, textAlign: 'center', lineHeight: 28,	fontFamily: 'Roboto',}}>
                 Reason for buying a new car
               </Text>
-              <Text style={{ paddingVertical: 10, paddingHorizontal: 20, textAlign: "center", lineHeight: 30, fontSize: 14}}>
+              <Text style={{ paddingVertical: 10, paddingHorizontal: 14, textAlign: "center", lineHeight: 26, fontSize: 14,fontFamily: 'Roboto',}}>
                 Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.
               </Text>
             </View>
@@ -56,7 +56,7 @@ class Events extends React.Component {
               >
                 <Text style={[styles.btext, this.state.e1 && styles.btext2]}> Event1 </Text>
               </TouchableHighlight>
-              <View style={{paddingHorizontal: 5}}>
+              <View style={{paddingHorizontal: 14}}>
                 <TouchableHighlight
                   underlayColor={'#FFFFFF'}
                   style={styles.button}
@@ -83,7 +83,7 @@ class Events extends React.Component {
               >
                 <Text style={[styles.btext, this.state.e4 && styles.btext2]}> Event4 </Text>
               </TouchableHighlight>
-              <View style={{paddingHorizontal: 5}}>
+              <View style={{paddingHorizontal: 14}}>
                 <TouchableHighlight
                   underlayColor={'#FFFFFF'}
                   style={styles.button}
@@ -156,7 +156,7 @@ class Events extends React.Component {
     bcontainer: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 5,
+      paddingVertical: 14,
       flexDirection: 'row',
     },
 
@@ -215,7 +215,8 @@ class Events extends React.Component {
       height: 13,
       borderRadius: 50,
       borderColor: '#D8D8D8',
-      borderWidth: 1
+      borderWidth: 1,
+      backgroundColor: '#FFFFFF'
     },
 
     activeNav: {
@@ -231,7 +232,7 @@ class Events extends React.Component {
       flexDirection: 'row',
       justifyContent: 'center',
       position: 'relative',
-      bottom: -15
+      bottom: -70
     },
 
     navCircles: {

@@ -56,12 +56,13 @@ class App extends Component {
     
     container: {
       alignItems: "center",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
     },
 
     iContainer: {
       alignItems: "center",
-      paddingVertical: 20
+      paddingVertical: 20,
+      paddingTop: 60,
     },
 
     btext: {
@@ -76,7 +77,8 @@ class App extends Component {
       textAlign: "center",
       lineHeight: 28,
       fontWeight: '300',
-      paddingHorizontal: 28
+      paddingHorizontal: 18,
+      fontFamily: 'Roboto'
     },
 
     contentText: {
@@ -91,7 +93,8 @@ class App extends Component {
     buttonContainer: {
       alignItems: 'center',
       position: "relative",
-      bottom: 20
+      bottom: 20,
+      paddingTop: 40,
     },
 
     button: {

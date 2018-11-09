@@ -119,8 +119,7 @@ import { Link } from 'react-router-dom';
         console.log(this.state.responseJson[2])
         console.log(this.state.responseJson[3])
         console.log(this.state.responseJson[4])
-        
-
+        console.log(this.state.responseJson[0].Ratings[0])
 
         
       }catch(err){
@@ -311,7 +310,8 @@ const styles = StyleSheet.create({
     height: 13,
     borderRadius: 50,
     borderColor: '#D8D8D8',
-    borderWidth: 1
+    borderWidth: 1,
+    backgroundColor: '#FFFFFF'
   },
 
   activeNav: {

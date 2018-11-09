@@ -8,7 +8,24 @@ import {
   } from 'react-native';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-
+import sedan from './assets/BodyType/SedanBox@1x.svg'
+import sedanH from './assets/BodyType/SedanBox@1xH.svg'
+import suv from './assets/BodyType/SUVBox@1x.svg'
+import suvH from './assets/BodyType/SUVBox@1xH.svg'
+import cab from './assets/BodyType/CabBox@1x.svg'
+import cabH from './assets/BodyType/CabBox@1xH.svg'
+import hatchback from './assets/BodyType/HatchbackBox@1x.svg'
+import hatchbackH from './assets/BodyType/HatchbackBox@1xH.svg'
+import coupe from './assets/BodyType/CoupeBox@1x.svg'
+import coupeH from './assets/BodyType/CoupeBox@1xH.svg'
+import convertible from './assets/BodyType/ConvertibleBox@1x.svg'
+import convertibleH from './assets/BodyType/ConvertibleBox@1xH.svg'
+import wagon from './assets/BodyType/WagonBox@1x.svg'
+import wagonH from './assets/BodyType/WagonBox@1xH.svg'
+import minivan from './assets/BodyType/MinivanBox@1x.svg'
+import minivanH from './assets/BodyType/MinivanBox@1xH.svg'
+import diesel from './assets/BodyType/DieselBox@1x.svg'
+import dieselH from './assets/BodyType/DieselBox@1xH.svg'
 // Screen for vehicle class selection
 class Body extends React.Component {
 
@@ -45,95 +62,57 @@ class Body extends React.Component {
             <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
           </View>
 
-          <View style={{paddingTop: 10}}>
-            <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center'}}>Preferred body type</Text>
+          <View style={{paddingTop: 30}}>
+            <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 25, textAlign: 'center', fontFamily: 'Roboto'}}>Preferred body type</Text>
           </View>
-          <View style={{paddingVertical: 5, paddingHorizontal: 10}}>
-            <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
+          <View style={{paddingVertical: 10, paddingHorizontal: 10}}>
+            <Text style={{fontSize: 14, lineHeight: 16, textAlign: 'center', fontFamily: 'Roboto'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
           </View>
-
           <View style={styles.bcontainer}>
-            <TouchableHighlight
-              underlayColor={'#FFFFFF'}
-              style={styles.button}
-              onPress={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
-            >
-              <Text style={[styles.btext, this.state.c1 && styles.btext2]}> Sedan </Text>
-            </TouchableHighlight>
-
-            <View style={{paddingHorizontal: 6}}>
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c2 && styles.btext2]}> SUV </Text>
-              </TouchableHighlight>
-            </View>
-              
-            <TouchableHighlight
-              underlayColor={'#FFFFFF'}
-              style={styles.button}
-              onPress={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
-            >
-              <Text style={[styles.btext, this.state.c3 && styles.btext2]}> Cab </Text>
-            </TouchableHighlight>
+          {/*Sedan*/} 
+          { this.state.c1 ? 
+          <img src={sedanH}alt="logo" onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            : <img src={sedan}alt="logo" onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>}
+          <View style={{paddingHorizontal:10}}>
+          {/*SUV*/}
+          { this.state.c2 ? 
+          <img src={suvH}alt="logo" onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            : <img src={suv}alt="logo" onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>}
           </View>
-
-          <View style={styles.bcontainer2}>
-            <TouchableHighlight
-              underlayColor={'#FFFFFF'}
-              style={styles.button}
-              onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
-            >
-              <Text style={[styles.btext, this.state.c4 && styles.btext2]}> Hatchback </Text>
-            </TouchableHighlight>
-
-            <View style={{paddingHorizontal: 6}}>
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c5 && styles.btext2]}> Coupe</Text>
-              </TouchableHighlight>
-            </View>
-
-            <TouchableHighlight
-              underlayColor={'#FFFFFF'}
-              style={styles.button}
-              onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}
-            >
-              <Text style={[styles.btext, this.state.c6 && styles.btext2]}> Convertible </Text>
-            </TouchableHighlight>
+          {/*Cab*/}
+          { this.state.c3 ? 
+          <img src={cabH}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            : <img src={cab}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>}          
+          </View><View style={styles.bcontainer2}>
+          {/*HatchBack*/}
+          { this.state.c4 ? 
+          <img src={hatchbackH}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            : <img src={hatchback}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>}               
+          <View style={{paddingHorizontal:10}}>
+          {/*Coupe*/}
+          { this.state.c5 ? 
+          <img src={coupeH}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            : <img src={coupe}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>}
           </View>
-
-          <View style={styles.bcontainer3}>
-            <TouchableHighlight
-              underlayColor={'#FFFFFF'}
-              style={styles.button}
-              onPress={() =>{ this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}
-            >
-              <Text style={[styles.btext, this.state.c7 && styles.btext2]}> Wagon </Text>
-            </TouchableHighlight>
-
-            <View style={{paddingHorizontal: 6}}>
-              <TouchableHighlight
-                underlayColor={'#FFFFFF'}
-                style={styles.button}
-                onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}
-              >
-                <Text style={[styles.btext, this.state.c8 && styles.btext2]}> Minivan </Text>
-              </TouchableHighlight>
-            </View>
-
-            <TouchableHighlight
-              underlayColor={'#FFFFFF'}
-              style={styles.button}
-              onPress={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}
-            >
-              <Text style={[styles.btext, this.state.c9 && styles.btext2]}> Diesel </Text>
-            </TouchableHighlight>
+          {/*Convertible*/}
+          { this.state.c6 ? 
+          <img src={convertibleH}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            : <img src={convertible}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}/>}            
+            </View><View style={styles.bcontainer3}>
+          {/*Wagon*/}
+          { this.state.c7 ? 
+          <img src={wagonH}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}/>
+            : <img src={wagon}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}/>} 
+          <View style={{paddingHorizontal:10}}>
+          {/*Minivan*/}
+          { this.state.c8 ? 
+          <img src={minivanH}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}/>
+            : <img src={minivan}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}/>} 
+          </View>
+          {/*Diesel*/}
+          { this.state.c9 ? 
+          <img src={dieselH}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
+            : <img src={diesel}alt="logo" onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>} 
           </View>
           
           <View style={styles.navContainer}>
@@ -201,21 +180,20 @@ class Body extends React.Component {
     bcontainer: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 3,
+      paddingVertical: 10,
       flexDirection: 'row',
     },
 
     bcontainer2: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 3,
       flexDirection: 'row',
     },
 
     bcontainer3: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 3,
+      paddingVertical: 10,
       flexDirection: 'row',
     },
 
@@ -281,7 +259,8 @@ class Body extends React.Component {
       height: 13,
       borderRadius: 50,
       borderColor: '#D8D8D8',
-      borderWidth: 1
+      borderWidth: 1,
+      backgroundColor: '#FFFFFF'
     },
 
     activeNav: {
@@ -297,7 +276,7 @@ class Body extends React.Component {
       flexDirection: 'row',
       justifyContent: 'center',
       position: "relative",
-      bottom: -10
+      bottom: -11
     },
 
     navCircles: {

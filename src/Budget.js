@@ -52,18 +52,18 @@ import 'rc-slider/assets/index.css';
           <View style={styles.bcontainer}>
           
             <Text style={styles.infoText}>What's your budget?</Text>
-            <Text style={styles.sliderLabel1}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.</Text>
+            <Text style={styles.sliderLabel1}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et.</Text>
             
-            <div>
-              <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center', backgroundColor: '#FFFFFF'}}>
+            <View style={styles.scontainer}>
+              <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center', backgroundColor: '#FFFFFF',}}>
                 <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - $" + this.state.upperBound}</Text>
               </View>
-              <br /><br /><br />
+              <br /><br />
                 <Range min={min} max={max} defaultValue={[this.state.lowerBound, this.state.upperBound]} allowCross={false} onChange={this.onSliderChange} />
-            </div>
+            </View>
 
-            <View style={{flexDirection: "row", width: 180, justifyContent: "space-between", paddingTop: 10}}>
-              <Text style={styles.sliderLabels}>$0</Text>
+            <View style={{flexDirection: "row", width: '86%', justifyContent: "space-between", paddingTop: 10}}>
+              <Text style={styles.sliderLabels}>$0 </Text>
               <Text style={styles.sliderLabels}>ANY</Text>
             </View>
 
@@ -77,7 +77,7 @@ import 'rc-slider/assets/index.css';
           </View>
 
           <View style={styles.buttonContainer}>
-            <Link to={`/Body/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/Body/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}`} style={{ textDecoration: 'none', justifyContent: 'center'}}>
                 <TouchableHighlight
                     underlayColor={'#0018A8'}
                     style={styles.button}
@@ -113,6 +113,12 @@ import 'rc-slider/assets/index.css';
 
     bcontainer: {
       alignItems: 'center',
+      paddingTop: 50,
+    },
+    scontainer: {
+      alignItems: 'center',
+      paddingTop: 30,
+      width: '80%',
     },
 
     btext: {
@@ -140,9 +146,10 @@ import 'rc-slider/assets/index.css';
     sliderLabel1: {
       fontSize: 14,
       textAlign: "center",
-      paddingHorizontal: 10,
+      paddingHorizontal: 16,
       lineHeight: 30,
-      paddingBottom: 15
+      paddingBottom: 15,
+      fontFamily: 'Roboto',
     },
 
     infoText: {
@@ -151,12 +158,14 @@ import 'rc-slider/assets/index.css';
       lineHeight: 28,
       textAlign: 'center',
       paddingTop: 45,
-      paddingBottom: 15
+      paddingBottom: 15,
+      fontFamily: 'Roboto',
     },
 
     sliderLabels: {
       fontSize: 16,
-      lineHeight: 19
+      lineHeight: 19,
+      fontFamily: 'Roboto'
     },
 
     circle: {
@@ -164,7 +173,8 @@ import 'rc-slider/assets/index.css';
       height: 13,
       borderRadius: 50,
       borderColor: '#D8D8D8',
-      borderWidth: 1
+      borderWidth: 1,
+      backgroundColor: '#FFFFFF'
     },
 
     activeNav: {
@@ -176,14 +186,14 @@ import 'rc-slider/assets/index.css';
       backgroundColor: '#1294EF'
     },
 
+
     navContainer: {
       flexDirection: 'row',
       justifyContent: 'center',
       position: 'relative',
-      bottom: -15,
-      paddingTop: 53
+      paddingTop: 53,
+      bottom: -46
     },
-
     navCircles: {
       paddingHorizontal: 4
     }
