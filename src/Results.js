@@ -16,6 +16,7 @@ import prevBtn from './assets/PrevBTN@1x.svg'
 import nextBtnD from './assets/NextBTND@1x.svg'
 import prevBtnD from './assets/PrevBTND@1x.svg'
 import { Link } from 'react-router-dom';
+import Modal from './Modal.js';
 
   //results screen
   class Results extends React.Component {
@@ -26,20 +27,6 @@ import { Link } from 'react-router-dom';
     };
 
     state = {
-      overall:0,
-      budget:0,
-      comfort:0,
-      fuelEco:0,
-      safety:0,
-      reliablitiy:0,
-      environment:0,
-      preformance:0,
-      intStyle:0,
-      extStyle:0,
-      p1: true,
-      p2: false,
-      p3: false,
-      offset: 0,
       i: 0,
       eventId: this.props.match.params.eventId,
       lowerBound: this.props.match.params.lowerBound,
@@ -50,11 +37,11 @@ import { Link } from 'react-router-dom';
       loading: true,
       responseJson: [],
       count: 0,
-      disP: true,
       disN: false,
       prev: prevBtnD,
       next: nextBtn,
       first: true,
+      modal1: false,
     }
 
     //////////////////////////////////////Modal start
@@ -73,7 +60,11 @@ import { Link } from 'react-router-dom';
       </View>
     );
     //////////////////////////////////////Modal end
-
+    toggleModal = () => {
+      this.setState({
+        modal1: !this.state.modal1
+      });
+    }
     //api call
     async getHelloW() {
       // sample Url    https://productlab.carfax.ca/findmycar/multi/eventid/class/MAX/MIN/PREFERENCES/cargospace
@@ -182,7 +173,7 @@ import { Link } from 'react-router-dom';
 
 
         <View style={styles.containerAll}>
-        
+
 
         <View style={{ flexDirection: 'row', height: '50%', width: '100%', paddingHorizontal: 5,justifyContent: "space-between"}}>
 
@@ -199,7 +190,9 @@ import { Link } from 'react-router-dom';
           <img src={this.state.next} alt={'didnt load'} onClick={() => this._countN()} style={[styles.buttonA, this.state.disN && styles.buttonD, !this.state.disN]}/>
                   
           </View>
-          
+          <button onClick={this.toggleModal}>
+          Open the modal
+        </button>
           <Text style={{color:'#000000', fontSize:14,fontFamily: 'Roboto', fontWeight: 'bold', alignSelf: 'baseline', paddingTop: 30,paddingLeft: 10}}>Your Perosnal Preferences</Text>
           <ScrollView style={{paddingTop: 20,paddingHorizontal: 5}}>
           <View style={styles.containerData}>
@@ -230,11 +223,27 @@ import { Link } from 'react-router-dom';
         
         { this.state.loading ? 
           <div className='notbubbles'>
-              <View style={styles.modalBackground }>
+              <View style={styles.loadingBackground }>
               <Text style={styles.ltext}>ITS LOADING</Text>
                 <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
               </View>
           </div> : null }
+
+          
+          { this.state.modal1 ? 
+          <View style={styles.modalBackground} >
+              <View style={styles.modalStyle} >
+                <Modal show={this.state.modal1}
+                onClose={this.toggleModal}>
+                <View style={{alignSelf:'center'}}><Text style={styles.mtext}>FUCKKKKKK </Text></View>
+                
+
+                </Modal>
+              </View>
+          </View>
+           : null }
+
+
         </View>
 
         ); //End of return
@@ -245,7 +254,7 @@ import { Link } from 'react-router-dom';
 
         { this.state.loading ? 
           <div className='notbubbles'>
-              <View style={styles.modalBackground }>
+              <View style={styles.loadingBackground }>
               <Text style={styles.ltext}>ITS LOADING</Text>
                 <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
               </View>
@@ -280,7 +289,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
 
   },
-  modalBackground: {
+  loadingBackground: {
     flex: 1,
     alignItems: 'center',
     flexDirection: 'column',
@@ -291,6 +300,27 @@ const styles = StyleSheet.create({
     right: '0%',
     left: '0%',
     bottom: '0%',
+  },
+  modalBackground: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    position: 'fixed',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0,0,0,0.3)',
+    padding: 20
+  },
+  modalStyle: {
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    minWidth: '100%',
+    minHeight: '100%',
+    margin: '0 auto',
+    padding: 10
   },
   ltext: {
     color: '#FFFFFF',
@@ -312,7 +342,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     lineHeight: 19
   },
-
+  mtext: {
+    color: '#000000',
+    textAlign:'center',
+    
+    fontSize: 16,
+    fontWeight: 'bold',
+    lineHeight: 19
+  },
   button: {
     alignItems: 'center',
     backgroundColor: '#1294EF',
