@@ -54,6 +54,7 @@ import { Link } from 'react-router-dom';
       disN: false,
       prev: prevBtnD,
       next: nextBtn,
+      first: true,
     }
 
     //////////////////////////////////////Modal start
@@ -135,19 +136,25 @@ import { Link } from 'react-router-dom';
     _countP = () =>{
       if(this.state.count ===0){
         this.setState({prev: prevBtnD})
+        this.setState({first: true})
       }else if(this.state.count ===1){
       this.setState({count: this.state.count-1, prev: prevBtnD, next: nextBtn})
+      this.setState({first: true})
       }else{
       this.setState({count: this.state.count-1, prev: prevBtn, next: nextBtn})
+      this.setState({first: false})
       }
     }
     _countN = () =>{
       if(this.state.count ===4){
         this.setState({next: nextBtnD})
+        this.setState({first: false})
       }else if(this.state.count ===3){
       this.setState({count: this.state.count+1, prev: prevBtn, next: nextBtnD})
+      this.setState({first: false})
       }else{
       this.setState({count: this.state.count+1, prev: prevBtn, next: nextBtn})
+      this.setState({first: false})
       }
     }
 
@@ -174,12 +181,15 @@ import { Link } from 'react-router-dom';
         </View>
 
 
-        <View style={styles.containerData}>
+        <View style={styles.containerAll}>
         
+
         <View style={{ flexDirection: 'row', height: '50%', width: '100%', paddingHorizontal: 5,justifyContent: "space-between"}}>
 
           <img src={this.state.prev} alt={'didnt load'} onClick={() => this._countP()} />
+
           <View style={{  height: '100%', width: '75%',justifyContent: "center",borderWidth: 1,borderTopWidth: 3, borderTopColor: '#1294EF',borderColor: '#BFBFBF',}}>
+
             <Image source={ this.state.responseJson[i].URL} style={{height: '75%',width: '100%',paddingBottom: 5 }}/>
            
             <Text style={{fontSize: 16, fontWeight: '300', lineHeight: 21, textAlign: 'center',height: '10%',width: '100%', }}>{this.state.responseJson[i].Make} {this.state.responseJson[i].Model} {this.state.responseJson[i].Body_Type}</Text>
@@ -189,28 +199,35 @@ import { Link } from 'react-router-dom';
           <img src={this.state.next} alt={'didnt load'} onClick={() => this._countN()} style={[styles.buttonA, this.state.disN && styles.buttonD, !this.state.disN]}/>
                   
           </View>
-          <Text style={{color:'#000000', fontSize:14,fontFamily: 'Roboto', fontWeight: 'bold', alignSelf: 'baseline', paddingTop: 30,paddingLeft: 5}}>Your Perosnal Preferences</Text>
+          
+          <Text style={{color:'#000000', fontSize:14,fontFamily: 'Roboto', fontWeight: 'bold', alignSelf: 'baseline', paddingTop: 30,paddingLeft: 10}}>Your Perosnal Preferences</Text>
           <ScrollView style={{paddingTop: 20,paddingHorizontal: 5}}>
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Build Quality</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Build_Quality_Rating)*96} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Comfort</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Comfort_Rating)*87} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Exterior Design</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Exterior_Design_Rating)*99} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Fuel Economy</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Fuel_Economy_Rating)*92} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Fun to Drive</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Fun_To_Drive_Rating)*89} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Interior Design</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Interior_Design_Rating)*86} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Performance</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Performance_Rating)*97} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Reliability</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Reliability_Rating)*94} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto'}}>Overall-this will become rating out of 5 on car card</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Score)*10} />
-          </ScrollView>
+          <View style={styles.containerData}>
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[0]}</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[0])*96} />
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[1]}</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[1])*87} />
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[2]}</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[2])*99} />
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[3]}</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[3])*92} />
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[4]}</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[4])*89} />
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[5]}</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[5])*86} />
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[6]}</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[6])*97} />
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[7]}</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[7])*94} />
+            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>Overall</Text>
+            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Score)*16} />
+            </View></ScrollView>
+          
+          { this.state.first ? 
+           <div style={{backgroundColor: '#1294EF', alignSelf: 'center', borderRadius: 4,width: 107, textAlign: 'center',position: "absolute", top: '1.8%' }}>   <Text style={styles.rtext}>Recommended</Text>
+        </div> : null }
         </View>
+        
         { this.state.loading ? 
           <div className='notbubbles'>
               <View style={styles.modalBackground }>
@@ -247,7 +264,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     height: '100%'
   },
-  containerData: {
+  containerAll: {
     alignContent: "center",
     backgroundColor: '#FAFAFA',
     paddingTop: 20,
@@ -256,6 +273,12 @@ const styles = StyleSheet.create({
     right: '0%',
     left: '0%',
     bottom: '0%',
+  },
+  containerData: {
+    alignContent: "center",
+    backgroundColor: '#FAFAFA',
+    paddingHorizontal: 10,
+
   },
   modalBackground: {
     flex: 1,
@@ -275,6 +298,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     lineHeight: 20,
     paddingBottom: 50
+  },
+  rtext: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    lineHeight: 14,
+    textAlign: 'center',
+    
   },
   btext: {
     color: '#FFFFFF',

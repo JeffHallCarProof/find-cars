@@ -320,7 +320,7 @@ state = {
         <View style={{paddingTop: 35}}>
           <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center',fontFamily: 'Roboto'}}>Personal preferences</Text>
         </View>
-        <View style={{paddingVertical: 5, paddingHorizontal: 10}}>
+        <View style={{paddingTop: 14, paddingHorizontal: 10}}>
           <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center',fontFamily: 'Roboto'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
         </View>
 
@@ -426,7 +426,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'relative',
     paddingTop: 53,
-    bottom: -308
+    bottom: -304
   },
 
   navCircles: {
