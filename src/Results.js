@@ -42,29 +42,34 @@ import Modal from './Modal.js';
       next: nextBtn,
       first: true,
       modal1: false,
+      modal2: false,
+      modal3: false,
+      modal4: false,
     }
 
     //////////////////////////////////////Modal start
-    _renderButton = (text, onPress) => (
-      <TouchableOpacity onPress={onPress}>
-        <View style={styles.buttonX}>
-          <Text>{text}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  
-    _renderModalContent = () => (
-      <View style={styles.modalContent}>
-        <Text>Hello!</Text>
-        {this._renderButton('Close', () => this.setState({ visibleModal: null }))}
-      </View>
-    );
-    //////////////////////////////////////Modal end
-    toggleModal = () => {
+    toggleModal1 = () => {
       this.setState({
         modal1: !this.state.modal1
       });
     }
+    toggleModal2 = () => {
+      this.setState({
+        modal2: !this.state.modal2
+      });
+    }
+    toggleModal3 = () => {
+      this.setState({
+        modal3: !this.state.modal3
+      });
+    }
+    toggleModal4 = () => {
+      this.setState({
+        modal4: !this.state.modal4
+      });
+    }
+    //////////////////////////////////////Modal end
+
     //api call
     async getHelloW() {
       // sample Url    https://productlab.carfax.ca/findmycar/multi/eventid/class/MAX/MIN/PREFERENCES/cargospace
@@ -160,7 +165,7 @@ import Modal from './Modal.js';
             
         <View style={styles.container}>
         
-        <View style={{backgroundColor: '#FFFFFF', height: 60, boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+        <View style={{backgroundColor: '#FFFFFF', height: 60, borderWidth:0.5,borderColor: '#D8D8D8'}}>
           <View style={{position: 'absolute', right: 15, top: 17}}>
             <Link to={`/`} style={{ textDecoration: 'none' }}>
               <TouchableHighlight underlayColor={'#FFFFFF'}>
@@ -169,9 +174,42 @@ import Modal from './Modal.js';
             </Link>
           </View>
           <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+
         </View>
-
-
+        <View style={{flexDirection:'row',boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+          <View
+              underlayColor={'#FAFAFA'}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 40,borderWidth:0.5,borderColor: '#D8D8D8'}}
+              onClick={this.toggleModal1}
+            >
+            <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Events</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}> {'crash'}</Text>
+          </View>
+          <View
+              underlayColor={'#FAFAFA'}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 40,borderWidth:0.5,borderColor: '#D8D8D8'}}
+              onClick={this.toggleModal2}
+            >
+            <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Budget </Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.lowerBound}-{this.state.upperBound}</Text>
+          </View>
+          <View
+              underlayColor={'#FAFAFA'}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 40,borderWidth:0.5,borderColor: '#D8D8D8'}}
+              onClick={this.toggleModal3}
+            >
+            <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Body </Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.classId}</Text>
+          </View>
+          <View
+              underlayColor={'#FAFAFA'}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 40,borderWidth:0.5,borderColor: '#D8D8D8'}}
+              onClick={this.toggleModal4}
+            >
+            <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}>Preferences</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}>{this.state.numArray}</Text>
+          </View>
+        </View>
         <View style={styles.containerAll}>
 
 
@@ -183,16 +221,14 @@ import Modal from './Modal.js';
 
             <Image source={ this.state.responseJson[i].URL} style={{height: '75%',width: '100%',paddingBottom: 5 }}/>
            
-            <Text style={{fontSize: 16, fontWeight: '300', lineHeight: 21, textAlign: 'center',height: '10%',width: '100%', }}>{this.state.responseJson[i].Make} {this.state.responseJson[i].Model} {this.state.responseJson[i].Body_Type}</Text>
-            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center',height: '7.5%',width: '100%',}}>Budget: {this.state.responseJson[i].Budget}</Text>
-            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center',height: '7.5%',width: '100%',}}>Rating out of 5</Text>
+            <Text style={{fontSize: 16, fontWeight: '300', lineHeight: 19, textAlign: 'center',height: '10%',width: '100%',fontFamily: 'Roboto',fontWeight: 'bold' }}>{this.state.responseJson[i].Make} {this.state.responseJson[i].Model} {this.state.responseJson[i].Body_Type}</Text>
+            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center',height: '7.5%',width: '100%',fontFamily: 'Roboto',color: '#1294EF'}}>Budget: {this.state.responseJson[i].Budget}</Text>
+            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center',height: '7.5%',width: '100%',fontFamily: 'Roboto',}}>Rating out of 5</Text>
           </View>
           <img src={this.state.next} alt={'didnt load'} onClick={() => this._countN()} style={[styles.buttonA, this.state.disN && styles.buttonD, !this.state.disN]}/>
                   
           </View>
-          <button onClick={this.toggleModal}>
-          Open the modal
-        </button>
+
           <Text style={{color:'#000000', fontSize:14,fontFamily: 'Roboto', fontWeight: 'bold', alignSelf: 'baseline', paddingTop: 30,paddingLeft: 10}}>Your Perosnal Preferences</Text>
           <ScrollView style={{paddingTop: 20,paddingHorizontal: 5}}>
           <View style={styles.containerData}>
@@ -234,15 +270,62 @@ import Modal from './Modal.js';
           <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal1}
-                onClose={this.toggleModal}>
-                <View style={{alignSelf:'center'}}><Text style={styles.mtext}>FUCKKKKKK </Text></View>
+                onClose={this.toggleModal1}>
+                {/*Must place modal content inside its own views for styling*/}
+                <View style={{alignSelf:'center'}}>
+                  <Text style={styles.mtext}>Event</Text>
+                </View>
                 
 
                 </Modal>
               </View>
           </View>
            : null }
+          { this.state.modal2 ? 
+          <View style={styles.modalBackground} >
+              <View style={styles.modalStyle} >
+                <Modal show={this.state.modal2}
+                onClose={this.toggleModal2}>
+                {/*Must place modal content inside its own views for styling*/}
+                <View style={{alignSelf:'center'}}>
+                  <Text style={styles.mtext}>Budget</Text>
+                </View>
+                
 
+                </Modal>
+              </View>
+          </View>
+           : null }
+                     { this.state.modal3 ? 
+          <View style={styles.modalBackground} >
+              <View style={styles.modalStyle} >
+                <Modal show={this.state.modal3}
+                onClose={this.toggleModal3}>
+                {/*Must place modal content inside its own views for styling*/}
+                <View style={{alignSelf:'center'}}>
+                  <Text style={styles.mtext}>Body</Text>
+                </View>
+                
+
+                </Modal>
+              </View>
+          </View>
+           : null }
+                     { this.state.modal4 ? 
+          <View style={styles.modalBackground} >
+              <View style={styles.modalStyle} >
+                <Modal show={this.state.modal4}
+                onClose={this.toggleModal4}>
+                {/*Must place modal content inside its own views for styling*/}
+                <View style={{alignSelf:'center'}}>
+                  <Text style={styles.mtext}>Preferences</Text>
+                </View>
+                
+
+                </Modal>
+              </View>
+          </View>
+           : null }
 
         </View>
 
@@ -278,7 +361,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     paddingTop: 20,
     position: "absolute",
-    top: '10%',
+    top: '16%',
     right: '0%',
     left: '0%',
     bottom: '0%',
