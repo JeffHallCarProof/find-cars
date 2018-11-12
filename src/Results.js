@@ -265,7 +265,7 @@ import Modal from './Modal.js';
               </View>
           </div> : null }
 
-          
+          {/*Event*/}
           { this.state.modal1 ? 
           <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
@@ -275,12 +275,13 @@ import Modal from './Modal.js';
                 <View style={{alignSelf:'center'}}>
                   <Text style={styles.mtext}>Event</Text>
                 </View>
-                
+                {/*Selection*/}
 
                 </Modal>
               </View>
           </View>
            : null }
+           {/*Budget*/}
           { this.state.modal2 ? 
           <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
@@ -290,12 +291,13 @@ import Modal from './Modal.js';
                 <View style={{alignSelf:'center'}}>
                   <Text style={styles.mtext}>Budget</Text>
                 </View>
-                
+                {/*Selection*/}
 
                 </Modal>
               </View>
           </View>
            : null }
+           {/*Body*/}
                      { this.state.modal3 ? 
           <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
@@ -305,12 +307,13 @@ import Modal from './Modal.js';
                 <View style={{alignSelf:'center'}}>
                   <Text style={styles.mtext}>Body</Text>
                 </View>
-                
+                {/*Selection*/}
 
                 </Modal>
               </View>
           </View>
            : null }
+           {/*Preferences*/}
                      { this.state.modal4 ? 
           <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
@@ -320,7 +323,7 @@ import Modal from './Modal.js';
                 <View style={{alignSelf:'center'}}>
                   <Text style={styles.mtext}>Preferences</Text>
                 </View>
-                
+                {/*Selection*/}
 
                 </Modal>
               </View>
