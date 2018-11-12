@@ -140,9 +140,16 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
 
     //////////////////////////////////////Modal start
     toggleModal1 = () => {
+      if(this.state.modal1 == true){
+        this.setState({
+           loading: true
+        });
+      }
       this.setState({
         modal1: !this.state.modal1
       });
+
+      console.log(this.state.eventId)
     }
     toggleModal2 = () => {
       this.setState({
@@ -155,6 +162,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       });
     }
     toggleModal4 = () => {
+      
       this.setState({
         modal4: !this.state.modal4
       });
@@ -479,7 +487,7 @@ const circleClick7 = (id,cl) => {
       return (
             
         <View style={styles.container}>
-        
+
         <View style={{backgroundColor: '#FFFFFF', height: 60, borderWidth:0.5,borderColor: '#D8D8D8'}}>
           <View style={{position: 'absolute', right: 15, top: 17}}>
             <Link to={`/`} style={{ textDecoration: 'none' }}>
@@ -579,7 +587,10 @@ const circleClick7 = (id,cl) => {
                 <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
               </View>
           </div> : null }
-
+          {/*Event*/}
+          {/*Event*/}
+          {/*Event*/}
+          {/*Event*/}
           {/*Event*/}
           { this.state.modal1 ? 
             <View style={styles.modalBackground} >
@@ -599,6 +610,7 @@ const circleClick7 = (id,cl) => {
                     <Text style={{ paddingVertical: 10, paddingHorizontal: 14, textAlign: "center", lineHeight: 26, fontSize: 14,fontFamily: 'Roboto',}}>
                       Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.
                     </Text>
+                    
                   </View>
 
                   <View style={styles.bcontainer}>
@@ -654,9 +666,14 @@ const circleClick7 = (id,cl) => {
                   </View>
                 </Modal>
               </View>
+              
           </View>
+          
            : null }
 
+           {/*Budget*/}
+           {/*Budget*/}
+           {/*Budget*/}
            {/*Budget*/}
           { this.state.modal2 ? 
           <View style={styles.modalBackground} >
@@ -691,6 +708,10 @@ const circleClick7 = (id,cl) => {
               </View>
           </View>
            : null }
+           
+           {/*Body*/}
+           {/*Body*/}
+           {/*Body*/}
            {/*Body*/}
            { this.state.modal3 ? 
           <View style={styles.modalBackground} >
@@ -760,6 +781,9 @@ const circleClick7 = (id,cl) => {
            : null }
 
           {/*Preferences*/}
+          {/*Preferences*/}
+          {/*Preferences*/}
+          {/*Preferences*/}
           { this.state.modal4 ? 
             <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
@@ -821,7 +845,6 @@ const circleClick7 = (id,cl) => {
       } else {
         this.setState({eventId:6})
       }
-      console.log(this.state.eventId)
     },0,{leading:false, trailing:true}); //End of button function
 
     _onPress2 =_.throttle(() =>{
@@ -846,6 +869,7 @@ const circleClick7 = (id,cl) => {
         this.setState({classId: 'Diesel'})
       }
     },0,{leading:false, trailing:true});
+
 
 } //End of class
 export default Results;
