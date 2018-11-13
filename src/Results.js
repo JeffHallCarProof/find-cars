@@ -868,14 +868,6 @@ const circleClick7 = (id,cl) => {
           {/*Preferences*/}
           { this.state.modal4 ? 
             <View style={styles.modalBackground} >
-            {()=> circleClick0(this.state.id[0],0)}
-            {()=> circleClick1(this.state.id[1],1)}
-            {()=> circleClick2(this.state.id[2],2)}
-            {()=> circleClick3(this.state.id[3],3)}
-            {()=> circleClick4(this.state.id[4],4)}
-            {()=> circleClick5(this.state.id[5],5)}
-            {()=> circleClick6(this.state.id[6],6)}
-            {()=> circleClick7(this.state.id[7],7)}
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal4}
                 onClose={this.toggleModal4}>
