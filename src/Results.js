@@ -488,15 +488,15 @@ const circleClick7 = (id,cl) => {
             
         <View style={styles.container}>
 
-        <View style={{backgroundColor: '#FFFFFF', height: 60, borderWidth:0.5,borderColor: '#D8D8D8'}}>
-          <View style={{position: 'absolute', right: 15, top: 17}}>
+        <View style={{backgroundColor: '#FFFFFF', height: 60, justifyContent: 'center', borderWidth:0.5, borderColor: '#D8D8D8'}}>
+          <View style={{position: 'absolute', right: 15}}>
             <Link to={`/`} style={{ textDecoration: 'none' }}>
               <TouchableHighlight underlayColor={'#FFFFFF'}>
                 <Image source={require('./assets/X-Close.png')} style={{width: 16, height: 17}}></Image>
               </TouchableHighlight>
             </Link>
           </View>
-          <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
 
         </View>
         <View style={{flexDirection:'row',boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>

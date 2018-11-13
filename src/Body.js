@@ -51,15 +51,15 @@ class Body extends React.Component {
 
         <View style={styles.container}>
 
-          <View style={{backgroundColor: '#FFFFFF', height: 60, boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
-            <View style={{position: 'absolute', left: 15, top: 17}}>
+          <View style={{backgroundColor: '#FFFFFF', height: 60, justifyContent: 'center', boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
+            <View style={{position: 'absolute', left: 15}}>
               <Link to={`/Budget/${this.state.eventId}`} style={{ textDecoration: 'none' }}>
                 <TouchableHighlight underlayColor={'#FFFFFF'}>
                   <Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image>
                 </TouchableHighlight>
               </Link>
             </View>
-            <View style={{position: 'absolute', left: 125, top: 17}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+            <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
           </View>
 
           <View style={{paddingTop: 30}}>
