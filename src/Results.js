@@ -125,8 +125,8 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       isHidden: true,
       min: 0,
       max: 100000,
-      lowerBoundi: 0,
-      upperBoundi: 50000,
+      lowerBoundi: this.props.match.params.lowerBound,
+      upperBoundi: this.props.match.params.upperBound,
       c1: false,
       c2: false,
       c3: false,
@@ -730,7 +730,7 @@ const circleClick7 = (id,cl) => {
                         <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - $" + this.state.upperBound}</Text>
                       </View>
                       <br /><br />
-                        <Range min={min} max={max} defaultValue={[this.state.lowerBoundi, this.state.upperBoundi]} allowCross={false} onChange={this.onSliderChange} />
+                        <Range min={min} max={max} defaultValue={[this.state.lowerBound, this.state.upperBound]} allowCross={false} onChange={this.onSliderChange} />
                     </View>
 
                     <View style={{flexDirection: "row", width: '86%', justifyContent: "space-between", paddingTop: 10}}>
