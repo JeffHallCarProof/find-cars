@@ -127,19 +127,32 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       max: 100000,
       lowerBoundi: 0,
       upperBoundi: 50000,
-      c1: true,
-     c2: false,
-     c3: false,
-     c4: false,
-     c5: false,
-     c6: false,
-     c7: false,
-     c8: false,
-     c9: false,
+      c1: false,
+      c2: false,
+      c3: false,
+      c4: false,
+      c5: false,
+      c6: false,
+      c7: false,
+      c8: false,
+      c9: false,
     }
 
     //////////////////////////////////////Modal start
     toggleModal1 = () => {
+      if(this.state.eventId == 1) {      
+        this.setState({e1: true, e2: false, e3: false, e4: false, e5: false, e6: false})        
+      } else if(this.state.eventId == 2) {       
+        this.setState({e1: false, e2: true, e3: false, e4: false, e5: false, e6: false})      
+      } else if(this.state.eventId == 3) {
+        this.setState({e1: false, e2: false, e3: true, e4: false, e5: false, e6: false})      
+      } else if(this.state.eventId == 4) {
+        this.setState({e1: false, e2: false, e3: false, e4: true, e5: false, e6: false})      
+      } else if(this.state.eventId == 5) {
+        this.setState({e1: false, e2: false, e3: false, e4: false, e5: true, e6: false})      
+      } else if(this.state.eventId == 6){
+        this.setState({e1: false, e2: false, e3: false, e4: false, e5: false, e6: true})      
+      }
       if(this.state.modal1 == true){
         this.setState({
            loading: true
