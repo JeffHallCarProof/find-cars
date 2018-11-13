@@ -240,8 +240,6 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         console.log(this.state.responseJson[2])
         console.log(this.state.responseJson[3])
         console.log(this.state.responseJson[4])
-        console.log(this.state.responseJson[0].Ratings[0])
-
         
       }catch(err){
         return console.error(err);
@@ -250,6 +248,34 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     };
     //go back function
     _go =_.throttle(() =>{ 
+      let click = this.state.clicks.slice();
+      click[0] = parseInt(this.state.numArray[0])
+      click[1] = parseInt(this.state.numArray[1])
+      click[2] = parseInt(this.state.numArray[2])
+      click[3] = parseInt(this.state.numArray[3])
+      click[4] = parseInt(this.state.numArray[4])
+      click[5] = parseInt(this.state.numArray[5])
+      click[6] = parseInt(this.state.numArray[6])
+      click[7] = parseInt(this.state.numArray[7])
+      let i0 = this.state.pColor.slice();
+      let ip = this.state.iP.slice();
+      console.log('clicks')
+      console.log(click)
+     
+      this.setState({clicks: click,pColor: i0, iP: ip });
+      this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
+    for (let index = 0; index < click.length; index++) {
+      if(this.state.clicks[index] === 1){
+        TweenLite.to("#"+this.state.id[index],0,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        console.log("#"+this.state.id[index])
+      }else if (this.state.clicks[index] ===2){
+        TweenLite.to("#"+this.state.id[index],0,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+      }else{
+        TweenLite.to("#"+this.state.id[index],0,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+      }
+      
+    }
+
       if(this.state.classId === 'Sedan'){
         this.setState({c1: true})
       } else if(this.state.classId === 'SUV') {
