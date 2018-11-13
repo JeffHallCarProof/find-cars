@@ -183,6 +183,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       });
     }
     toggleModal4 = () => {
+      
       if(this.state.modal4 == true){
         this.setState({
            loading: true
@@ -191,6 +192,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({
         modal4: !this.state.modal4
       });
+
     }
     //////////////////////////////////////Modal end
 
@@ -265,15 +267,15 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({clicks: click,pColor: i0, iP: ip });
       this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
     for (let index = 0; index < click.length; index++) {
-      if(this.state.clicks[index] === 1){
-        TweenLite.to("#"+this.state.id[index],0,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
-        console.log("#"+this.state.id[index])
-      }else if (this.state.clicks[index] ===2){
-        TweenLite.to("#"+this.state.id[index],0,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+      if(this.state.clicks[index] == 1){
+        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        
+      }else if (this.state.clicks[index] ==2){
+        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
       }else{
-        TweenLite.to("#"+this.state.id[index],0,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1, scaleY:1})
       }
-      
+      console.log("#"+this.state.id[index])
     }
 
       if(this.state.classId === 'Sedan'){
@@ -866,6 +868,14 @@ const circleClick7 = (id,cl) => {
           {/*Preferences*/}
           { this.state.modal4 ? 
             <View style={styles.modalBackground} >
+            {()=> circleClick0(this.state.id[0],0)}
+            {()=> circleClick1(this.state.id[1],1)}
+            {()=> circleClick2(this.state.id[2],2)}
+            {()=> circleClick3(this.state.id[3],3)}
+            {()=> circleClick4(this.state.id[4],4)}
+            {()=> circleClick5(this.state.id[5],5)}
+            {()=> circleClick6(this.state.id[6],6)}
+            {()=> circleClick7(this.state.id[7],7)}
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal4}
                 onClose={this.toggleModal4}>
