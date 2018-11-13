@@ -134,6 +134,8 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       c7: false,
       c8: false,
       c9: false,
+
+      
     }
 
     //////////////////////////////////////Modal start
@@ -188,11 +190,12 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         this.setState({
            loading: true
         });
+        this.circleSize();
       }
       this.setState({
         modal4: !this.state.modal4
       });
-
+      
     }
     //////////////////////////////////////Modal end
 
@@ -259,25 +262,30 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       click[5] = parseInt(this.state.numArray[5])
       click[6] = parseInt(this.state.numArray[6])
       click[7] = parseInt(this.state.numArray[7])
-      let i0 = this.state.pColor.slice();
       let ip = this.state.iP.slice();
-      console.log('clicks')
-      console.log(click)
-     
-      this.setState({clicks: click,pColor: i0, iP: ip });
+      
+      this.setState({clicks: click})
       this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
-    for (let index = 0; index < click.length; index++) {
-      if(this.state.clicks[index] == 1){
-        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
-        
-      }else if (this.state.clicks[index] ==2){
-        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
-      }else{
+      
+      console.log(this.state.iP)
+      for (let index = 0; index < this.state.clicks.length; index++) {
+      if(this.state.numArray[index] == 1){
+        ip[index]=0
         TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        console.log('this is the middle tween')
+      }else if (this.state.numArray[index] == 2){
+        ip[index]=1
+        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        console.log('this is the biggest tween')
+      }else{
+        ip[index]=2
+        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        console.log('this is the smallest tween')
       }
+      console.log("color spots"+ip)
       console.log("#"+this.state.id[index])
     }
-
+      this.setState({iP: ip})
       if(this.state.classId === 'Sedan'){
         this.setState({c1: true})
       } else if(this.state.classId === 'SUV') {
@@ -324,13 +332,33 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({first: false})
       }
     }
-
+    circleSize = () => {
+      let ip = this.state.iP.slice();
+      for (let index = 0; index < this.state.clicks.length; index++) {
+        if(this.state.numArray[index] == 1){
+          ip[index]=1
+          TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+          console.log('this is the middle tween')
+        }else if (this.state.numArray[index] == 2){
+          ip[index]=2
+          TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+          console.log('this is the biggest tween')
+        }else{
+          ip[index]=0
+          TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+          console.log('this is the smallest tween')
+        }
+        
+        console.log("#"+this.state.id[index])
+      }
+          }
     render() {
       var min = this.state.min
       var max = this.state.max
       let click = this.state.clicks.slice();
 let i0 = this.state.pColor.slice();
 let ip = this.state.iP.slice();
+
 
 //Comfort Al1
 const circleClick0 = (id,cl) => {
@@ -611,7 +639,7 @@ const circleClick7 = (id,cl) => {
               onClick={this.toggleModal4}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}>Preferences</Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}>{this.state.numArray}</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}>{this.state.clicks}</Text>
           </View>
         </View>
         <View style={styles.containerAll}>
@@ -868,8 +896,9 @@ const circleClick7 = (id,cl) => {
           {/*Preferences*/}
           { this.state.modal4 ? 
             <View style={styles.modalBackground} >
-              <View style={styles.modalStyle} >
+              <View style={styles.modalStyle}   >
                 <Modal show={this.state.modal4}
+                
                 onClose={this.toggleModal4}>
                 {/*Must place modal content inside its own views for styling*/}
                 <View style={{alignSelf:'center'}}>
@@ -878,7 +907,7 @@ const circleClick7 = (id,cl) => {
                 </View>
                 {/*Selection*/}
                 <div className='Rbubbles' >
-                  <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo0" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'10%'}  width={'21%'}/>
