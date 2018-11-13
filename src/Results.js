@@ -125,8 +125,6 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       isHidden: true,
       min: 0,
       max: 100000,
-      lowerBoundi: this.props.match.params.lowerBound,
-      upperBoundi: this.props.match.params.upperBound,
       c1: false,
       c2: false,
       c3: false,
@@ -252,6 +250,25 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     };
     //go back function
     _go =_.throttle(() =>{ 
+      if(this.state.classId === 'Sedan'){
+        this.setState({c1: true})
+      } else if(this.state.classId === 'SUV') {
+        this.setState({c2: true})
+      } else if(this.state.classId === 'Cab') {
+        this.setState({c3: true})
+      } else if(this.state.classId === 'Hatchback') {
+        this.setState({c4: true})
+      } else if(this.state.classId ===  'Coupe') {
+        this.setState({c5: true})
+      } else if(this.state.classId === 'Convertible') {
+        this.setState({c6: true})
+      } else if(this.state.classId === 'Wagon') {
+        this.setState({c7: true})
+      } else if(this.state.classId === 'Minivan') {
+        this.setState({c8: true})
+      } else if(this.state.classId === 'Diesel') {
+        this.setState({c9: true})
+      }
       this.getHelloW()
     },8000,{leading:true, trailing:false});
 
@@ -513,9 +530,10 @@ const circleClick7 = (id,cl) => {
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
   this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
-}
+} 
 
       if(this.state.loading === true){
+        
         this._go()
       }if(this.state.loading === false){
         var i = this.state.count
@@ -749,6 +767,7 @@ const circleClick7 = (id,cl) => {
            {/*Body*/}
            {/*Body*/}
            { this.state.modal3 ? 
+          
           <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal3}
