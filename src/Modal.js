@@ -46,14 +46,14 @@ class Modal extends React.Component {
         <div className="modal" style={{modalStyle}}>
           {this.props.children}
 
-          <View style={{position: 'absolute',bottom:'1%',left:'70%'}}>
+          <View style={{alignItems:'center', position: "absolute", bottom: 20,left: '2.5%', right: '2.5%', width: '95%'}}>
 
             <TouchableHighlight
                     underlayColor={'#0018A8'}
-                    style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#1294EF',borderRadius: 4,width: 94,height: 43,}}
+                    style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#1294EF',borderRadius: 4,width: 300,height: 43,}}
                     onPress={this.props.onClose}
                 >
-                    <Text style={{color:'#FFFFFF', fontSize:16,fontWeight:'bold',lineHeight: 19}}> Close </Text>
+                    <Text style={{color:'#FFFFFF', fontSize:16,fontWeight:'bold',lineHeight: 19}}> DONE </Text>
                 </TouchableHighlight>
           </View>
         </div>
