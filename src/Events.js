@@ -13,13 +13,13 @@ import { Link } from 'react-router-dom';
 class Events extends React.Component {
 
     state = {
-      e1: false,
+      e1: true,
       e2: false,
       e3: false,
       e4: false,
       e5: false,
       e6: false,
-      eventId: 6,
+      eventId: 1,
     };
 
     render() {
@@ -39,7 +39,7 @@ class Events extends React.Component {
               <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
             </View>
           
-            <View style={{ alignItems: 'center', justifyContent: 'center', paddingTop: 60}}>
+            <View style={{ alignItems: 'center', justifyContent: 'center', paddingTop: 40}}>
               <Text style={{ paddingTop: 10, paddingHorizontal: 30, fontWeight: '300', fontSize: 24, textAlign: 'center', lineHeight: 28,	fontFamily: 'Roboto',}}>
                 Reason for buying a new car
               </Text>
@@ -113,7 +113,6 @@ class Events extends React.Component {
                 <TouchableHighlight
                   underlayColor={'#0018A8'}
                   style={styles.button2}
-                  onPress={_.debounce(() => {})}
                 >
                   <Text style={styles.btext3}> NEXT </Text>
                 </TouchableHighlight>
@@ -206,7 +205,7 @@ class Events extends React.Component {
     
     button2container: {
       position: "absolute",
-      bottom: 10,
+      bottom: 20,
       right: 10
     },
     
@@ -232,7 +231,7 @@ class Events extends React.Component {
       flexDirection: 'row',
       justifyContent: 'center',
       position: 'relative',
-      bottom: -70
+      bottom: -90
     },
 
     navCircles: {

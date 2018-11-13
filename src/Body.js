@@ -124,13 +124,12 @@ class Body extends React.Component {
 
           <View style={styles.button2container}>
             <Link to={`/Preferences/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}/${this.state.classId}`} style={{ textDecoration: 'none' }}>
-                <TouchableHighlight
+              <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button2}
-                onPress={_.debounce(() => {})}
-                >
-                    <Text style={styles.btext3}> NEXT </Text>
-                </TouchableHighlight>
+              >
+                <Text style={styles.btext3}> NEXT </Text>
+              </TouchableHighlight>
             </Link>
           </View>
 
@@ -250,7 +249,7 @@ class Body extends React.Component {
     
     button2container: {
       position: "absolute",
-      bottom: 10,
+      bottom: 20,
       right: 10
     },
 

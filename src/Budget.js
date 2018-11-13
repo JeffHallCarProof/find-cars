@@ -130,7 +130,7 @@ import 'rc-slider/assets/index.css';
 
     buttonContainer: {
       position: "absolute",
-      bottom: 10,
+      bottom: 20,
       right: 10
     },
 

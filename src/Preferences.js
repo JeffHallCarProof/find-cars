@@ -333,15 +333,14 @@ state = {
 
         <View style={styles.buttonContainer}>
           
-        <Link to={`/Results/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}/${this.state.classId}/${numArray}`} style={{ textDecoration: 'none' }}>
-                <TouchableHighlight
-                    underlayColor={'#0018A8'}
-                    style={styles.button}
-                    onPress={_.debounce(() => {})}
-                >
-                    <Text style={styles.btext}> FIND MY CAR </Text>
-                </TouchableHighlight>
-            </Link>
+          <Link to={`/Results/${this.state.eventId}/${this.state.lowerBound}/${this.state.upperBound}/${this.state.classId}/${numArray}`} style={{ textDecoration: 'none' }}>
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+            >
+              <Text style={styles.btext}> FIND MY CAR </Text>
+            </TouchableHighlight>
+          </Link>
           
         </View>
 
@@ -398,7 +397,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: "absolute",
-    bottom: 10,
+    bottom: 20,
     right: '2.5%',
     left: '2.5%',
     width: '95%'
