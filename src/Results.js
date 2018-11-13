@@ -152,17 +152,31 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       console.log(this.state.eventId)
     }
     toggleModal2 = () => {
+      if(this.state.modal2 == true){
+        this.setState({
+           loading: true
+        });
+      }
       this.setState({
         modal2: !this.state.modal2
       });
     }
     toggleModal3 = () => {
+      if(this.state.modal3 == true){
+        this.setState({
+           loading: true
+        });
+      }
       this.setState({
         modal3: !this.state.modal3
       });
     }
     toggleModal4 = () => {
-      
+      if(this.state.modal4 == true){
+        this.setState({
+           loading: true
+        });
+      }
       this.setState({
         modal4: !this.state.modal4
       });
@@ -259,7 +273,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       let click = this.state.clicks.slice();
 let i0 = this.state.pColor.slice();
 let ip = this.state.iP.slice();
-var numArray = this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString();
+
 //Comfort Al1
 const circleClick0 = (id,cl) => {
   if(this.state.clicks[cl]===1)
@@ -287,6 +301,7 @@ const circleClick0 = (id,cl) => {
     ip[cl]=0
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
+  this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 }
 //InteriorDesign Al2
 const circleClick1 = (id,cl) => {;
@@ -315,6 +330,7 @@ const circleClick1 = (id,cl) => {;
     ip[cl]=0
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
+  this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 }
 //ExteriorDesign Al3
 const circleClick2 = (id,cl) => {
@@ -343,6 +359,7 @@ const circleClick2 = (id,cl) => {
     ip[cl]=0
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
+  this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 } 
 //BuildQuality Al4
 //All animation must respect this set of animations
@@ -366,6 +383,7 @@ const circleClick3 = (id,cl) => {
     ip[cl]=0
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
+  this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 } 
 //Performance Al5    
 const circleClick4 = (id,cl) => {
@@ -394,6 +412,7 @@ const circleClick4 = (id,cl) => {
     ip[cl]=0
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
+  this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 } 
 //FunToDrive Al6
 const circleClick5 = (id,cl) => {
@@ -422,6 +441,7 @@ const circleClick5 = (id,cl) => {
     ip[cl]=0
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
+  this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 } 
 //FuelEconomy Al7
 const circleClick6 = (id,cl) => {
@@ -450,6 +470,7 @@ const circleClick6 = (id,cl) => {
     ip[cl]=0
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
+  this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 }
 //Reliability Al8
 const circleClick7 = (id,cl) => {
@@ -478,6 +499,7 @@ const circleClick7 = (id,cl) => {
     ip[cl]=0
   }
   this.setState({clicks: click,pColor: i0, iP: ip });
+  this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 }
 
       if(this.state.loading === true){
