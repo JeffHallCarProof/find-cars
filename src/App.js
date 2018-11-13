@@ -6,7 +6,6 @@ import {
     TouchableHighlight,
     View,
   } from 'react-native';
-import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 class App extends Component {
@@ -34,7 +33,6 @@ class App extends Component {
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress()},400)}
             >
               <Text style={styles.btext}> GET STARTED </Text>
             </TouchableHighlight>
@@ -45,11 +43,6 @@ class App extends Component {
 
       ); //End of return
     } //End of render
-
-    _onPress =_.throttle(() =>{
-
-    },1000,{leading:true, trailing:false}); //End of button function
-
   } //End of class
 
   const styles = StyleSheet.create({
@@ -93,8 +86,7 @@ class App extends Component {
     buttonContainer: {
       alignItems: 'center',
       position: "relative",
-      bottom: 20,
-      paddingTop: 40,
+      bottom: 35
     },
 
     button: {
