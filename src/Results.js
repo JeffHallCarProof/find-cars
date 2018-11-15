@@ -990,7 +990,6 @@ const circleClick7 = (id,cl) => {
            {/*Budget*/}
            {/*Budget*/}
            {/*Budget*/}
-           {/*Budget*/}
           { this.state.modal2 ? 
           <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
