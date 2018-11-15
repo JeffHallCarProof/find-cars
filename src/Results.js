@@ -134,7 +134,10 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       c7: false,
       c8: false,
       c9: false,
-
+    pref: false,
+    pFirstClick: true,
+    rFirstClick: true,
+    newNumArray: '',
       
     }
 
@@ -188,13 +191,13 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       
       if(this.state.modal4 == true){
         this.setState({
-           loading: true
+           loading: true, pref: false
         });
-        this.circleSize();
       }
       this.setState({
-        modal4: !this.state.modal4
+        modal4: !this.state.modal4, pref: !this.state.pref
       });
+ 
       
     }
     //////////////////////////////////////Modal end
@@ -203,9 +206,77 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     async getHelloW() {
       // sample Url    https://productlab.carfax.ca/findmycar/multi/eventid/class/MAX/MIN/PREFERENCES/cargospace
       this.setState({loading: true});
-      const url = "https://productlab.carfax.ca/findmycar/multi/"+this.state.eventId+"/"+this.state.classId+"/"+this.state.upperBound+"/"+this.state.lowerBound+"/"+this.state.numArray+"/"+0;
+      console.log(this.state.numArray +' '+ this.state.clicks)
+      let newNumArray = this.state.numArray[0].toString()+this.state.numArray[1].toString()+this.state.numArray[2].toString()+this.state.numArray[3].toString()+this.state.numArray[4].toString()+this.state.numArray[5].toString()+this.state.numArray[6].toString()+this.state.numArray[7].toString();
+      if(this.state.rFirstClick == true){
+        let click = this.state.clicks.slice();
+        click[0] = parseInt(this.state.numArray[0],10)
+        click[1] = parseInt(this.state.numArray[1],10)
+        click[2] = parseInt(this.state.numArray[2],10)
+        click[3] = parseInt(this.state.numArray[3],10)
+        click[4] = parseInt(this.state.numArray[4],10)
+        click[5] = parseInt(this.state.numArray[5],10)
+        click[6] = parseInt(this.state.numArray[6],10)
+        click[7] = parseInt(this.state.numArray[7],10)
+        this.setState({clicks: click})
+
+        this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
+        console.log('numarray')
+        console.log(this.state.numArray)
+        console.log(newNumArray)
+        console.log(      
+          click[0],'1 ',
+          click[1],'2 ',
+          click[2],'3 ',
+          click[3],'4 ',
+          click[4],'5 ',
+          click[5],'6 ',
+          click[6],'7 ',
+          click[7],'8 ',)
+        this.setState({rFirstClick: false})
+        }else{
+      let click = this.state.clicks.slice();
+      click[0] = parseInt(this.state.clicks[0],10)
+      click[1] = parseInt(this.state.clicks[1],10)
+      click[2] = parseInt(this.state.clicks[2],10)
+      click[3] = parseInt(this.state.clicks[3],10)
+      click[4] = parseInt(this.state.clicks[4],10)
+      click[5] = parseInt(this.state.clicks[5],10)
+      click[6] = parseInt(this.state.clicks[6],10)
+      click[7] = parseInt(this.state.clicks[7],10)
+      console.log(      
+      click[0],'1 ',
+      click[1],'2 ',
+      click[2],'3 ',
+      click[3],'4 ',
+      click[4],'5 ',
+      click[5],'6 ',
+      click[6],'7 ',
+      click[7],'8 ',)
+      console.log(click)
+      console.log('numarray')
+      console.log(this.state.numArray)
+      console.log('numarray set')
+      this.setState({clicks: click,});
+      newNumArray = this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()
+      console.log(click)
+      console.log('numarray')
+      console.log(this.state.numArray)
       
-      
+     }
+     let newArray = newNumArray;
+     let ip = this.state.iP.slice();
+     for (let index = 0; index < 8; index++) {
+     if(newArray[index] == 1){
+       ip[index]=0
+     }else if (newArray[index] == 2){
+       ip[index]=1
+     }else{
+       ip[index]=2
+     }
+   }
+   this.setState(this.state.iP= ip)
+     const url = "https://productlab.carfax.ca/findmycar/multi/"+this.state.eventId+"/"+this.state.classId+"/"+this.state.upperBound+"/"+this.state.lowerBound+"/"+newArray+"/"+0;
       try{
       const res = await fetch(url,console.log(url),{
         method:'GET',
@@ -239,53 +310,27 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         })
         const rJson = await res.json();
         const ETC1 = await this.setState({responseJson: rJson});
-        const ETC2 = await this.setState({loading: false});
-        console.log(this.state.responseJson[0])
-        console.log(this.state.responseJson[1])
-        console.log(this.state.responseJson[2])
-        console.log(this.state.responseJson[3])
-        console.log(this.state.responseJson[4])
+        const ETC2 = await this.setState({loading: false,pFirstClick: true});
         
       }catch(err){
         return console.error(err);
       }
-    
+      console.log("color spots"+this.state.iP)
+      console.log("color spots"+this.state.iP)
+      console.log("color spots"+this.state.iP)
+      console.log("color spots"+this.state.iP)
     };
     //go back function
     _go =_.throttle(() =>{ 
-      let click = this.state.clicks.slice();
-      click[0] = parseInt(this.state.numArray[0])
-      click[1] = parseInt(this.state.numArray[1])
-      click[2] = parseInt(this.state.numArray[2])
-      click[3] = parseInt(this.state.numArray[3])
-      click[4] = parseInt(this.state.numArray[4])
-      click[5] = parseInt(this.state.numArray[5])
-      click[6] = parseInt(this.state.numArray[6])
-      click[7] = parseInt(this.state.numArray[7])
-      let ip = this.state.iP.slice();
+
+
+
       
-      this.setState({clicks: click})
+
       this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
       
-      console.log(this.state.iP)
-      for (let index = 0; index < this.state.clicks.length; index++) {
-      if(this.state.numArray[index] == 1){
-        ip[index]=0
-        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-        console.log('this is the middle tween')
-      }else if (this.state.numArray[index] == 2){
-        ip[index]=1
-        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
-        console.log('this is the biggest tween')
-      }else{
-        ip[index]=2
-        TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
-        console.log('this is the smallest tween')
-      }
-      console.log("color spots"+ip)
-      console.log("#"+this.state.id[index])
-    }
-      this.setState({iP: ip})
+
+      
       if(this.state.classId === 'Sedan'){
         this.setState({c1: true})
       } else if(this.state.classId === 'SUV') {
@@ -306,6 +351,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         this.setState({c9: true})
       }
       this.getHelloW()
+      
     },8000,{leading:true, trailing:false});
 
     _countP = () =>{
@@ -334,24 +380,27 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     }
     circleSize = () => {
       let ip = this.state.iP.slice();
-      for (let index = 0; index < this.state.clicks.length; index++) {
-        if(this.state.numArray[index] == 1){
-          ip[index]=1
-          TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
-          console.log('this is the middle tween')
-        }else if (this.state.numArray[index] == 2){
-          ip[index]=2
-          TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
-          console.log('this is the biggest tween')
-        }else{
-          ip[index]=0
-          TweenLite.to("#"+this.state.id[index],0.5,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-          console.log('this is the smallest tween')
-        }
+      console.log(this.state.clicks)
+      for (let index = 0; index < 7; index++) {
+
         
-        console.log("#"+this.state.id[index])
+        if(this.state.clicks[index] == 1){
+          ip[index]=0
+          TweenLite.to("#"+this.state.id[index],1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+        }else if (this.state.clicks[index] == 2){
+          ip[index]=1
+          TweenLite.to("#"+this.state.id[index],1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+        }else if(this.state.clicks[index] == 3){
+          ip[index]=2
+          TweenLite.to("#"+this.state.id[index],1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+        }else{
+          console.log('error')
+        }
+
       }
-          }
+      console.log("color spots"+ip)
+    }
+
     render() {
       var min = this.state.min
       var max = this.state.max
@@ -560,30 +609,61 @@ const circleClick6 = (id,cl) => {
 }
 //Reliability Al8
 const circleClick7 = (id,cl) => {
-  if(this.state.clicks[cl]===1)
-  {
-    TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
-    TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-10, y:-10})
-    TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:10, y:-10})
-    click[cl]=2
-    ip[cl]=1
+  if(this.state.pFirstClick == true){
+    if(this.state.clicks[cl]===1)
+    {
+      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:0, y:0})
+      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:0 ,y:0})
+      click[cl]=1
+      ip[cl]=0
+    }
+    else if(this.state.clicks[cl]===2)
+    {
+      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-10, y:-10})
+      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:10, y:-10})
+      click[cl]=2
+      ip[cl]=1
+    }
+    else
+    {
+      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15, y:-15})
+      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:15, y:-15})
+      click[cl]=3
+      ip[cl]=2
+    }
+    this.setState({pFirstClick: false})
+  }else if(this.state.pFirstClick == false){
+    if(this.state.clicks[cl]===1)
+    {
+      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
+      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-10, y:-10})
+      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:10, y:-10})
+      click[cl]=2
+      ip[cl]=1
+    }
+    else if(this.state.clicks[cl]===2)
+    {
+      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
+      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15, y:-15})
+      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:15, y:-15})
+      click[cl]=3
+      ip[cl]=2
+    }
+    else
+    {
+      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
+      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:0, y:0})
+      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:0 ,y:0})
+      click[cl]=1
+      ip[cl]=0
+    }
   }
-  else if(this.state.clicks[cl]===2)
-  {
-    TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
-    TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15, y:-15})
-    TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:15, y:-15})
-    click[cl]=3
-    ip[cl]=2
-  }
-  else
-  {
-    TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-    TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:0, y:0})
-    TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:0 ,y:0})
-    click[cl]=1
-    ip[cl]=0
-  }
+  
+
+  
   this.setState({clicks: click,pColor: i0, iP: ip });
   this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 } 
@@ -896,9 +976,9 @@ const circleClick7 = (id,cl) => {
           {/*Preferences*/}
           { this.state.modal4 ? 
             <View style={styles.modalBackground} >
+            
               <View style={styles.modalStyle}   >
                 <Modal show={this.state.modal4}
-                
                 onClose={this.toggleModal4}>
                 {/*Must place modal content inside its own views for styling*/}
                 <View style={{alignSelf:'center'}}>
@@ -906,21 +986,24 @@ const circleClick7 = (id,cl) => {
                   <Text style={styles.mtext}>Need to fix animation</Text>
                 </View>
                 {/*Selection*/}
-                <div className='Rbubbles' >
-                  <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}onClick={() => circleClick0(this.state.id[0],0)} className="App-logo0" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
-                  <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
-                  <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
-                  <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'10%'}  width={'21%'}/>
-                  <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
-                  <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
+                <div className='Rbubbles'  >
+                  <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}  onClick={() => circleClick0(this.state.id[0],0)} className="App-logo0" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}  onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}  onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]} onClick={() => circleClick3(this.state.id[3],3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}  onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}  onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
-                  <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}ref={this.simulateClick} onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
+                
                 </div>
                 </Modal>
               </View>
           </View>
            : null }
-
+               { this.state.pref ? 
+               this.circleSize()
+                : null }
         </View>
 
         ); //End of return
@@ -981,6 +1064,13 @@ const circleClick7 = (id,cl) => {
       }
     },0,{leading:false, trailing:true});
 
+    simulateClick = (e) =>{
+      if(this.state.pFirstClick == true){
+         e.click()
+      }
+     
+
+    }
 
 } //End of class
 export default Results;

@@ -52,6 +52,7 @@ class Modal extends React.Component {
                     underlayColor={'#0018A8'}
                     style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#1294EF',borderRadius: 4,width: 300,height: 43,}}
                     onPress={this.props.onClose}
+                    
                 >
                     <Text style={{color:'#FFFFFF', fontSize:16,fontWeight:'bold',lineHeight: 19}}> DONE </Text>
                 </TouchableHighlight>
@@ -65,7 +66,8 @@ class Modal extends React.Component {
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  
 };
 
 export default Modal;
