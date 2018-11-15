@@ -171,6 +171,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({
         modal1: !this.state.modal1
       });
+      this.state.pref = !this.state.pref
 
       console.log(this.state.eventId)
     }
@@ -183,6 +184,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({
         modal2: !this.state.modal2
       });
+      this.state.pref = !this.state.pref
     }
     toggleModal3 = () => {
       if(this.state.modal3 == true){
@@ -193,18 +195,26 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({
         modal3: !this.state.modal3
       });
+      this.state.pref = !this.state.pref
     }
+
     toggleModal4 = () => {
-      
+      console.log(this.state.modal4,' ', this.state.pref)
       if(this.state.modal4 == true){
-        this.setState({
-           loading: true, pref: false
-        });
+        this.state.loading= true
+        console.log('loading true')
+        console.log(this.state.loading)
       }
-      this.setState({
-        modal4: !this.state.modal4, pref: !this.state.pref
-      });
- 
+      if(this.state.loading === true){
+        
+        this._go()
+      }
+      console.log('loading set')
+      console.log(this.state.loading)
+      console.log(this.state.pref)
+      this.setState({modal4: !this.state.modal4});
+      this.state.pref = !this.state.pref
+ console.log(this.state.modal4,' ', this.state.pref)
       
     }
     //////////////////////////////////////Modal end
@@ -705,6 +715,7 @@ const circleClick7 = (id,cl) => {
         this._go()
       }if(this.state.loading === false){
         var i = this.state.count
+        this.colorChange()
       return (
             
         <View style={styles.container}>
@@ -759,7 +770,7 @@ const circleClick7 = (id,cl) => {
 
         <View style={{ flexDirection: 'row', height: '50%', width: '100%', paddingHorizontal: 5,justifyContent: "space-between"}}>
 
-          <img src={this.state.prev} alt={'didnt load'}ref={this.simulateClick} onClick={() => this._countP()} />
+          <img src={this.state.prev} alt={'didnt load'} onClick={() => this._countP()} />
 
           <View style={{  height: '100%', width: '75%',justifyContent: "center",borderWidth: 1,borderColor: '#BFBFBF',}}>
 
