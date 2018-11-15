@@ -90,6 +90,13 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
      c7:[logo7_1,logo7_2,logo7_3],
      c8:[logo8_1,logo8_2,logo8_3],
    }
+   colors = {
+    c1:'#B3B3B3',
+    c2:'#B3B3B3',
+    c3:'#B3B3B3',
+    c4:'#B3B3B3',
+    c5:'#B3B3B3',
+  }
 
     state = {
       eventId: this.props.match.params.eventId,
@@ -138,7 +145,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     pFirstClick: true,
     rFirstClick: true,
     newNumArray: '',
-      
+    ci: [false,false,false,false,false,false,false,false]
     }
 
     //////////////////////////////////////Modal start
@@ -311,7 +318,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         const rJson = await res.json();
         const ETC1 = await this.setState({responseJson: rJson});
         const ETC2 = await this.setState({loading: false,pFirstClick: true});
-        
+        this.colorChange();
       }catch(err){
         return console.error(err);
       }
@@ -319,6 +326,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       console.log("color spots"+this.state.iP)
       console.log("color spots"+this.state.iP)
       console.log("color spots"+this.state.iP)
+      
     };
     //go back function
     _go =_.throttle(() =>{ 
@@ -365,6 +373,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({count: this.state.count-1, prev: prevBtn, next: nextBtn})
       this.setState({first: false})
       }
+      this.colorChange();
     }
     _countN = () =>{
       if(this.state.count ===4){
@@ -377,11 +386,12 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({count: this.state.count+1, prev: prevBtn, next: nextBtn})
       this.setState({first: false})
       }
+      this.colorChange();
     }
     circleSize = () => {
       let ip = this.state.iP.slice();
       console.log(this.state.clicks)
-      for (let index = 0; index < 7; index++) {
+      for (let index = 0; index < 8; index++) {
 
         
         if(this.state.clicks[index] == 1){
@@ -400,7 +410,29 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       }
       console.log("color spots"+ip)
     }
-
+    colorChange = () =>{
+      let tempColor = this.state.ci.slice();
+      for (let i = 0; i < 5; i++) {
+        for (let ii = 0; ii < 8; ii++) {
+          if(this.state.responseJson[i].Ratings_Pref[ii] == 3){
+            tempColor[ii]=true
+          }else if(this.state.responseJson[i].Ratings_Pref[ii] == 2){
+            tempColor[ii]=true
+          }else{
+            tempColor[ii]=false
+          }
+        this.state.ci[ii]=tempColor[ii]
+        }
+        console.log('tempColor'+tempColor)
+        
+    
+        console.log(this.state.ci)
+        console.log(this.state.ci)
+        console.log(this.state.ci)
+        console.log(this.state.ci)
+        console.log(this.state.ci)
+      } 
+    }
     render() {
       var min = this.state.min
       var max = this.state.max
@@ -677,7 +709,7 @@ const circleClick7 = (id,cl) => {
             
         <View style={styles.container}>
 
-        <View style={{backgroundColor: '#FFFFFF', height: 60, justifyContent: 'center', borderWidth:0.5, borderColor: '#D8D8D8'}}>
+        <View style={{backgroundColor: '#FFFFFF', height: 60, justifyContent: 'center', borderColor: '#D8D8D8'}}>
           <View style={{position: 'absolute', right: 15}}>
             <Link to={`/`} style={{ textDecoration: 'none' }}>
               <TouchableHighlight underlayColor={'#FFFFFF'}>
@@ -691,35 +723,35 @@ const circleClick7 = (id,cl) => {
         <View style={{flexDirection:'row',boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
           <View
               underlayColor={'#FAFAFA'}
-              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 40,borderWidth:0.5,borderColor: '#D8D8D8'}}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 50,borderWidth:0.5,borderColor: '#D8D8D8'}}
               onClick={this.toggleModal1}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Events</Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}> {'crash'}</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}> {'crash'}</Text>
           </View>
           <View
               underlayColor={'#FAFAFA'}
-              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 40,borderWidth:0.5,borderColor: '#D8D8D8'}}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 50,borderWidth:0.5,borderColor: '#D8D8D8'}}
               onClick={this.toggleModal2}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Budget </Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.lowerBound}-{this.state.upperBound}</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.lowerBound}-{this.state.upperBound}</Text>
           </View>
           <View
               underlayColor={'#FAFAFA'}
-              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 40,borderWidth:0.5,borderColor: '#D8D8D8'}}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 50,borderWidth:0.5,borderColor: '#D8D8D8'}}
               onClick={this.toggleModal3}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Body </Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.classId}</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.classId}</Text>
           </View>
           <View
               underlayColor={'#FAFAFA'}
-              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 40,borderWidth:0.5,borderColor: '#D8D8D8'}}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#FFFFFF',width: "25%",height: 50,borderWidth:0.5,borderColor: '#D8D8D8'}}
               onClick={this.toggleModal4}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}>Preferences</Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 12,textAlign: 'center',fontFamily: 'Roboto'}}>{this.state.clicks}</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}>{this.state.clicks}</Text>
           </View>
         </View>
         <View style={styles.containerAll}>
@@ -727,46 +759,141 @@ const circleClick7 = (id,cl) => {
 
         <View style={{ flexDirection: 'row', height: '50%', width: '100%', paddingHorizontal: 5,justifyContent: "space-between"}}>
 
-          <img src={this.state.prev} alt={'didnt load'} onClick={() => this._countP()} />
+          <img src={this.state.prev} alt={'didnt load'}ref={this.simulateClick} onClick={() => this._countP()} />
 
-          <View style={{  height: '100%', width: '75%',justifyContent: "center",borderWidth: 1,borderTopWidth: 3, borderTopColor: '#1294EF',borderColor: '#BFBFBF',}}>
+          <View style={{  height: '100%', width: '75%',justifyContent: "center",borderWidth: 1,borderColor: '#BFBFBF',}}>
 
-            <Image source={ this.state.responseJson[i].URL} style={{height: '75%',width: '100%',paddingBottom: 5 }}/>
+            <Image source={ this.state.responseJson[i].URL} style={{height: '60%',width: '100%',paddingBottom: 5 }}/>
            
-            <Text style={{fontSize: 16, lineHeight: 19, textAlign: 'center',height: '10%',width: '100%',fontFamily: 'Roboto',fontWeight: 'bold' }}>{this.state.responseJson[i].Make} {this.state.responseJson[i].Model} {this.state.responseJson[i].Body_Type}</Text>
-            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center',height: '7.5%',width: '100%',fontFamily: 'Roboto',color: '#1294EF'}}>Budget: {this.state.responseJson[i].Budget}</Text>
-            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center',height: '7.5%',width: '100%',fontFamily: 'Roboto',}}>Rating out of 5</Text>
+            <Text style={{fontSize: 16, lineHeight: 36, textAlign: 'center',height: '17%',width: '100%',fontFamily: 'Roboto',fontWeight: 'bold' }}>{this.state.responseJson[i].Make} {this.state.responseJson[i].Model} {this.state.responseJson[i].Body_Type}</Text>
+            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center',height: '11%',width: '100%',fontFamily: 'Roboto',color: '#1294EF'}}>Budget: {this.state.responseJson[i].Budget}</Text>
+            <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center',height: '12%',width: '100%',fontFamily: 'Roboto',}}>Rating out of 5</Text>
           </View>
           <img src={this.state.next} alt={'didnt load'} onClick={() => this._countN()} style={[styles.buttonA, this.state.disN && styles.buttonD, !this.state.disN]}/>
-                  
-          </View>
-
-          <Text style={{color:'#000000', fontSize:14,fontFamily: 'Roboto', fontWeight: 'bold', alignSelf: 'baseline', paddingTop: 30,paddingLeft: 10}}>Your Perosnal Preferences</Text>
-          <ScrollView style={{paddingTop: 20,paddingHorizontal: 5}}>
-          <View style={styles.containerData}>
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[0]}</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[0])*96} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[1]}</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[1])*87} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[2]}</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[2])*99} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[3]}</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[3])*92} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[4]}</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[4])*89} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[5]}</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[5])*86} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[6]}</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[6])*97} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[7]}</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Ratings_Attr[7])*94} />
-            <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>Overall</Text>
-            <Line strokeWidth="2" trailWidth="2" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center'}} percent={(this.state.responseJson[i].Score)*16} />
-            </View></ScrollView>
-          
           { this.state.first ? 
-           <div style={{backgroundColor: '#1294EF', alignSelf: 'center', borderRadius: 4,width: 107, textAlign: 'center',position: "absolute", top: '1.8%' }}>   <Text style={styles.rtext}>Recommended</Text>
-        </div> : null }
+            <div style={{backgroundColor: '#1294EF', alignSelf: 'center', width: '72.55%',height: '0.8%', textAlign: 'center',position: "absolute", top: '0%',left: '13.72%',justifyContent: 'center',alignContent: 'center' }}>   
+              <div style={{backgroundColor: '#1294EF', alignSelf: 'center', borderRadius: 4,width: '10%',height: '0.4%', textAlign: 'center',position: "absolute", top: '0%',justifyContent: 'center',alignContent: 'center' }}>   
+                <p></p>
+              </div>
+            </div>
+          : null }
+          { this.state.first ? 
+           <div style={{backgroundColor: '#1294EF', alignSelf: 'center', borderRadius: 4,width: 107, textAlign: 'center',position: "absolute", top: '-4%',left: '35%',justifyContent: 'center',alignContent: 'center' }}>   
+            <Text style={styles.rtext}>Recommended</Text>
+          </div>
+          : null } 
+          </View>
+  
+          <Text style={{color:'#000000', fontSize:14,fontFamily: 'Roboto', fontWeight: 'bold', alignSelf: 'baseline', paddingTop: 30,paddingLeft: 10}}>Your Perosnal Preferences</Text>
+        <ScrollView style={{paddingTop: 20,paddingHorizontal: 5}}>
+        <View style={styles.containerData}>
+          { this.state.ci[0] ? 
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[0]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+                percent={(this.state.responseJson[i].Ratings_Attr[0])*96} />
+            </View> 
+            :             
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[0]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+              percent={(this.state.responseJson[i].Ratings_Attr[0])*96} />
+            </View> 
+            }
+                      { this.state.ci[1] ? 
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[1]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+                percent={(this.state.responseJson[i].Ratings_Attr[1])*96} />
+            </View> 
+            :             
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[1]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+              percent={(this.state.responseJson[i].Ratings_Attr[1])*96} />
+            </View> 
+            }
+                      { this.state.ci[2] ? 
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[2]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+                percent={(this.state.responseJson[i].Ratings_Attr[2])*96} />
+            </View> 
+            :             
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[2]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+              percent={(this.state.responseJson[i].Ratings_Attr[2])*96} />
+            </View> 
+            }
+                      { this.state.ci[3] ? 
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[3]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+                percent={(this.state.responseJson[i].Ratings_Attr[3])*96} />
+            </View> 
+            :             
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[3]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+              percent={(this.state.responseJson[i].Ratings_Attr[3])*96} />
+            </View> 
+            }
+                      { this.state.ci[4] ? 
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[4]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+                percent={(this.state.responseJson[i].Ratings_Attr[4])*96} />
+            </View> 
+            :             
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[4]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+              percent={(this.state.responseJson[i].Ratings_Attr[4])*96} />
+            </View> 
+            }
+                      { this.state.ci[5] ? 
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[5]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+                percent={(this.state.responseJson[i].Ratings_Attr[5])*96} />
+            </View> 
+            :             
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[5]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+              percent={(this.state.responseJson[i].Ratings_Attr[5])*96} />
+            </View> 
+            }
+                      { this.state.ci[6] ? 
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[6]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+                percent={(this.state.responseJson[i].Ratings_Attr[6])*96} />
+            </View> 
+            :             
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[6]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+              percent={(this.state.responseJson[i].Ratings_Attr[6])*96} />
+            </View> 
+            }
+            { this.state.ci[7] ? 
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[7]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+                percent={(this.state.responseJson[i].Ratings_Attr[7])*96} />
+            </View> 
+            :             
+            <View>
+              <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[7]}</Text>
+              <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
+              percent={(this.state.responseJson[i].Ratings_Attr[7])*96} />
+            </View> 
+            }
+          </View></ScrollView>
+
+
         </View>
         
         { this.state.loading ? 
@@ -905,6 +1032,9 @@ const circleClick7 = (id,cl) => {
            { this.state.modal3 ? 
           
           <View style={styles.modalBackground} >
+               { this.state.loading ? 
+               this.circleSize()
+                : this.circleSize() }
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal3}
                 onClose={this.toggleModal3}>
@@ -1088,7 +1218,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     paddingTop: 20,
     position: "absolute",
-    top: '16%',
+    top: '18%',
     right: '0%',
     left: '0%',
     bottom: '0%',
