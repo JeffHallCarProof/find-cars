@@ -299,7 +299,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         })
         const rJson = await res.json();
         const ETC1 = await this.setState({responseJson: rJson});
-        const ETC2 = await this.setState({loading: false,pFirstClick: true});
+        const ETC2 = await this.setState({loading: false,pFirstClick: true, count: 0,first: true, prev: prevBtnD, next: nextBtn});
         this.colorChange();
       }catch(err){
         return console.error(err);
