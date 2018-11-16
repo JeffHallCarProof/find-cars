@@ -147,7 +147,11 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     newNumArray: '',
     ci: [false,false,false,false,false,false,false,false]
     }
-
+    simulateClick =(e) =>{
+      if(this.state.pFirstClick == true){
+         e.click()
+      }
+    }
     //////////////////////////////////////Modal start
     toggleModal1 = () => {
       if(this.state.eventId == 1) {      
@@ -171,7 +175,6 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({
         modal1: !this.state.modal1
       });
-      this.state.pref = !this.state.pref
 
       console.log(this.state.eventId)
     }
@@ -184,7 +187,6 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({
         modal2: !this.state.modal2
       });
-      this.state.pref = !this.state.pref
     }
     toggleModal3 = () => {
       if(this.state.modal3 == true){
@@ -195,7 +197,6 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       this.setState({
         modal3: !this.state.modal3
       });
-      this.state.pref = !this.state.pref
     }
 
     toggleModal4 = () => {
@@ -203,19 +204,15 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       if(this.state.modal4 == true){
         this.state.loading= true
         console.log('loading true')
-        console.log(this.state.loading)
+        console.log('loading true '+this.state.loading)
       }
-      if(this.state.loading === true){
-        
-        this._go()
-      }
-      console.log('loading set')
-      console.log(this.state.loading)
+      console.log('loading set '+this.state.loading)
       console.log(this.state.pref)
       this.setState({modal4: !this.state.modal4});
       this.state.pref = !this.state.pref
  console.log(this.state.modal4,' ', this.state.pref)
-      
+
+
     }
     //////////////////////////////////////Modal end
 
@@ -238,18 +235,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         this.setState({clicks: click})
 
         this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
-        console.log('numarray')
-        console.log(this.state.numArray)
-        console.log(newNumArray)
-        console.log(      
-          click[0],'1 ',
-          click[1],'2 ',
-          click[2],'3 ',
-          click[3],'4 ',
-          click[4],'5 ',
-          click[5],'6 ',
-          click[6],'7 ',
-          click[7],'8 ',)
+
         this.setState({rFirstClick: false})
         }else{
       let click = this.state.clicks.slice();
@@ -261,24 +247,10 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       click[5] = parseInt(this.state.clicks[5],10)
       click[6] = parseInt(this.state.clicks[6],10)
       click[7] = parseInt(this.state.clicks[7],10)
-      console.log(      
-      click[0],'1 ',
-      click[1],'2 ',
-      click[2],'3 ',
-      click[3],'4 ',
-      click[4],'5 ',
-      click[5],'6 ',
-      click[6],'7 ',
-      click[7],'8 ',)
-      console.log(click)
-      console.log('numarray')
-      console.log(this.state.numArray)
-      console.log('numarray set')
+
       this.setState({clicks: click,});
       newNumArray = this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()
-      console.log(click)
-      console.log('numarray')
-      console.log(this.state.numArray)
+
       
      }
      let newArray = newNumArray;
@@ -332,45 +304,16 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       }catch(err){
         return console.error(err);
       }
-      console.log("color spots"+this.state.iP)
-      console.log("color spots"+this.state.iP)
-      console.log("color spots"+this.state.iP)
-      console.log("color spots"+this.state.iP)
+
       
     };
     //go back function
     _go =_.throttle(() =>{ 
-
-
-
+      console.log('go function')
       
-
-      this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
-      
-
-      
-      if(this.state.classId === 'Sedan'){
-        this.setState({c1: true})
-      } else if(this.state.classId === 'SUV') {
-        this.setState({c2: true})
-      } else if(this.state.classId === 'Cab') {
-        this.setState({c3: true})
-      } else if(this.state.classId === 'Hatchback') {
-        this.setState({c4: true})
-      } else if(this.state.classId ===  'Coupe') {
-        this.setState({c5: true})
-      } else if(this.state.classId === 'Convertible') {
-        this.setState({c6: true})
-      } else if(this.state.classId === 'Wagon') {
-        this.setState({c7: true})
-      } else if(this.state.classId === 'Minivan') {
-        this.setState({c8: true})
-      } else if(this.state.classId === 'Diesel') {
-        this.setState({c9: true})
-      }
       this.getHelloW()
-      
-    },8000,{leading:true, trailing:false});
+            
+          },1000,{leading:true, trailing:false});
 
     _countP = () =>{
       if(this.state.count ===0){
@@ -433,14 +376,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
           }
         this.state.ci[ii]=tempColor[ii]
         }
-        console.log('tempColor'+tempColor)
         
-    
-        console.log(this.state.ci)
-        console.log(this.state.ci)
-        console.log(this.state.ci)
-        console.log(this.state.ci)
-        console.log(this.state.ci)
       } 
     }
     render() {
@@ -651,33 +587,7 @@ const circleClick6 = (id,cl) => {
 }
 //Reliability Al8
 const circleClick7 = (id,cl) => {
-  if(this.state.pFirstClick == true){
-    if(this.state.clicks[cl]===1)
-    {
-      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1, scaleY:1})
-      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:0, y:0})
-      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:0 ,y:0})
-      click[cl]=1
-      ip[cl]=0
-    }
-    else if(this.state.clicks[cl]===2)
-    {
-      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
-      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-10, y:-10})
-      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:10, y:-10})
-      click[cl]=2
-      ip[cl]=1
-    }
-    else
-    {
-      TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.5, scaleY:1.5})
-      TweenLite.to("#Al1",1,{ease: Expo.easeOut,x:-15, y:-15})
-      TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:15, y:-15})
-      click[cl]=3
-      ip[cl]=2
-    }
-    this.setState({pFirstClick: false})
-  }else if(this.state.pFirstClick == false){
+  
     if(this.state.clicks[cl]===1)
     {
       TweenLite.to("#"+id,1,{ease: Expo.easeOut,scaleX:1.25, scaleY:1.25})
@@ -701,7 +611,7 @@ const circleClick7 = (id,cl) => {
       TweenLite.to("#Al6",1,{ease: Expo.easeOut,x:0 ,y:0})
       click[cl]=1
       ip[cl]=0
-    }
+    
   }
   
 
@@ -710,12 +620,12 @@ const circleClick7 = (id,cl) => {
   this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 } 
 
-      if(this.state.loading === true){
-        
-        this._go()
-      }if(this.state.loading === false){
+ 
+{ this.state.loading ? this._go() : null}
+if(this.state.loading === false){
         var i = this.state.count
         this.colorChange()
+        { this.state.loading ? this._go() : null}
       return (
             
         <View style={styles.container}>
@@ -738,7 +648,7 @@ const circleClick7 = (id,cl) => {
               onClick={this.toggleModal1}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Events</Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}> {'crash'}</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.eventId}</Text>
           </View>
           <View
               underlayColor={'#FAFAFA'}
@@ -1062,48 +972,48 @@ const circleClick7 = (id,cl) => {
                     <View style={styles.bcontainerX}>
                     {/*Sedan*/} 
                     { this.state.c1 ? 
-                    <img src={sedanH}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
-                      : <img src={sedan}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>}
+                    <img src={sedanH}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>
+                      : <img src={sedan}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>}
                     <View style={{paddingHorizontal: 5}}></View>
                     {/*SUV*/}
                     { this.state.c2 ? 
-                    <img src={suvH}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
-                      : <img src={suv}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>}
+                    <img src={suvH}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>
+                      : <img src={suv}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>}
                     <View style={{paddingHorizontal: 5}}></View>
                     {/*Cab*/}
                     { this.state.c3 ? 
-                    <img src={cabH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
-                      : <img src={cab}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>}          
+                    <img src={cabH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>
+                      : <img src={cab}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>}          
                     </View><View style={styles.bcontainer2X}>
                     {/*HatchBack*/}
                     { this.state.c4 ? 
-                    <img src={hatchbackH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
-                      : <img src={hatchback}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>}               
+                    <img src={hatchbackH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>
+                      : <img src={hatchback}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>}               
                     <View style={{paddingHorizontal: 5}}></View>
                     {/*Coupe*/}
                     { this.state.c5 ? 
-                    <img src={coupeH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
-                      : <img src={coupe}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>}
+                    <img src={coupeH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>
+                      : <img src={coupe}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false}),this._onPress2()}}/>}
                     <View style={{paddingHorizontal: 5}}></View>
                     {/*Convertible*/}
                     { this.state.c6 ? 
-                    <img src={convertibleH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
-                      : <img src={convertible}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>}            
+                    <img src={convertibleH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false}),this._onPress2()}}/>
+                      : <img src={convertible}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false}),this._onPress2()}}/>}            
                       </View><View style={styles.bcontainer3X}>
                     {/*Wagon*/}
                     { this.state.c7 ? 
-                    <img src={wagonH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress2(),500)}}/>
-                      : <img src={wagon}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress2(),500)}}/>} 
+                    <img src={wagonH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false}),this._onPress2()}}/>
+                      : <img src={wagon}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false}),this._onPress2()}}/>} 
                     <View style={{paddingHorizontal: 5}}></View>
                     {/*Minivan*/}
                     { this.state.c8 ? 
-                    <img src={minivanH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress2(),500)}}/>
-                      : <img src={minivan}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress2(),500)}}/>} 
+                    <img src={minivanH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false}),this._onPress2()}}/>
+                      : <img src={minivan}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false}),this._onPress2()}}/>} 
                     <View style={{paddingHorizontal: 5}}></View>
                     {/*Diesel*/}
                     { this.state.c9 ? 
-                    <img src={dieselH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress2(),500)}}/>
-                      : <img src={diesel}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress2(),500)}}/>} 
+                    <img src={dieselH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true}),this._onPress2()}}/>
+                      : <img src={diesel}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true}),this._onPress2()}}/>} 
                     </View>                  
                 </Modal>
               </View>
@@ -1134,16 +1044,14 @@ const circleClick7 = (id,cl) => {
                   <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}  onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}  onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
-                  <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}ref={this.simulateClick} onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}ref={this.circleSize} onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
                 
                 </div>
                 </Modal>
               </View>
           </View>
            : null }
-               { this.state.pref ? 
-               this.circleSize()
-                : null }
+
         </View>
 
         ); //End of return
@@ -1202,15 +1110,21 @@ const circleClick7 = (id,cl) => {
       } else if(this.state.c9 === true) {
         this.setState({classId: 'Diesel'})
       }
+      console.log(this.state.c1)
+      console.log(this.state.c2)
+      console.log(this.state.c3)
+      console.log(this.state.c4)
+      console.log(this.state.c5)
+      console.log(this.state.c6)
+      console.log(this.state.c7)
+      console.log(this.state.c8)
+      console.log(this.state.c9)
+      console.log(this.state.classId)
+      console.log(this.state.clicks)
+      console.log(this.state.eventId)
     },0,{leading:false, trailing:true});
 
-    simulateClick = (e) =>{
-      if(this.state.pFirstClick == true){
-         e.click()
-      }
-     
 
-    }
 
 } //End of class
 export default Results;
