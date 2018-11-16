@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   View,
+  Image
 } from 'react-native';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
@@ -45,9 +46,17 @@ class Modal extends React.Component {
       <div className="backdrop" style={{backdropStyle}}>
         <div className="modal" style={{modalStyle}}>
           {this.props.children}
+          <View style={{position: 'absolute', top: 10, right: 15}}>
+          <TouchableHighlight
+              underlayColor={'#FFFFFF'}
+              onPress={this.props.onExit}
+              >
+                <Image source={require('./assets/X-Close.png')} style={{width: 16, height: 17}}></Image>
+              </TouchableHighlight>
+          </View>
+            
 
           <View style={{alignItems:'center', position: "absolute", bottom: 20,left: '2.5%', right: '2.5%', width: '95%'}}>
-
             <TouchableHighlight
                     underlayColor={'#0018A8'}
                     style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#1294EF',borderRadius: 4,width: 300,height: 43,}}
@@ -65,6 +74,7 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
+  onExit: PropTypes.func.isRequired,
   show: PropTypes.bool,
   children: PropTypes.node,
   

@@ -214,6 +214,10 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
 
 
     }
+
+    toggleModalX = () => {
+      this.setState({modal1: false, modal2: false, modal3: false, modal4: false})
+    }
     //////////////////////////////////////Modal end
 
     //api call
@@ -833,7 +837,8 @@ if(this.state.loading === false){
             <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal1}
-                onClose={this.toggleModal1}>
+                onClose={this.toggleModal1}
+                onExit={this.toggleModalX}>
                 {/*Must place modal content inside its own views for styling*/}
                 <View style={{alignSelf:'center'}}>
                   <Text style={styles.mtext}>Event</Text>
@@ -915,7 +920,8 @@ if(this.state.loading === false){
           <View style={styles.modalBackground} >
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal2}
-                onClose={this.toggleModal2}>
+                onClose={this.toggleModal2}
+                onExit={this.toggleModalX}>
                 {/*Must place modal content inside its own views for styling*/}
                 <View style={{alignSelf:'center'}}>
                   <Text style={styles.mtext}>Budget</Text>
@@ -957,7 +963,8 @@ if(this.state.loading === false){
                 : this.circleSize() }
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal3}
-                onClose={this.toggleModal3}>
+                onClose={this.toggleModal3}
+                onExit={this.toggleModalX}>
                 {/*Must place modal content inside its own views for styling*/}
                 <View style={{alignSelf:'center'}}>
                   <Text style={styles.mtext}>Body</Text>
@@ -1029,7 +1036,8 @@ if(this.state.loading === false){
             
               <View style={styles.modalStyle}   >
                 <Modal show={this.state.modal4}
-                onClose={this.toggleModal4}>
+                onClose={this.toggleModal4}
+                onExit={this.toggleModalX}>
                 {/*Must place modal content inside its own views for styling*/}
                 <View style={{alignSelf:'center'}}>
                   <Text style={styles.mtext}>Preferences</Text>
