@@ -46,12 +46,12 @@ class Modal extends React.Component {
       <div className="backdrop" style={{backdropStyle}}>
         <div className="modal" style={{modalStyle}}>
           {this.props.children}
-          <View style={{position: 'absolute', top: 10, right: 15}}>
+          <View style={{position: 'absolute', top: 15, right: 15}}>
           <TouchableHighlight
               underlayColor={'#FFFFFF'}
               onPress={this.props.onExit}
               >
-                <Image source={require('./assets/X-Close.png')} style={{width: 16, height: 17}}></Image>
+                <Image source={require('./assets/X-Close.png')} style={{width: 12, height: 12}}></Image>
               </TouchableHighlight>
           </View>
             

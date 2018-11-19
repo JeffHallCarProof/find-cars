@@ -301,7 +301,7 @@ state = {
       }
       this.setState({clicks: click,pColor: i0, iP: ip });
     }
-
+    const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
     return (
 
       <View style={styles.container}>
@@ -318,10 +318,11 @@ state = {
         </View>
 
         <View style={{paddingTop: 35}}>
-          <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 28, textAlign: 'center',fontFamily: 'Roboto'}}>Personal preferences</Text>
+          <Text style={{fontSize: 24,lineHeight: 28, textAlign: 'center',fontFamily: 'Roboto'}}>Personal preferences</Text>
         </View>
         <View style={{paddingTop: 14, paddingHorizontal: 10}}>
-          <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center',fontFamily: 'Roboto'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.</Text>
+          <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center',fontFamily: 'Roboto'}}>1 tap means you <B>like it</B>, 2 taps means you <B>love it</B>.
+Let us know what’s most important to you.</Text>
         </View>
 
         <View style={styles.navContainer}>

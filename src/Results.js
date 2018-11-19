@@ -727,7 +727,7 @@ const circleClick7 = (id,cl) => {
   this.setState({numArray: this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString()})
 } 
 
- 
+const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 { this.state.loading ? this._go() : null}
 if(this.state.loading === false){
         var i = this.state.count
@@ -740,7 +740,7 @@ if(this.state.loading === false){
           <View style={{position: 'absolute', right: 15}}>
             <Link to={`/`} style={{ textDecoration: 'none' }}>
               <TouchableHighlight underlayColor={'#FFFFFF'}>
-                <Image source={require('./assets/X-Close.png')} style={{width: 16, height: 17}}></Image>
+                <Image source={require('./assets/X-Close.png')} style={{width: 14, height: 14}}></Image>
               </TouchableHighlight>
             </Link>
           </View>
@@ -944,16 +944,14 @@ if(this.state.loading === false){
                 onClose={this.toggleModal1}
                 onExit={this.toggleModalX}>
                 {/*Must place modal content inside its own views for styling*/}
-                <View style={{alignSelf:'center'}}>
-                  <Text style={styles.mtext}>Event</Text>
-                </View>
+
                 {/*Selection*/}
 
-                  <View style={{ alignItems: 'center', justifyContent: 'center', paddingTop: 60}}>
-                    <Text style={{ paddingTop: 10, paddingHorizontal: 30, fontWeight: '300', fontSize: 24, textAlign: 'center', lineHeight: 28,	fontFamily: 'Roboto',}}>
+                  <View style={{ alignItems: 'center',paddingBottom: 40}}>
+                    <Text style={{fontSize: 24, lineHeight: 28, textAlign: 'center',fontFamily: 'Roboto',paddingTop: 40}}>
                       Reason for buying a new car
                     </Text>
-                    <Text style={{ paddingVertical: 10, paddingHorizontal: 14, textAlign: "center", lineHeight: 26, fontSize: 14,fontFamily: 'Roboto',}}>
+                    <Text style={styles.textI}>
                       Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.
                     </Text>
                     
@@ -1027,15 +1025,13 @@ if(this.state.loading === false){
                 onClose={this.toggleModal2}
                 onExit={this.toggleModalX}>
                 {/*Must place modal content inside its own views for styling*/}
-                <View style={{alignSelf:'center'}}>
-                  <Text style={styles.mtext}>Budget</Text>
-                </View>
+
                 {/*Selection*/}
                   <View style={styles.bcontainer1X}>
-
-                    <Text style={styles.infoText}>What's your budget?</Text>
-                    <Text style={styles.sliderLabel1}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et.</Text>
-  
+                  <View style={{alignItems:'center'}}>
+                    <Text style={{fontSize: 24, lineHeight: 28, textAlign: 'center',fontFamily: 'Roboto',paddingTop: 40}}>What's your budget?</Text>
+                    <Text style={styles.textI}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et.</Text>
+                  </View>
                     <View style={styles.scontainer}>
                       <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center', backgroundColor: '#FFFFFF',}}>
                       { this.state.upperBound>=100000? 
@@ -1070,15 +1066,12 @@ if(this.state.loading === false){
                 onClose={this.toggleModal3}
                 onExit={this.toggleModalX}>
                 {/*Must place modal content inside its own views for styling*/}
-                <View style={{alignSelf:'center'}}>
-                  <Text style={styles.mtext}>Body</Text>
-                </View>
                 {/*Selection*/}
-                    <View style={{paddingTop: 30}}>
-                      <Text style={{fontSize: 24, fontWeight: '300', lineHeight: 25, textAlign: 'center', fontFamily: 'Roboto'}}>Preferred body type</Text>
-                    </View>
-                    <View style={{paddingVertical: 20, paddingHorizontal: 20}}>
-                      <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center', fontFamily: 'Roboto'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the.</Text>
+                    <View style={{alignItems:'center'}}>
+                      <Text style={{fontSize: 24, lineHeight: 28, textAlign: 'center',fontFamily: 'Roboto',paddingTop: 40}}>Preferred body type</Text>
+                    
+                    
+                      <Text style={styles.textI}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the.</Text>
                     </View>
                     <View style={styles.bcontainerX}>
                     {/*Sedan*/} 
@@ -1135,17 +1128,18 @@ if(this.state.loading === false){
           {/*Preferences*/}
           {/*Preferences*/}
           {/*Preferences*/}
+          
           { this.state.modal4 ? 
             <View style={styles.modalBackground} >
-            
               <View style={styles.modalStyle}   >
                 <Modal show={this.state.modal4}
                 onClose={this.toggleModal4}
                 onExit={this.toggleModalX}>
                 {/*Must place modal content inside its own views for styling*/}
-                <View style={{alignSelf:'center'}}>
-                  <Text style={styles.mtext}>Preferences</Text>
-                  <Text style={styles.mtext}>Need to fix animation</Text>
+                <View style={{alignItems:'center'}}>
+                  <Text style={{fontSize: 24, lineHeight: 28, textAlign: 'center',fontFamily: 'Roboto',paddingTop: 40}}>Personal Preferences</Text>
+                  <Text style={styles.textI}>1 tap means you <B>like it</B>, 2 taps means you <B>love it</B>.
+Let us know what’s most important to you.</Text>
                 </View>
                 {/*Selection*/}
                 <div className='Rbubbles' >
@@ -1293,7 +1287,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 20,
     lineHeight: 20,
-    paddingTop: 20
+    paddingTop: 10
   },
   rtext: {
     color: '#FFFFFF',
@@ -1315,6 +1309,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     lineHeight: 19
+  },
+  textI: {
+    width: '90%',
+    color: '#000000',
+    textAlign:'center',
+    fontSize: 16,
+    lineHeight: 19,
+    paddingTop: 20
   },
   button: {
     alignItems: 'center',
@@ -1438,11 +1440,10 @@ button2container: {
 
 bcontainer1X: {
   alignItems: 'center',
-  paddingTop: 50,
 },
 scontainer: {
   alignItems: 'center',
-  paddingTop: 30,
+  paddingTop: 60,
   width: '80%',
 },
 
@@ -1474,6 +1475,7 @@ sliderLabels: {
 bcontainerX: {
   alignItems: 'center',
   justifyContent: 'center',
+  paddingTop: 40,
   paddingVertical: 10,
   flexDirection: 'row',
  },
