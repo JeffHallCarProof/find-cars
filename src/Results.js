@@ -3,7 +3,6 @@ import {
     Image,
     StyleSheet,
     Text,
-    TouchableOpacity,
     TouchableHighlight,
     View,
     ScrollView
@@ -100,9 +99,14 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
 
     state = {
       eventId: this.props.match.params.eventId,
+      eventIdTemp: 0,
+      
       lowerBound: this.props.match.params.lowerBound,
       upperBound: this.props.match.params.upperBound,
+      lowerBT: 0,
+      upperBT: 0,
       classId: this.props.match.params.classId,
+      classIdTemp: '',
       numArray: this.props.match.params.numArray,
       visibleModal: null, //Modal
       loading: true,
@@ -123,10 +127,12 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       e5: false,
       e6: false,
       clicks: [1,1,1,1,1,1,1,1],
+      clicksTemp: [1,1,1,1,1,1,1,1],
       cM:0,
       id: ['Al1','Al2','Al3','Al4','Al5','Al6','Al7','Al8','Alc'],
       pColor: [this.circles.c1,this.circles.c2,this.circles.c3,this.circles.c4,this.circles.c5,this.circles.c6,this.circles.c7,this.circles.c8],
       iP: [0,0,0,0,0,0,0,0],
+      iPTemp: [0,0,0,0,0,0,0,0],
       i: [0,1,2,3,4,5,6,7],
       toNext: false,
       isHidden: true,
@@ -145,29 +151,40 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     pFirstClick: true,
     rFirstClick: true,
     newNumArray: '',
-    ci: [false,false,false,false,false,false,false,false]
+    ci: [false,false,false,false,false,false,false,false],
+    called: 0,
+    data: [],
+    loadingText: 'Finding your car...',
+    event: 'event1',
     }
     simulateClick =(e) =>{
-      if(this.state.pFirstClick == true){
+      if(this.state.pFirstClick === true){
          e.click()
       }
     }
     //////////////////////////////////////Modal start
     toggleModal1 = () => {
-      if(this.state.eventId == 1) {      
-        this.setState({e1: true, e2: false, e3: false, e4: false, e5: false, e6: false})        
-      } else if(this.state.eventId == 2) {       
-        this.setState({e1: false, e2: true, e3: false, e4: false, e5: false, e6: false})      
-      } else if(this.state.eventId == 3) {
-        this.setState({e1: false, e2: false, e3: true, e4: false, e5: false, e6: false})      
-      } else if(this.state.eventId == 4) {
-        this.setState({e1: false, e2: false, e3: false, e4: true, e5: false, e6: false})      
-      } else if(this.state.eventId == 5) {
-        this.setState({e1: false, e2: false, e3: false, e4: false, e5: true, e6: false})      
-      } else if(this.state.eventId == 6){
-        this.setState({e1: false, e2: false, e3: false, e4: false, e5: false, e6: true})      
+      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId,clicks:this.state.clicksTemp})
+      if(this.state.eventId === 1) {      
+        this.setState({e1: true, e2: false, e3: false, e4: false, e5: false, e6: false})
+        this.state.event ='event1'        
+      } else if(this.state.eventId === 2) {       
+        this.setState({e1: false, e2: true, e3: false, e4: false, e5: false, e6: false})
+        this.state.event ='event2'       
+      } else if(this.state.eventId === 3) {
+        this.setState({e1: false, e2: false, e3: true, e4: false, e5: false, e6: false}) 
+        this.state.event ='event3'      
+      } else if(this.state.eventId === 4) {
+        this.setState({e1: false, e2: false, e3: false, e4: true, e5: false, e6: false})  
+        this.state.event ='event4'     
+      } else if(this.state.eventId === 5) {
+        this.setState({e1: false, e2: false, e3: false, e4: false, e5: true, e6: false})   
+        this.state.event ='event5'    
+      } else if(this.state.eventId === 6){
+        this.setState({e1: false, e2: false, e3: false, e4: false, e5: false, e6: true}) 
+        this.state.event ='event6'      
       }
-      if(this.state.modal1 == true){
+      if(this.state.modal1 === true){
         this.setState({
            loading: true
         });
@@ -176,10 +193,11 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         modal1: !this.state.modal1
       });
 
-      console.log(this.state.eventId)
+      
     }
     toggleModal2 = () => {
-      if(this.state.modal2 == true){
+      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId,clicks:this.state.clicksTemp})
+      if(this.state.modal2 === true){
         this.setState({
            loading: true
         });
@@ -189,7 +207,27 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       });
     }
     toggleModal3 = () => {
-      if(this.state.modal3 == true){
+      if(this.state.classId === 'Sedan'){
+        this.setState({c1: true,c2: false,c3: false,c4: false,c5: false,c6: false,c7: false,c8: false,c9: false,})
+      }else if(this.state.classId === 'SUV'){
+        this.setState({c1: false,c2: true,c3: false,c4: false,c5: false,c6: false,c7: false,c8: false,c9: false,})
+      }else if(this.state.classId === 'Cab'){
+        this.setState({c1: false,c2: false,c3: true,c4: false,c5: false,c6: false,c7: false,c8: false,c9: false,})
+      }else if(this.state.classId === 'Hatchback'){
+        this.setState({c1: false,c2: false,c3: false,c4: true,c5: false,c6: false,c7: false,c8: false,c9: false,})
+      }else if(this.state.classId === 'Coupe'){
+        this.setState({c1: false,c2: false,c3: false,c4: false,c5: true,c6: false,c7: false,c8: false,c9: false,})
+      }else if(this.state.classId === 'Convertible'){
+        this.setState({c1: false,c2: false,c3: false,c4: false,c5: false,c6: true,c7: false,c8: false,c9: false,})
+      }else if(this.state.classId === 'Wagon'){
+        this.setState({c1: false,c2: false,c3: false,c4: false,c5: false,c6: false,c7: true,c8: false,c9: false,})
+      }else if(this.state.classId === 'Minivan'){
+        this.setState({c1: false,c2: false,c3: false,c4: false,c5: false,c6: false,c7: false,c8: true,c9: false,})
+      }else if(this.state.classId === 'Diesel'){
+        this.setState({c1: false,c2: false,c3: false,c4: false,c5: false,c6: false,c7: false,c8: false,c9: true,})
+      }
+      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId,clicks:this.state.clicksTemp})
+      if(this.state.modal3 === true){
         this.setState({
            loading: true
         });
@@ -200,31 +238,33 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     }
 
     toggleModal4 = () => {
-      console.log(this.state.modal4,' ', this.state.pref)
-      if(this.state.modal4 == true){
-        this.state.loading= true
-        console.log('loading true')
-        console.log('loading true '+this.state.loading)
+      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId})
+      this.state.clicksTemp=this.state.clicks
+      this.state.iPTemp=this.state.iP
+      if(this.state.modal4 === true){
+        this.state.loading = true
       }
-      console.log('loading set '+this.state.loading)
-      console.log(this.state.pref)
       this.setState({modal4: !this.state.modal4});
       this.state.pref = !this.state.pref
- console.log(this.state.modal4,' ', this.state.pref)
+
 
 
     }
-
     toggleModalX = () => {
-      this.setState({modal1: false, modal2: false, modal3: false, modal4: false})
+      this.setState({modal1: false, modal2: false, modal3: false, modal4: false,pref: false})
+      this.setState({eventId: this.state.eventIdTemp, lowerBound: this.state.lowerBT, upperBound: this.state.upperBT, classId: this.state.classIdTemp})
+      this.state.clicks = this.state.clicksTemp
+      this.state.iP=this.state.iPTemp
     }
     //////////////////////////////////////Modal end
 
     //api call
     async getHelloW() {
+
+    
       // sample Url    https://productlab.carfax.ca/findmycar/multi/eventid/class/MAX/MIN/PREFERENCES/cargospace
       this.setState({loading: true});
-      console.log(this.state.numArray +' '+ this.state.clicks)
+      
       let newNumArray = this.state.numArray[0].toString()+this.state.numArray[1].toString()+this.state.numArray[2].toString()+this.state.numArray[3].toString()+this.state.numArray[4].toString()+this.state.numArray[5].toString()+this.state.numArray[6].toString()+this.state.numArray[7].toString();
       if(this.state.rFirstClick == true){
         let click = this.state.clicks.slice();
@@ -268,7 +308,24 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
        ip[index]=2
      }
    }
+   if(this.state.upperBound==100000){
+    this.state.upperBound =10000000
+    }
    this.setState(this.state.iP= ip)
+   if(this.state.eventId == 1) {      
+    this.setState({event: 'event1'}) 
+  } else if(this.state.eventId == 2) {       
+    this.setState({event: 'event2'})       
+  } else if(this.state.eventId == 3) {
+    this.setState({event: 'event3'})     
+  } else if(this.state.eventId == 4) { 
+    this.setState({event: 'event4'}) 
+  } else if(this.state.eventId == 5) {  
+    this.setState({event: 'event5'}) 
+  } else if(this.state.eventId == 6){
+    this.setState({event: 'event6'}) 
+    
+  }
      const url = "https://productlab.carfax.ca/findmycar/multi/"+this.state.eventId+"/"+this.state.classId+"/"+this.state.upperBound+"/"+this.state.lowerBound+"/"+newArray+"/"+0;
       try{
       const res = await fetch(url,console.log(url),{
@@ -303,21 +360,68 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         })
         const rJson = await res.json();
         const ETC1 = await this.setState({responseJson: rJson});
-        const ETC2 = await this.setState({loading: false,pFirstClick: true, count: 0,first: true, prev: prevBtnD, next: nextBtn});
+        const ETC2 = await this.setState({pFirstClick: true, first: true, prev: prevBtnD, next: nextBtn,});
+        const ETC3 = await this.setState({called: 0})
         this.colorChange();
+        this.getCarImg();
       }catch(err){
         return console.error(err);
       }
 
       
     };
+
+    async getCarImg(){
+      for (let i = 0; i < 5; i++) {
+        let tempMake = 'Ford'
+        let tempModel = 'Fusion'
+        let tempYear = 2014;
+        let url1 = 'https://api.fuelapi.com/v1/json/vehicles/?year='+tempYear+'&model='+tempModel+'&make='+tempMake+'&api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1'
+        try{
+          const res = await fetch(url1,console.log(),{
+            method:'GET',
+            mode: 'no-cors',
+            headers:{
+                    'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                },
+          }) 
+        const rJson1 = await res.json();
+        const ETC4 = await this.setState({data: rJson1});
+        
+        }catch(err){
+            return console.error(err);
+          }
+        let fuelVehicleID = this.state.data[0].id 
+        let url2 = 'https://api.fuelapi.com/v1/json/vehicle/'+fuelVehicleID+'/?api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1&productID=1&shotCode=037'
+        try{
+          const res = await fetch(url2,console.log(),{
+            method:'GET',
+            mode: 'no-cors',
+            headers:{
+                    'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                },
+          }) 
+        const rJson2 = await res.json();
+        this.state.responseJson[i].URL = rJson2.products[0].productFormats[0].assets[0].url
+        this.setState({loading: false,loadingText: 'Updating...',count: 0,})
+        }catch(err){
+            return console.error(err);
+          }
+     }
+    }
     //go back function
     _go =_.throttle(() =>{ 
-      console.log('go function')
+      if (this.state.called == 0){
+        this.state.called += 1
+        this.getHelloW()
+      }else{
+
+      }
       
-      this.getHelloW()
             
-          },1000,{leading:true, trailing:false});
+          },2000,{leading:true, trailing:false});
 
     _countP = () =>{
       if(this.state.count ===0){
@@ -347,7 +451,6 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     }
     circleSize = () => {
       let ip = this.state.iP.slice();
-      console.log(this.state.clicks)
       for (let index = 0; index < 8; index++) {
 
         
@@ -365,7 +468,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         }
 
       }
-      console.log("color spots"+ip)
+      
     }
     colorChange = () =>{
       let tempColor = this.state.ci.slice();
@@ -629,7 +732,6 @@ const circleClick7 = (id,cl) => {
 if(this.state.loading === false){
         var i = this.state.count
         this.colorChange()
-        { this.state.loading ? this._go() : null}
       return (
             
         <View style={styles.container}>
@@ -652,7 +754,7 @@ if(this.state.loading === false){
               onClick={this.toggleModal1}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Events</Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.eventId}</Text>
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}>{this.state.event}</Text>
           </View>
           <View
               underlayColor={'#FAFAFA'}
@@ -660,7 +762,9 @@ if(this.state.loading === false){
               onClick={this.toggleModal2}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}> Budget </Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}> {this.state.lowerBound}-{this.state.upperBound}</Text>
+            { this.state.upperBound>=100000? 
+            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}>${this.state.lowerBound} - MAX</Text>
+            :<Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}>${this.state.lowerBound} - ${this.state.upperBound}</Text> }
           </View>
           <View
               underlayColor={'#FAFAFA'}
@@ -676,7 +780,7 @@ if(this.state.loading === false){
               onClick={this.toggleModal4}
             >
             <Text style={{color:'#989898', fontSize:16,lineHeight: 19,textAlign: 'center',fontFamily: 'Roboto'}}>Preferences</Text>
-            <Text style={{color:'#000000', fontSize:12,lineHeight: 22,textAlign: 'center',fontFamily: 'Roboto'}}>{this.state.clicks}</Text>
+            <Text numberOfLines={1}ellipsizeMode={'tail'} style={{color:'#000000',paddingLeft: 5, fontSize:12,lineHeight: 22,textAlign: 'left',fontFamily: 'Roboto'}}>{this.state.responseJson[i].Ratings[0]},{this.state.responseJson[i].Ratings[1]},{this.state.responseJson[i].Ratings[2]}</Text>
           </View>
         </View>
         <View style={styles.containerAll}>
@@ -716,104 +820,104 @@ if(this.state.loading === false){
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[0]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-                percent={(this.state.responseJson[i].Ratings_Attr[0])*96} />
+                percent={(this.state.responseJson[i].Ratings_Attr[0])*100} />
             </View> 
             :             
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[0]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-              percent={(this.state.responseJson[i].Ratings_Attr[0])*96} />
+              percent={(this.state.responseJson[i].Ratings_Attr[0])*100} />
             </View> 
             }
                       { this.state.ci[1] ? 
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[1]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-                percent={(this.state.responseJson[i].Ratings_Attr[1])*96} />
+                percent={(this.state.responseJson[i].Ratings_Attr[1])*100} />
             </View> 
             :             
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[1]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-              percent={(this.state.responseJson[i].Ratings_Attr[1])*96} />
+              percent={(this.state.responseJson[i].Ratings_Attr[1])*100} />
             </View> 
             }
                       { this.state.ci[2] ? 
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[2]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-                percent={(this.state.responseJson[i].Ratings_Attr[2])*96} />
+                percent={(this.state.responseJson[i].Ratings_Attr[2])*100} />
             </View> 
             :             
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[2]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-              percent={(this.state.responseJson[i].Ratings_Attr[2])*96} />
+              percent={(this.state.responseJson[i].Ratings_Attr[2])*100} />
             </View> 
             }
                       { this.state.ci[3] ? 
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[3]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-                percent={(this.state.responseJson[i].Ratings_Attr[3])*96} />
+                percent={(this.state.responseJson[i].Ratings_Attr[3])*100} />
             </View> 
             :             
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[3]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-              percent={(this.state.responseJson[i].Ratings_Attr[3])*96} />
+              percent={(this.state.responseJson[i].Ratings_Attr[3])*100} />
             </View> 
             }
                       { this.state.ci[4] ? 
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[4]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-                percent={(this.state.responseJson[i].Ratings_Attr[4])*96} />
+                percent={(this.state.responseJson[i].Ratings_Attr[4])*100} />
             </View> 
             :             
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[4]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-              percent={(this.state.responseJson[i].Ratings_Attr[4])*96} />
+              percent={(this.state.responseJson[i].Ratings_Attr[4])*100} />
             </View> 
             }
                       { this.state.ci[5] ? 
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[5]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-                percent={(this.state.responseJson[i].Ratings_Attr[5])*96} />
+                percent={(this.state.responseJson[i].Ratings_Attr[5])*100} />
             </View> 
             :             
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[5]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-              percent={(this.state.responseJson[i].Ratings_Attr[5])*96} />
+              percent={(this.state.responseJson[i].Ratings_Attr[5])*100} />
             </View> 
             }
                       { this.state.ci[6] ? 
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[6]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-                percent={(this.state.responseJson[i].Ratings_Attr[6])*96} />
+                percent={(this.state.responseJson[i].Ratings_Attr[6])*100} />
             </View> 
             :             
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[6]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-              percent={(this.state.responseJson[i].Ratings_Attr[6])*96} />
+              percent={(this.state.responseJson[i].Ratings_Attr[6])*100} />
             </View> 
             }
             { this.state.ci[7] ? 
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#1294EF'}}>{this.state.responseJson[i].Ratings[7]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#1294EF' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-                percent={(this.state.responseJson[i].Ratings_Attr[7])*96} />
+                percent={(this.state.responseJson[i].Ratings_Attr[7])*100} />
             </View> 
             :             
             <View>
               <Text style={{alignSelf: 'baseline',fontFamily: 'Roboto', color: '#B3B3B3'}}>{this.state.responseJson[i].Ratings[7]}</Text>
               <Line strokeWidth="2.5" trailWidth="2.5" strokeColor='#B3B3B3' width='100%' style={{paddingBottom: 10,alignSelf:'center',paddingTop: '8'}} 
-              percent={(this.state.responseJson[i].Ratings_Attr[7])*96} />
+              percent={(this.state.responseJson[i].Ratings_Attr[7])*100} />
             </View> 
             }
           </View></ScrollView>
@@ -824,7 +928,7 @@ if(this.state.loading === false){
         { this.state.loading ? 
           <div className='notbubbles'>
               <View style={styles.loadingBackground }>
-              <Text style={styles.ltext}>ITS LOADING</Text>
+              <Text style={styles.ltext}>{this.state.loadingText}</Text>
                 <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
               </View>
           </div> : null }
@@ -934,10 +1038,12 @@ if(this.state.loading === false){
   
                     <View style={styles.scontainer}>
                       <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center', backgroundColor: '#FFFFFF',}}>
-                        <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - $" + this.state.upperBound}</Text>
+                      { this.state.upperBound>=100000? 
+                        <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - " + "MAX"}</Text>
+                        :<Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - $" + this.state.upperBound}</Text>}
                       </View>
                       <br /><br />
-                        <Range min={min} max={max} defaultValue={[this.state.lowerBound, this.state.upperBound]} allowCross={false} onChange={this.onSliderChange} />
+                        <Range min={min} max={max} defaultValue={[parseInt(this.state.lowerBound,10), parseInt(this.state.upperBound,10)]} allowCross={false} onChange={this.onSliderChange} />
                     </View>
 
                     <View style={{flexDirection: "row", width: '86%', justifyContent: "space-between", paddingTop: 10}}>
@@ -958,9 +1064,7 @@ if(this.state.loading === false){
            { this.state.modal3 ? 
           
           <View style={styles.modalBackground} >
-               { this.state.loading ? 
-               this.circleSize()
-                : this.circleSize() }
+
               <View style={styles.modalStyle} >
                 <Modal show={this.state.modal3}
                 onClose={this.toggleModal3}
@@ -1044,7 +1148,7 @@ if(this.state.loading === false){
                   <Text style={styles.mtext}>Need to fix animation</Text>
                 </View>
                 {/*Selection*/}
-                <div className='Rbubbles'  >
+                <div className='Rbubbles' >
                   <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}  onClick={() => circleClick0(this.state.id[0],0)} className="App-logo0" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}  onClick={() => circleClick1(this.state.id[1],1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}  onClick={() => circleClick2(this.state.id[2],2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
@@ -1052,14 +1156,16 @@ if(this.state.loading === false){
                   <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}  onClick={() => circleClick4(this.state.id[4],4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}  onClick={() => circleClick5(this.state.id[5],5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
                   <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}onClick={() => circleClick6(this.state.id[6],6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
-                  <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}ref={this.circleSize} onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
+                  <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}ref={this.circleSize}  onClick={() => circleClick7(this.state.id[7],7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
                 
                 </div>
                 </Modal>
               </View>
           </View>
            : null }
-
+               { this.state.pref ? 
+               this.circleSize()
+                : this.circleSize() }
         </View>
 
         ); //End of return
@@ -1071,8 +1177,9 @@ if(this.state.loading === false){
         { this.state.loading ? 
           <div className='notbubbles'>
               <View style={styles.loadingBackground }>
-              <Text style={styles.ltext}>ITS LOADING</Text>
+              
                 <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
+                <Text style={styles.ltext}>{this.state.loadingText}</Text>
               </View>
           </div> : null }
         </View>
@@ -1083,17 +1190,17 @@ if(this.state.loading === false){
     _onPress =_.throttle(() =>{
 
       if(this.state.e1 === true) {
-        this.setState({eventId:1})        
+        this.setState({eventId:1,event:'event1'})        
       } else if(this.state.e2 === true) {
-        this.setState({eventId:2})
+        this.setState({eventId:2,event:'event2'})
       } else if(this.state.e3 === true) {
-        this.setState({eventId:3})
+        this.setState({eventId:3,event:'event3'})
       } else if(this.state.e4 === true) {
-        this.setState({eventId:4})
+        this.setState({eventId:4,event:'event4'})
       } else if(this.state.e5 === true) {
-        this.setState({eventId:5})
+        this.setState({eventId:5,event:'event5'})
       } else {
-        this.setState({eventId:6})
+        this.setState({eventId:6,event:'event6'})
       }
     },0,{leading:false, trailing:true}); //End of button function
 
@@ -1118,18 +1225,6 @@ if(this.state.loading === false){
       } else if(this.state.c9 === true) {
         this.setState({classId: 'Diesel'})
       }
-      console.log(this.state.c1)
-      console.log(this.state.c2)
-      console.log(this.state.c3)
-      console.log(this.state.c4)
-      console.log(this.state.c5)
-      console.log(this.state.c6)
-      console.log(this.state.c7)
-      console.log(this.state.c8)
-      console.log(this.state.c9)
-      console.log(this.state.classId)
-      console.log(this.state.clicks)
-      console.log(this.state.eventId)
     },0,{leading:false, trailing:true});
 
 
@@ -1197,9 +1292,8 @@ const styles = StyleSheet.create({
   ltext: {
     color: '#FFFFFF',
     fontSize: 20,
-    fontWeight: 'bold',
     lineHeight: 20,
-    paddingBottom: 50
+    paddingTop: 20
   },
   rtext: {
     color: '#FFFFFF',
