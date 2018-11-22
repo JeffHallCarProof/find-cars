@@ -109,7 +109,7 @@ class Events extends React.Component {
             </View>
 
             <View style={styles.button2container}>
-              <Link to={`/Budget/${this.state.eventId}`}style={{ textDecoration: 'none' }}>
+              <Link to={`Budget/${this.state.eventId}`}style={{ textDecoration: 'none' }}>
                 <TouchableHighlight
                   underlayColor={'#0018A8'}
                   style={styles.button2}

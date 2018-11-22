@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(  
-  <Router>
+  <Router basename={'/carfinder'}>
     <Switch>
       <Route exact path="/"  component={App}/>
       <Route path="/Events"  component={Events}/>

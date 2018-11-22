@@ -164,23 +164,23 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
     }
     //////////////////////////////////////Modal start
     toggleModal1 = () => {
-      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId,clicks:this.state.clicksTemp})
-      if(this.state.eventId === 1) {      
+      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId})
+      if(this.state.eventId == 1) {      
         this.setState({e1: true, e2: false, e3: false, e4: false, e5: false, e6: false})
         this.state.event ='event1'        
-      } else if(this.state.eventId === 2) {       
+      } else if(this.state.eventId == 2) {       
         this.setState({e1: false, e2: true, e3: false, e4: false, e5: false, e6: false})
         this.state.event ='event2'       
-      } else if(this.state.eventId === 3) {
+      } else if(this.state.eventId == 3) {
         this.setState({e1: false, e2: false, e3: true, e4: false, e5: false, e6: false}) 
         this.state.event ='event3'      
-      } else if(this.state.eventId === 4) {
+      } else if(this.state.eventId == 4) {
         this.setState({e1: false, e2: false, e3: false, e4: true, e5: false, e6: false})  
         this.state.event ='event4'     
-      } else if(this.state.eventId === 5) {
+      } else if(this.state.eventId == 5) {
         this.setState({e1: false, e2: false, e3: false, e4: false, e5: true, e6: false})   
         this.state.event ='event5'    
-      } else if(this.state.eventId === 6){
+      } else if(this.state.eventId == 6){
         this.setState({e1: false, e2: false, e3: false, e4: false, e5: false, e6: true}) 
         this.state.event ='event6'      
       }
@@ -196,7 +196,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       
     }
     toggleModal2 = () => {
-      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId,clicks:this.state.clicksTemp})
+      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId})
       if(this.state.modal2 === true){
         this.setState({
            loading: true
@@ -226,7 +226,7 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
       }else if(this.state.classId === 'Diesel'){
         this.setState({c1: false,c2: false,c3: false,c4: false,c5: false,c6: false,c7: false,c8: false,c9: true,})
       }
-      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId,clicks:this.state.clicksTemp})
+      this.setState({eventIdTemp:this.state.eventId,upperBT:this.state.upperBound,lowerBT:this.state.lowerBound,classIdTemp:this.state.classId})
       if(this.state.modal3 === true){
         this.setState({
            loading: true
@@ -360,8 +360,8 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
         })
         const rJson = await res.json();
         const ETC1 = await this.setState({responseJson: rJson});
-        const ETC2 = await this.setState({pFirstClick: true, first: true, prev: prevBtnD, next: nextBtn,});
-        const ETC3 = await this.setState({called: 0})
+        const ETC2 = await this.setState({pFirstClick: true, first: true, prev: prevBtnD, next: nextBtn,loading: false});
+        
         this.colorChange();
         this.getCarImg();
       }catch(err){
@@ -373,9 +373,9 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
 
     async getCarImg(){
       for (let i = 0; i < 5; i++) {
-        let tempMake = 'Ford'
-        let tempModel = 'Fusion'
-        let tempYear = 2014;
+        let tempMake = this.state.responseJson[i].Make
+        let tempModel = this.state.responseJson[i].Model
+        let tempYear = this.state.responseJson[i].Year;
         let url1 = 'https://api.fuelapi.com/v1/json/vehicles/?year='+tempYear+'&model='+tempModel+'&make='+tempMake+'&api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1'
         try{
           const res = await fetch(url1,console.log(),{
@@ -405,7 +405,10 @@ import dieselH from './assets/BodyType/DieselBox@1xH.svg'
           }) 
         const rJson2 = await res.json();
         this.state.responseJson[i].URL = rJson2.products[0].productFormats[0].assets[0].url
+        this.toggleModal4();
+        this.toggleModal4();
         this.setState({loading: false,loadingText: 'Updating...',count: 0,})
+        const ETC3 = await this.setState({called: 0})
         }catch(err){
             return console.error(err);
           }
