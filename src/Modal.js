@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet,
   Text,
-  TouchableOpacity,
   TouchableHighlight,
   View,
   Image
@@ -11,7 +9,9 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 class Modal extends React.Component {
+
   render() {
+
     // Render nothing if the "show" prop is false
     if(!this.props.show) {
       return null;
@@ -35,49 +35,46 @@ class Modal extends React.Component {
       minWidth: '100%',
       minHeight: '100%',
       padding: 0,
-      alignSelf: 'center',
-      
-
+      alignSelf: 'center'
     };
 
-
-
     return (
+
       <div className="backdrop" style={{backdropStyle}}>
         <div className="modal" style={{modalStyle}}>
+
           {this.props.children}
           <View style={{position: 'absolute', top: 15, right: 15}}>
-          <TouchableHighlight
+            <TouchableHighlight
               underlayColor={'#FFFFFF'}
               onPress={this.props.onExit}
-              >
-                <Image source={require('./assets/X-Close.png')} style={{width: 12, height: 12}}></Image>
-              </TouchableHighlight>
+            >
+              <Image source={require('./assets/X-Close.png')} style={{width: 12, height: 12}}></Image>
+            </TouchableHighlight>
           </View>
-            
 
           <View style={{alignItems:'center', position: "absolute", bottom: 20,left: '2.5%', right: '2.5%', width: '95%'}}>
             <TouchableHighlight
-                    underlayColor={'#0018A8'}
-                    style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#1294EF',borderRadius: 4,width: 300,height: 43,}}
-                    onPress={this.props.onClose}
-                    
-                >
-                    <Text style={{color:'#FFFFFF', fontSize:16,fontWeight:'bold',lineHeight: 19}}> DONE </Text>
-                </TouchableHighlight>
+              underlayColor={'#0018A8'}
+              style={{alignItems: 'center',justifyContent: 'center',backgroundColor: '#1294EF',borderRadius: 4,width: 300,height: 43,}}
+              onPress={this.props.onClose}
+            >
+              <Text style={{color:'#FFFFFF', fontSize:16,fontWeight:'bold',lineHeight: 19}}> DONE </Text>
+            </TouchableHighlight>
           </View>
+
         </div>
       </div>
-    );
-  }
-}
+
+    ); //End of return
+  } //End of render
+} //End of class
 
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   onExit: PropTypes.func.isRequired,
   show: PropTypes.bool,
-  children: PropTypes.node,
-  
+  children: PropTypes.node
 };
 
 export default Modal;
