@@ -346,7 +346,7 @@ class Results extends React.Component {
 
       const rJson = await res.json();
       const ETC1 = await this.setState({responseJson: rJson});
-      const ETC2 = await this.setState({pFirstClick: true, first: true, prev: prevBtnD, next: nextBtn,loading: false});
+      const ETC2 = await this.setState({pFirstClick: true, first: true, prev: prevBtnD, next: nextBtn});
       
       this.colorChange();
       this.getCarImg();
@@ -359,15 +359,17 @@ class Results extends React.Component {
   async getCarImg() {
 
     //Loop for each of the 5 results
-    for (let i = 0; i < 5; i++)
-    {
+    let counter = 0;
+    for (let i = 0; i <= 5; i++) {
+      console.log(i)
+      counter += 1
       let tempMake = this.state.responseJson[i].Make
       let tempModel = this.state.responseJson[i].Model
       let tempYear = this.state.responseJson[i].Year;
       let url1 = 'https://api.fuelapi.com/v1/json/vehicles/?year='+tempYear+'&model='+tempModel+'&make='+tempMake+'&api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1'
       
       try {
-        const res = await fetch(url1,console.log(),{
+        const res = await fetch(url1,console.log(url1),{
           method:'GET',
           mode: 'no-cors',
           headers:{
@@ -387,7 +389,7 @@ class Results extends React.Component {
       let url2 = 'https://api.fuelapi.com/v1/json/vehicle/'+fuelVehicleID+'/?api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1&productID=1&shotCode=037'
       
       try {
-        const res = await fetch(url2,console.log(),{
+        const res = await fetch(url2,console.log(url2),{
           method:'GET',
           mode: 'no-cors',
           headers:{
@@ -397,7 +399,7 @@ class Results extends React.Component {
         }) //End of fetch
 
         const rJson2 = await res.json();
-        this.state.responseJson[i].URL = rJson2.products[0].productFormats[0].assets[0].url
+        this.state.responseJson[i].URL = await rJson2.products[0].productFormats[1].assets[0].url
         this.toggleModal4();
         this.toggleModal4();
         this.setState({loading: false, loadingText: 'Updating...', count: 0})
@@ -406,6 +408,13 @@ class Results extends React.Component {
       } catch(err) {
         return console.error(err);
       }
+      if(counter >= 4){
+        console.log('yes')
+        const ETC3 = await this.setState({loading: false,called: 0})
+        this.setState({loadingText: 'Updating...',})
+      }
+    
+    console.log(this.state.called)
     } //End of for loop
 
   } //End of Fuel API call

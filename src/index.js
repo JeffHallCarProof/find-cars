@@ -7,10 +7,10 @@ import Body from './Body';
 import Preferences from './Preferences';
 import Results from './Results';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router,Switch, Route, HashRouter } from 'react-router-dom';
 
 ReactDOM.render(  
-  <Router basename={'/carfinder'}>
+  <HashRouter basename={'/carfinder'}>
     <Switch>
       <Route exact path="/"  component={App}/>
       <Route path="/Events"  component={Events}/>
@@ -19,7 +19,7 @@ ReactDOM.render(
       <Route path="/Preferences/:eventId/:lowerBound/:upperBound/:classId"  component={Preferences}/>
       <Route path="/Results/:eventId/:lowerBound/:upperBound/:classId/:numArray"  component={Results}/>
     </Switch>
-  </Router>, document.getElementById('root')
+  </HashRouter>, document.getElementById('root')
 );
   
 // If you want your app to work offline and load faster, you can change
