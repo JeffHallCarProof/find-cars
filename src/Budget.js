@@ -8,11 +8,9 @@ import {
   } from 'react-native';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import Slider from 'rc-slider';
+import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-const Range = createSliderWithTooltip(Slider.Range);
 
 //Budget screen
 class Budget extends React.Component {
@@ -45,11 +43,11 @@ class Budget extends React.Component {
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
               >
-                <Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image>
+                <Image source={require('./assets/Path@1x.svg')} style={{width: 12, height: 21}}></Image>
               </TouchableHighlight>
             </Link>
           </View>
-          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada@1x.svg')} style={{width: 123, height: 31}}></Image></View>
         </View>
 
         <View style={styles.bcontainer}>
@@ -59,10 +57,14 @@ class Budget extends React.Component {
             
           <View style={styles.scontainer}>
             <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center', backgroundColor: '#FFFFFF',}}>
-              <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - $" + this.state.upperBound}</Text>
+            { this.state.upperBound >= 100000 ? 
+                          <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - " + "MAX"}</Text>
+                          :
+                          <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>{"$" + this.state.lowerBound + " - $" + this.state.upperBound}</Text>
+            }
             </View>
             <br /><br />
-              <Range min={min} max={max} defaultValue={[this.state.lowerBound, this.state.upperBound]} allowCross={false} onChange={this.onSliderChange} />
+              <Range min={min} max={max} step={1000} defaultValue={[this.state.lowerBound, this.state.upperBound]} allowCross={false} onChange={this.onSliderChange} />
           </View>
 
           <View style={{flexDirection: "row", width: '86%', justifyContent: "space-between", paddingTop: 10}}>

@@ -756,11 +756,11 @@ class Results extends React.Component {
             <View style={{position: 'absolute', right: 15}}>
               <Link to={`/`} style={{ textDecoration: 'none' }}>
                 <TouchableHighlight underlayColor={'#FFFFFF'}>
-                  <Image source={require('./assets/X-Close.png')} style={{width: 14, height: 14}}></Image>
+                  <Image source={require('./assets/X-Close@1x.svg')} style={{width: 14, height: 14}}></Image>
                 </TouchableHighlight>
               </Link>
             </View>
-            <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+            <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada@1x.svg')} style={{width: 123, height: 31}}></Image></View>
           </View>
           {/*End of Navbar*/}
 
@@ -799,7 +799,7 @@ class Results extends React.Component {
               onClick={this.toggleModal4}
             >
               <Text style={{color:'#989898', fontSize:16, lineHeight: 19, textAlign: 'center', fontFamily: 'Roboto'}}>Preferences</Text>
-              <Text numberOfLines={1} ellipsizeMode={'tail'} style={{color:'#000000', paddingLeft: 5, fontSize:12, lineHeight: 22, textAlign: 'left', fontFamily: 'Roboto'}}>{this.state.responseJson[i].Ratings[0]}, {this.state.responseJson[i].Ratings[1]}, {this.state.responseJson[i].Ratings[2]}, {this.state.responseJson[i].Ratings[3]}, {this.state.responseJson[i].Ratings[4]}, {this.state.responseJson[i].Ratings[5]}, {this.state.responseJson[i].Ratings[6]}, {this.state.responseJson[i].Ratings[7]}</Text>
+              <Text numberOfLines={1} ellipsizeMode={'tail'} style={{color:'#000000', paddingLeft: 5, fontSize:12, lineHeight: 22, textAlign: 'left', fontFamily: 'Roboto'}}>{this.state.responseJson[i].Ratings[0]}...</Text>
             </View>
           </View>
           {/*End of modal buttons*/}

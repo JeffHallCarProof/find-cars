@@ -32,11 +32,11 @@ class Events extends React.Component {
           <View style={{position: 'absolute', left: 15}}>
             <Link to={`/`} style={{ textDecoration: 'none' }}>
               <TouchableHighlight underlayColor={'#FFFFFF'}>
-                <Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image>
+                <Image source={require('./assets/Path@1x.svg')} style={{width: 12, height: 21}}></Image>
               </TouchableHighlight>
             </Link>
           </View>
-          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada@1x.svg')} style={{width: 123, height: 31}}></Image></View>
         </View>
           
         <View style={{ alignItems: 'center', justifyContent: 'center', paddingTop: 40}}>
