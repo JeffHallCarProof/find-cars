@@ -18,12 +18,12 @@ class App extends Component {
       <View style={{height: '100%', backgroundColor: '#FAFAFA', alignContent: 'center'}}>
 
         <View style={{backgroundColor: '#FFFFFF', height: 60, justifyContent: "center", boxShadow: `0px 2px 4px 0px rgba(0,0,0,0.17)`}}>
-          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada@1x.svg')} style={{width: 123, height: 31}}></Image></View>
         </View>
 
         <View style={styles.container}>
           <View style={styles.iContainer}>
-            <Image source={require('./assets/Guy-Hero.png')} style={{width: 202, height: 110}}></Image>
+            <Image source={require('./assets/Guy-Hero1x.svg')} style={{width: 202, height: 110}}></Image>
           </View>
           <Text style={styles.titleText}>Let us find the right car for you.</Text>
           <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>

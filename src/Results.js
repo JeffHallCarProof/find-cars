@@ -311,7 +311,7 @@ class Results extends React.Component {
       this.setState({event: 'event6'}) 
     }
 
-    const url = "https://productlab.carfax.ca/findmycar/multi/"+this.state.eventId+"/"+this.state.classId+"/"+this.state.upperBound+"/"+this.state.lowerBound+"/"+newArray+"/"+0;
+    const url = "https://productlab.carfax.ca/findmycar/multi/"+this.state.eventId+"/"+this.state.classId+"/"+this.state.upperBound+"/"+this.state.lowerBound+"/"+newArray+"/"+0+"/"+'00000000000';
       
     try {
       const res = await fetch(url,console.log(url),{
@@ -799,7 +799,7 @@ class Results extends React.Component {
               onClick={this.toggleModal4}
             >
               <Text style={{color:'#989898', fontSize:16, lineHeight: 19, textAlign: 'center', fontFamily: 'Roboto'}}>Preferences</Text>
-              <Text numberOfLines={1} ellipsizeMode={'tail'} style={{color:'#000000', paddingLeft: 5, fontSize:12, lineHeight: 22, textAlign: 'left', fontFamily: 'Roboto'}}>{this.state.responseJson[i].Ratings[0]}, {this.state.responseJson[i].Ratings[1]}, {this.state.responseJson[i].Ratings[2]}</Text>
+              <Text numberOfLines={1} ellipsizeMode={'tail'} style={{color:'#000000', paddingLeft: 5, fontSize:12, lineHeight: 22, textAlign: 'left', fontFamily: 'Roboto'}}>{this.state.responseJson[i].Ratings[0]}, {this.state.responseJson[i].Ratings[1]}, {this.state.responseJson[i].Ratings[2]}, {this.state.responseJson[i].Ratings[3]}, {this.state.responseJson[i].Ratings[4]}, {this.state.responseJson[i].Ratings[5]}, {this.state.responseJson[i].Ratings[6]}, {this.state.responseJson[i].Ratings[7]}</Text>
             </View>
           </View>
           {/*End of modal buttons*/}
@@ -823,6 +823,14 @@ class Results extends React.Component {
               <img src={this.state.next} alt={'didnt load'} onClick={() => this._countN()} style={[styles.buttonA, this.state.disN && styles.buttonD, !this.state.disN]}/>
               
               {/*Recommended box*/}
+              { this.state.first ? 
+            <div style={{backgroundColor: '#1294EF', alignSelf: 'center', width: '72.55%',height: '0.8%', textAlign: 'center',position: "absolute", top: '0%',left: '13.72%',justifyContent: 'center',alignContent: 'center' }}>   
+              <div style={{backgroundColor: '#1294EF', alignSelf: 'center', borderRadius: 4,width: '10%',height: '0.4%', textAlign: 'center',position: "absolute", top: '0%',justifyContent: 'center',alignContent: 'center' }}>   
+                <p></p>
+              </div>
+            </div>
+          : null }
+          {/*Recommended box text*/}
               { this.state.first ? 
                 <div style={{backgroundColor: '#1294EF', alignSelf: 'center', borderRadius: 4, width: 107, textAlign: 'center', position: "absolute", top: '-4%', left: '35%', justifyContent: 'center', alignContent: 'center' }}>   
                   <Text style={styles.rtext}>Recommended</Text>

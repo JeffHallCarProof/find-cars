@@ -58,11 +58,11 @@ class Body extends React.Component {
               <TouchableHighlight
                 underlayColor={'#FFFFFF'}
               >
-                <Image source={require('./assets/Path.png')} style={{width: 12, height: 21}}></Image>
+                <Image source={require('./assets/Path@1x.svg')} style={{width: 12, height: 21}}></Image>
               </TouchableHighlight>
             </Link>
           </View>
-          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada.png')} style={{width: 123, height: 31}}></Image></View>
+          <View style={{alignSelf: 'center'}}><Image source={require('./assets/CARFAX-Canada@1x.svg')} style={{width: 123, height: 31}}></Image></View>
         </View>
 
         <View style={{paddingTop: 30}}>
@@ -71,67 +71,112 @@ class Body extends React.Component {
         <View style={{paddingVertical: 20, paddingHorizontal: 20}}>
           <Text style={{fontSize: 14, lineHeight: 30, textAlign: 'center', fontFamily: 'Roboto'}}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the.</Text>
         </View>
-          
+          <View style={styles.containerMain}>
         <View style={styles.bcontainer}>
           {/*Sedan*/} 
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c1 ? 
-              <img src={sedanH}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={sedan}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={sedanH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              : <img src={sedan}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
             }
+            {this.state.c1 ? 
+            <Text style={styles.highlightText}>SEDAN</Text>
+            : <Text style={styles.nothighlightText}>SEDAN</Text>}
+          </View>
           <View style={{paddingHorizontal: 5}}></View>
           {/*SUV*/}
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c2 ? 
-              <img src={suvH}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={suv}alt="logo" width={'25%'} height={'25%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={suvH}alt="logo" width={'82%'} height={'82%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              : <img src={suv}alt="logo" width={'82%'} height={'82%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
             }
+            {this.state.c2 ? 
+            <Text style={styles.highlightText}>SUV</Text>
+            : <Text style={styles.nothighlightText}>SUV</Text>}
+          </View>
           <View style={{paddingHorizontal: 5}}></View>
           {/*Cab*/}
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c3 ? 
-              <img src={cabH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={cab}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-            }          
+              <img src={cabH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              : <img src={cab}alt="logo" width={'100%'} height={'100%'}onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            } 
+            {this.state.c3 ? 
+            <Text style={styles.highlightText}>CAB</Text>
+            : <Text style={styles.nothighlightText}>CAB</Text>}
+          </View>
         </View>
 
         <View style={styles.bcontainer2}>
           {/*HatchBack*/}
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c4 ? 
-              <img src={hatchbackH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={hatchback}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-            }               
+              <img src={hatchbackH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              : <img src={hatchback}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            }  
+            {this.state.c4 ? 
+            <Text style={styles.highlightText}>HATCHBACK</Text>
+            : <Text style={styles.nothighlightText}>HATCHBACK</Text>}
+          </View>
           <View style={{paddingHorizontal: 5}}></View>
           {/*Coupe*/}
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c5 ? 
-              <img src={coupeH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={coupe}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={coupeH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              : <img src={coupe}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
             }
+            {this.state.c5 ? 
+            <Text style={styles.highlightText}>COUPE</Text>
+            : <Text style={styles.nothighlightText}>COUPE</Text>}
+          </View>
           <View style={{paddingHorizontal: 5}}></View>
           {/*Convertible*/}
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c6 ? 
-              <img src={convertibleH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={convertible}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-            }            
+              <img src={convertibleH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              : <img src={convertible}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+            } 
+            {this.state.c6 ? 
+            <Text style={styles.highlightText}>CONVERTIBLE</Text>
+            : <Text style={styles.nothighlightText}>CONVERTIBLE</Text>}
+          </View>
         </View>
 
         <View style={styles.bcontainer3}>
           {/*Wagon*/}
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c7 ? 
-              <img src={wagonH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={wagon}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={wagonH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}/>
+              : <img src={wagon}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}/>
             } 
+            {this.state.c7 ? 
+            <Text style={styles.highlightText}>WAGON</Text>
+            : <Text style={styles.nothighlightText}>WAGON</Text>}
+          </View>
           <View style={{paddingHorizontal: 5}}></View>
           {/*Minivan*/}
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c8 ? 
-              <img src={minivanH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}/>
-              : <img src={minivan}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}/>
+              <img src={minivanH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}/>
+              : <img src={minivan}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}/>
             } 
+            {this.state.c8 ? 
+            <Text style={styles.highlightText}>MINIVAN</Text>
+            : <Text style={styles.nothighlightText}>MINIVAN</Text>}
+          </View>
           <View style={{paddingHorizontal: 5}}></View>
           {/*Diesel*/}
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c9 ? 
-              <img src={dieselH}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
-              : <img src={diesel}alt="logo" width={'25%'} height={'25%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
+              <img src={dieselH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
+              : <img src={diesel}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
             } 
+            {this.state.c9 ? 
+            <Text style={styles.highlightText}>DIESEL</Text>
+            : <Text style={styles.nothighlightText}>DIESEL</Text>}
+          </View>
         </View>
-          
+          </View>
         <View style={styles.navContainer}>
           <View style={styles.navCircles}><View style={styles.circle}/></View>
           <View style={styles.navCircles}><View style={styles.circle}/></View>
@@ -187,14 +232,20 @@ const styles = StyleSheet.create({
   container: {
     alignContent: "center",
     backgroundColor: '#FAFAFA',
-    height: '100%'
+    height: '100%',
   },
+  containerMain: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '50%',
 
+    
+  },
   bcontainer: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 10,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
 
   bcontainer2: {
@@ -289,13 +340,31 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     position: "relative",
-    bottom: -18
   },
 
   navCircles: {
     paddingHorizontal: 4
-  }
+  },
+  highlightText: {
+  color: '#1294EF',
+  fontSize: 11, 
+  fontWeight: 'bold', 
+  lineHeight: 25, 
+  textAlign: 'center',
+  fontFamily: 'Roboto',
+  paddingVertical: 7
 
+  },
+  nothighlightText: {
+    color: '#B3B3B3',
+    fontSize: 11, 
+    fontWeight: 'bold', 
+    lineHeight: 25, 
+    textAlign: 'center',
+    fontFamily: 'Roboto',
+    paddingVertical: 7
+  
+    },
 });
 
 export default Body;

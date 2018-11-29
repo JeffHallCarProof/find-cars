@@ -4,7 +4,6 @@
   "description": "React Native for Web starter template",
   "port": "3000",
   "keywords": [],
-  "homepage": "./",
   "main": "src/index.js",
   "dependencies": {
     "gsap": "^2.0.2",
