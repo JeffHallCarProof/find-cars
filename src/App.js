@@ -26,7 +26,7 @@ class App extends Component {
             <Image source={require('./assets/Guy-Hero1x.svg')} style={{width: 202, height: 110}}></Image>
           </View>
           <Text style={styles.titleText}>Let us find the right car for you.</Text>
-          <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
+          <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy suscipizzle tizzles pizzle  crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
         </View>
 
         <View style={styles.buttonContainer}>
