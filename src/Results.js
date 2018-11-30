@@ -241,6 +241,20 @@ class Results extends React.Component {
   toggleModalX = () => {
     this.setState({modal1: false, modal2: false, modal3: false, modal4: false, pref: false})
     this.setState({eventId: this.state.eventIdTemp, lowerBound: this.state.lowerBT, upperBound: this.state.upperBT, classId: this.state.classIdTemp})
+    this.state.eventId = this.state.eventIdTemp
+    if(this.state.eventId == 1) {      
+      this.state.event ='event1'        
+    } else if(this.state.eventId == 2) {       
+      this.state.event ='event2'       
+    } else if(this.state.eventId == 3) {
+      this.state.event ='event3'      
+    } else if(this.state.eventId == 4) {
+      this.state.event ='event4'     
+    } else if(this.state.eventId == 5) {
+      this.state.event ='event5'    
+    } else if(this.state.eventId == 6) {
+      this.state.event ='event6'      
+    }
     this.state.clicks = this.state.clicksTemp
     this.state.iP = this.state.iPTemp
   }
