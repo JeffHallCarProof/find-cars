@@ -67,7 +67,7 @@ class Preference extends Component {
     let i0 = this.state.pColor.slice();
     let ip = this.state.iP.slice();
     var numArray = this.state.clicks[0].toString()+this.state.clicks[1].toString()+this.state.clicks[2].toString()+this.state.clicks[3].toString()+this.state.clicks[4].toString()+this.state.clicks[5].toString()+this.state.clicks[6].toString()+this.state.clicks[7].toString();
-console.log(this.props.match.params.classId)
+
     //Comfort Al1
     const circleClick0 = (id, cl) => {
       if(this.state.clicks[cl]===1)
