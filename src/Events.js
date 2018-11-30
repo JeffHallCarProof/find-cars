@@ -230,8 +230,9 @@ const styles = StyleSheet.create({
   navContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    position: 'relative',
-    bottom: -90
+    position: 'absolute',
+    top: '85%',
+    alignSelf: 'center'
   },
 
   navCircles: {
