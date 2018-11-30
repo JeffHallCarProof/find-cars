@@ -87,8 +87,8 @@ class Body extends React.Component {
           {/*SUV*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c2 ? 
-              <img src={suvH}alt="logo" width={'60'} height={'24'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={suv}alt="logo" width={'82%'} height={'82%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={suvH}alt="logo" width={'100%'} height={'100%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              : <img src={suv}alt="logo" width={'100%'} height={'100%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
             }
             {this.state.c2 ? 
             <Text style={styles.highlightText}>SUV</Text>
