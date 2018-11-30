@@ -412,15 +412,15 @@ class Results extends React.Component {
       } catch(err) {
         return console.error(err);
       }
-      if(counter >= 4){
-        console.log('yes')
-        const ETC3 = await this.setState({loading: false,called: 0})
-        this.setState({loadingText: 'Updating...',})
-      }
+
     
     console.log(this.state.called)
     } //End of for loop
-
+    if(counter >= 4){
+      console.log('yes')
+      const ETC3 = await this.setState({loading: false,called: 0})
+      this.setState({loadingText: 'Updating...',})
+    }
   } //End of Fuel API call
 
   //go function
@@ -1209,10 +1209,10 @@ class Results extends React.Component {
           </View>
           <View style={{paddingHorizontal: 5}}></View>
           {/*Diesel*/}
-          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
+          <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '40%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 10,backgroundColor: 'white'}}>
             { this.state.c9 ? 
-              <img src={dieselH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
-              : <img src={diesel}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
+              <img src={dieselH}alt="logo" width={'140%'} height={'140%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
+              : <img src={diesel}alt="logo" width={'140%'} height={'140%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
             } 
             {this.state.c9 ? 
             <Text style={styles.highlightText}>DIESEL</Text>
