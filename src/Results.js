@@ -197,7 +197,8 @@ class Results extends React.Component {
 
   toggleModal3 = () => {
     this.setState({eventIdTemp: this.state.eventId, upperBT: this.state.upperBound, lowerBT: this.state.lowerBound, classIdTemp: this.state.classId})
-
+    console.log(this.state.classId)
+    console.log(this.state.classIdTemp)
     if(this.state.classId === 'Sedan') {
       this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false, c7: false, c8: false, c9: false})
     } else if(this.state.classId === 'SUV') {
@@ -1119,8 +1120,8 @@ class Results extends React.Component {
           {/*Sedan*/} 
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c1 ? 
-              <img src={sedanH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={sedan}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={sedanH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
+              : <img src={sedan}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
             }
             {this.state.c1 ? 
             <Text style={styles.highlightText}>SEDAN</Text>
@@ -1130,8 +1131,8 @@ class Results extends React.Component {
           {/*SUV*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c2 ? 
-              <img src={suvH}alt="logo" width={'100%'} height={'100%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={suv}alt="logo" width={'100%'} height={'100%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={suvH}alt="logo" width={'100%'} height={'100%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
+              : <img src={suv}alt="logo" width={'100%'} height={'100%'}  onClick={() => {this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
             }
             {this.state.c2 ? 
             <Text style={styles.highlightText}>SUV</Text>
@@ -1141,8 +1142,8 @@ class Results extends React.Component {
           {/*Cab*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c3 ? 
-              <img src={cabH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={cab}alt="logo" width={'100%'} height={'100%'}onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={cabH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
+              : <img src={cab}alt="logo" width={'100%'} height={'100%'}onClick={() => {this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
             } 
             {this.state.c3 ? 
             <Text style={styles.highlightText}>CAB</Text>
@@ -1154,8 +1155,8 @@ class Results extends React.Component {
           {/*HatchBack*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c4 ? 
-              <img src={hatchbackH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={hatchback}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={hatchbackH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
+              : <img src={hatchback}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
             }  
             {this.state.c4 ? 
             <Text style={styles.highlightText}>HATCHBACK</Text>
@@ -1165,8 +1166,8 @@ class Results extends React.Component {
           {/*Coupe*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c5 ? 
-              <img src={coupeH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={coupe}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={coupeH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
+              : <img src={coupe}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
             }
             {this.state.c5 ? 
             <Text style={styles.highlightText}>COUPE</Text>
@@ -1176,8 +1177,8 @@ class Results extends React.Component {
           {/*Convertible*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c6 ? 
-              <img src={convertibleH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={convertible}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={convertibleH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
+              : <img src={convertible}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true,c7: false, c8: false, c9: false},this._onPress2(),500)}}/>
             } 
             {this.state.c6 ? 
             <Text style={styles.highlightText}>CONVERTIBLE</Text>
@@ -1317,6 +1318,7 @@ class Results extends React.Component {
     } else if(this.state.c9 === true) {
       this.setState({classId: 'Diesel'})
     }
+    console.log(this.state.classId)
   }, 0, {leading: false, trailing: true});
 
 } //End of class
