@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
 
   },
   nothighlightText: {
-    color: '#B3B3B3',
+    color: '#5B5F66',
     fontSize: 11, 
     fontWeight: 'bold', 
     lineHeight: 25, 
