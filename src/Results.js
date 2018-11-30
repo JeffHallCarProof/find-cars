@@ -377,7 +377,8 @@ class Results extends React.Component {
     let counter = 0;
     for (let i = 0; i <= 4; i++) {
       console.log(i)
-
+      this.toggleModal4();
+      this.toggleModal4();
       counter += 1
       let tempMake = this.state.responseJson[i].Make
       let tempModel = this.state.responseJson[i].Model
@@ -401,6 +402,11 @@ class Results extends React.Component {
         const ETC4 = await this.setState({data: rJson1});
         
       } catch(err) {
+        if(counter >= 0){
+          console.log('yes')
+          const ETC5 = await this.setState({loading: false,called: 0})
+          this.setState({loadingText: 'Updating...',count: 0})
+        }
         return console.error(err);
       }
 
@@ -416,20 +422,19 @@ class Results extends React.Component {
             'Access-Control-Allow-Origin': '*'
           }
         }) //End of fetch
-
         const rJson2 = await res.json();
         this.state.responseJson[i].URL = await rJson2.products[0].productFormats[1].assets[0].url
-        this.toggleModal4();
-        this.toggleModal4();
-        this.setState({loading: false, loadingText: 'Updating...', count: 0})
-        const ETC3 = await this.setState({called: 0})
+
 
       } catch(err) {
+        if(counter >= 0){
+          console.log('yes')
+          const ETC5 = await this.setState({loading: false,called: 0})
+          this.setState({loadingText: 'Updating...',count: 0})
+        }
         return console.error(err);
+        
       }
-
-    
-    console.log(this.state.called)
     } //End of for loop
     if(counter >= 4){
       console.log('yes')
