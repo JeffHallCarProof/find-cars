@@ -42,7 +42,7 @@ import logo8_2 from './assets/second.8.svg';
 import logo8_3 from './assets/third.8.svg';
 import './App.css';
 import {TweenLite, Expo} from 'gsap';
-import Slider from 'rc-slider';
+import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import sedan from './assets/BodyType/SedanBox@1x.svg';
 import sedanH from './assets/BodyType/SedanBox@1xH.svg';
@@ -63,8 +63,6 @@ import minivanH from './assets/BodyType/MinivanBox@1xH.svg';
 import diesel from './assets/BodyType/DieselBox@1x.svg';
 import dieselH from './assets/BodyType/DieselBox@1xH.svg';
 
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-const Range = createSliderWithTooltip(Slider.Range);
 
 //results screen
 class Results extends React.Component {
@@ -145,6 +143,7 @@ class Results extends React.Component {
     newNumArray: '',
     ci: [false, false, false, false, false, false, false, false],
     called: 0,
+    counter: 0,
     data: [],
     loadingText: 'Finding your car...',
     event: 'event1'
@@ -197,8 +196,7 @@ class Results extends React.Component {
 
   toggleModal3 = () => {
     this.setState({eventIdTemp: this.state.eventId, upperBT: this.state.upperBound, lowerBT: this.state.lowerBound, classIdTemp: this.state.classId})
-    console.log(this.state.classId)
-    console.log(this.state.classIdTemp)
+
     if(this.state.classId === 'Sedan') {
       this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false, c7: false, c8: false, c9: false})
     } else if(this.state.classId === 'SUV') {
@@ -364,28 +362,29 @@ class Results extends React.Component {
       const ETC2 = await this.setState({pFirstClick: true, first: true, prev: prevBtnD, next: nextBtn});
       
       this.colorChange();
-      this.getCarImg();
-
+      for (let i = 0; i <= 4; i++) {
+      this.getCarImg(i);
+      this.state.counter += 1
+      }
+      this.toggleModal4();
+      this.toggleModal4();
     } catch(err) {
       return console.error(err);
     }
   }; //End of API call
 
-  async getCarImg() {
+  async getCarImg(i) {
 
     //Loop for each of the 5 results
-    let counter = 0;
-    for (let i = 0; i <= 4; i++) {
-      console.log(i)
-      this.toggleModal4();
-      this.toggleModal4();
-      counter += 1
+    
+    
+
+
+      
       let tempMake = this.state.responseJson[i].Make
       let tempModel = this.state.responseJson[i].Model
       let tempYear = this.state.responseJson[i].Year;
-      console.log(tempMake)
-      console.log(tempModel)
-      console.log(tempYear)
+
       let url1 = 'https://api.fuelapi.com/v1/json/vehicles/?year='+tempYear+'&model='+tempModel+'&make='+tempMake+'&api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1'
       
       try {
@@ -402,12 +401,13 @@ class Results extends React.Component {
         const ETC4 = await this.setState({data: rJson1});
         
       } catch(err) {
-        if(counter >= 0){
+        if(this.state.counter >= 4){
           console.log('yes')
-          const ETC5 = await this.setState({loading: false,called: 0})
-          this.setState({loadingText: 'Updating...',count: 0})
-        }
+          const ETC3 = await this.setState({loading: false,called: 0})
+          this.setState({loadingText: 'Updating...',})
+        
         return console.error(err);
+        }
       }
 
       let fuelVehicleID = this.state.data[0].id 
@@ -427,16 +427,16 @@ class Results extends React.Component {
 
 
       } catch(err) {
-        if(counter >= 0){
+        if(this.state.counter >= 4){
           console.log('yes')
-          const ETC5 = await this.setState({loading: false,called: 0})
-          this.setState({loadingText: 'Updating...',count: 0})
-        }
-        return console.error(err);
+          const ETC3 = await this.setState({loading: false,called: 0})
+          this.setState({loadingText: 'Updating...',})
         
+        return console.error(err);
+        }
       }
-    } //End of for loop
-    if(counter >= 4){
+    //End of for loop
+    if(this.state.counter >= 4){
       console.log('yes')
       const ETC3 = await this.setState({loading: false,called: 0})
       this.setState({loadingText: 'Updating...',})
@@ -1107,7 +1107,7 @@ class Results extends React.Component {
                         }
                       </View>
                       <br /><br />
-                      <Range min={min} max={max} defaultValue={[parseInt(this.state.lowerBound,10), parseInt(this.state.upperBound,10)]} allowCross={false} onChange={this.onSliderChange} />
+                      <Range min={min} max={max} step={1000} defaultValue={[parseInt(this.state.lowerBound,10), parseInt(this.state.upperBound,10)]} allowCross={false} onChange={this.onSliderChange} />
                     </View>
 
                     <View style={{flexDirection: "row", width: '86%', justifyContent: "space-between", paddingTop: 10}}>
