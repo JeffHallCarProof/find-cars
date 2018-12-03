@@ -1009,14 +1009,6 @@ class Results extends React.Component {
             </ScrollView>
           </View>
         
-          { this.state.loading ? 
-            <div className='notbubbles'>
-              <View style={styles.loadingBackground }>
-              <Text style={styles.ltext}>{this.state.loadingText}</Text>
-                <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
-              </View>
-            </div>
-          : null }
 
           {/*Event modal content*/}
           { this.state.modal1 ? 
@@ -1220,8 +1212,8 @@ class Results extends React.Component {
           {/*Wagon*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c7 ? 
-              <img src={wagonH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}/>
-              : <img src={wagon}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress(),500)}}/>
+              <img src={wagonH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress2(),500)}}/>
+              : <img src={wagon}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: true, c8: false, c9: false},this._onPress2(),500)}}/>
             } 
             {this.state.c7 ? 
             <Text style={styles.highlightText}>WAGON</Text>
@@ -1231,8 +1223,8 @@ class Results extends React.Component {
           {/*Minivan*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '100%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 20,backgroundColor: 'white'}}>
             { this.state.c8 ? 
-              <img src={minivanH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}/>
-              : <img src={minivan}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress(),500)}}/>
+              <img src={minivanH}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress2(),500)}}/>
+              : <img src={minivan}alt="logo" width={'100%'} height={'100%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: true, c9: false},this._onPress2(),500)}}/>
             } 
             {this.state.c8 ? 
             <Text style={styles.highlightText}>MINIVAN</Text>
@@ -1242,8 +1234,8 @@ class Results extends React.Component {
           {/*Diesel*/}
           <View style={{borderWidth: 1,borderColor: '#D8D8D8', width: '25%',height: '40%', alignItems: 'center',paddingHorizontal: 12,paddingTop: 10,backgroundColor: 'white'}}>
             { this.state.c9 ? 
-              <img src={dieselH}alt="logo" width={'140%'} height={'140%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
-              : <img src={diesel}alt="logo" width={'140%'} height={'140%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress(),500)}}/>
+              <img src={dieselH}alt="logo" width={'140%'} height={'140%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress2(),500)}}/>
+              : <img src={diesel}alt="logo" width={'140%'} height={'140%'} onClick={() => {this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: false,c7: false, c8: false, c9: true},this._onPress2(),500)}}/>
             } 
             {this.state.c9 ? 
             <Text style={styles.highlightText}>DIESEL</Text>
