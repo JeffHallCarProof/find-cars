@@ -103,6 +103,7 @@ class Results extends React.Component {
     numArray: this.props.match.params.numArray,
     visibleModal: null, //Modal
     loading: true,
+    reload: false,
     responseJson: [],
     count: 0,
     disN: false,
@@ -305,6 +306,9 @@ class Results extends React.Component {
       }
     }
 
+
+
+
     if(this.state.upperBound==100000){
       this.state.upperBound =10000000
     }
@@ -360,8 +364,8 @@ class Results extends React.Component {
       const rJson = await res.json();
       const ETC1 = await this.setState({responseJson: rJson});
       const ETC2 = await this.setState({pFirstClick: true, first: true, prev: prevBtnD, next: nextBtn});
-      
       this.colorChange();
+
       for (let i = 0; i <= 4; i++) {
       this.getCarImg(i);
       this.state.counter += 1
@@ -453,6 +457,7 @@ class Results extends React.Component {
     }
   },2000,{leading:true, trailing:false});
 
+
   _countP = () =>{
     if(this.state.count === 0) {
       this.setState({prev: prevBtnD})
@@ -519,6 +524,12 @@ class Results extends React.Component {
       } //End of inner for loop
     } //End of outer for loop
   } //End of function
+
+
+  
+
+
+
 
   render() {
     var min = this.state.min
@@ -1287,14 +1298,28 @@ class Results extends React.Component {
 
       //Loading screen      
       <View style={styles.container}>
+      <div className='notbubbles'>
         { this.state.loading ? 
-          <div className='notbubbles'>
+          
             <View style={styles.loadingBackground }>
               <Loader type="Oval" color="#FFFFFF" height="40" width="40" justifyContent='center' alignItems='center'/>
               <Text style={styles.ltext}>{this.state.loadingText}</Text>
             </View>
-          </div>
+          
         : null }
+                { this.state.reload ? 
+        <View style={styles.buttonContainer}>
+          <TouchableHighlight
+            underlayColor={'#0018A8'}
+            style={styles.button}
+            onPress={this.setState({loading: false, reload: false,})}
+          >
+            <Text style={styles.btext}> Back Out </Text>
+          </TouchableHighlight>
+
+      </View>
+        : null }
+        </div>
       </View>
 
     ); //End of return
