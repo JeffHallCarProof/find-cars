@@ -311,6 +311,10 @@ class Results extends React.Component {
 
     if(this.state.upperBound==100000){
       this.state.upperBound =10000000
+    }if(this.state.upperBound<=20000){
+      this.state.upperBound =20000
+    }if(this.state.lowerBound<= 15700){
+      this.state.lowerBound =16000
     }
     this.setState(this.state.iP= ip)
 

@@ -340,14 +340,14 @@ class Preference extends Component {
         </View>
 
         <div className='bubbles'>
-          <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]}fontFamily={'Roboto'} onClick={() => circleClick0(this.state.id[0], 0)} className="App-logo0" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
-          <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]}fontFamily={'Roboto'} onClick={() => circleClick1(this.state.id[1], 1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
-          <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]}fontFamily={'Roboto'} onClick={() => circleClick2(this.state.id[2], 2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
-          <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]}fontFamily={'Roboto'} onClick={() => circleClick3(this.state.id[3], 3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'10%'}  width={'21%'}/>
-          <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]}fontFamily={'Roboto'} onClick={() => circleClick4(this.state.id[4], 4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
-          <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]}fontFamily={'Roboto'} onClick={() => circleClick5(this.state.id[5], 5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
-          <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]}fontFamily={'Roboto'} onClick={() => circleClick6(this.state.id[6], 6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
-          <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]}fontFamily={'Roboto'} onClick={() => circleClick7(this.state.id[7], 7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[0]][this.state.iP[0]]} onClick={() => circleClick0(this.state.id[0], 0)} className="App-logo0" alt="logo" id={this.state.id[0]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[1]][this.state.iP[1]]} onClick={() => circleClick1(this.state.id[1], 1)} className="App-logo1" alt="logo" id={this.state.id[1]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[2]][this.state.iP[2]]} onClick={() => circleClick2(this.state.id[2], 2)} className="App-logo2" alt="logo" id={this.state.id[2]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[3]][this.state.iP[3]]} onClick={() => circleClick3(this.state.id[3], 3)} className="App-logo3" alt="logo" id={this.state.id[3]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[4]][this.state.iP[4]]} onClick={() => circleClick4(this.state.id[4], 4)} className="App-logo4" alt="logo" id={this.state.id[4]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[5]][this.state.iP[5]]} onClick={() => circleClick5(this.state.id[5], 5)} className="App-logo5" alt="logo" id={this.state.id[5]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[6]][this.state.iP[6]]} onClick={() => circleClick6(this.state.id[6], 6)} className="App-logo6" alt="logo" id={this.state.id[6]} height={'10%'}  width={'21%'}/>
+          <img src={this.state.pColor[this.state.i[7]][this.state.iP[7]]} onClick={() => circleClick7(this.state.id[7], 7)} className="App-logo7" alt="logo" id={this.state.id[7]} height={'10%'}  width={'21%'}/>
         </div>
 
       </View>
