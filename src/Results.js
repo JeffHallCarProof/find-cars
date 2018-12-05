@@ -854,7 +854,7 @@ class Results extends React.Component {
               <View style={{height: '100%', width: '75%', justifyContent: "center", borderWidth: 1, borderColor: '#BFBFBF', backgroundColor: '#FFFFFF'}}>
                 <Image source={this.state.responseJson[i].URL} style={{height: '60%', width: '100%', paddingBottom: 5 }}/>
                 <Text style={{fontSize: 16, lineHeight: 36, textAlign: 'center', height: '17%', width: '100%', fontFamily: 'Roboto', fontWeight: 'bold'}}>{this.state.responseJson[i].Make} {this.state.responseJson[i].Model} {this.state.responseJson[i].Body_Type}</Text>
-                <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center', height: '11%', width: '100%', fontFamily: 'Roboto', color: '#1294EF'}}>Budget: {this.state.responseJson[i].Budget}</Text>
+                <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center', height: '11%', width: '100%', fontFamily: 'Roboto', color: '#1294EF'}}>$ {this.state.responseJson[i].Budget}</Text>
                 <Text style={{fontSize: 14, fontWeight: '300', lineHeight: 15, textAlign: 'center', height: '12%', width: '100%', fontFamily: 'Roboto'}}>Rating out of 5</Text>
               </View>
 
