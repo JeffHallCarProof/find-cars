@@ -15,7 +15,7 @@
         font-weight: normal;
         font-style: normal;
       }
-      text { font-family: Roboto, sans-serif;}
+      text { font-family: Roboto, sans-serif; fill: #000000; }
       ]]>
     </style>
     </defs>
